@@ -22,3 +22,13 @@ body {
   background: #0f172a;
   color: #fff;
 }
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+svg {
+  display: block;
+}
