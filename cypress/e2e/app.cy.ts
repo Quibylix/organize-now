@@ -19,4 +19,14 @@ describe("general app test", () => {
 
     cy.get("a").contains("Get Started");
   });
+
+  it("renders a section with the features of the app", () => {
+    cy.visit("/");
+
+    cy.get("h2").contains("Features");
+    cy.get("article").contains("Create Tasks");
+    cy.get("article").contains("Create Appointments");
+    cy.get("article").contains("Set Due Dates and Reminders");
+    cy.get("article").contains("Organize Tasks into Projects");
+  });
 });
