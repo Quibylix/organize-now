@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from "@/components";
+import { Features } from "./components/home";
 </script>
 
 <template>
@@ -25,49 +26,7 @@ import { Icon } from "@/components";
         </span>
       </a>
     </section>
-    <section class="features">
-      <header>
-        <h2 class="features-title">Features</h2>
-        <p class="features-description">
-          Discover the power of our app with a robust set of features designed
-          to transform your productivity and task management.
-        </p>
-      </header>
-      <div class="features-wrapper">
-        <article class="feature">
-          <h3 class="feature-title">Create Tasks</h3>
-          <p class="feature-description">
-            Effortlessly add and manage tasks for all aspects of your life. From
-            work projects to personal to-dos, our app makes it easy to stay on
-            top of your tasks.
-          </p>
-        </article>
-        <article class="feature">
-          <h3 class="feature-title">Create Appointments</h3>
-          <p class="feature-description">
-            Schedule appointments and events with precision. Never miss an
-            important meeting or event again, thanks to our intuitive
-            appointment creation tools.
-          </p>
-        </article>
-        <article class="feature">
-          <h3 class="feature-title">Set Due Dates and Reminders</h3>
-          <p class="feature-description">
-            Stay organized and meet your deadlines by setting due dates for
-            tasks and appointments. Receive timely reminders to keep you on
-            track.
-          </p>
-        </article>
-        <article class="feature">
-          <h3 class="feature-title">Organize Tasks into Projects</h3>
-          <p class="feature-description">
-            Bring structure to your tasks by grouping them into projects.
-            Streamline your workflow and achieve greater focus on what matters
-            most.
-          </p>
-        </article>
-      </div>
-    </section>
+    <Features />
   </main>
 </template>
 
@@ -132,52 +91,5 @@ section {
 
 .icon-container {
   font-size: 1.8rem;
-}
-
-.features {
-  padding: 1rem 2rem 2rem;
-}
-
-.features-title {
-  font-size: 2rem;
-  margin: 0 auto 1rem;
-  width: max-content;
-  background: linear-gradient(to bottom right, #e06486, #5d69bb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.features-description {
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-}
-
-.features-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.feature {
-  width: 16rem;
-  flex-grow: 1;
-  padding: 1rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.feature-title {
-  margin-bottom: 1rem;
-}
-
-.feature-description {
-  color: #bbb;
-  font-size: 1rem;
-  line-height: 1.5;
 }
 </style>
