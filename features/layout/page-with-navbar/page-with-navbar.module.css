@@ -1,0 +1,11 @@
+.pageWithNavbar {
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr max-content;
+}
+
+.main {
+  overflow: auto;
+}
