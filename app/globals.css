@@ -2,3 +2,16 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background: var(--black);
+  color: var(--white);
+}
+
+:root {
+  --white: #fff;
+  --black: #121212;
+  --dark-gray: #363636;
+  --light-gray: #b3b3b3;
+  --perrywinkle: #8687e7;
+}

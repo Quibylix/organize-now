@@ -1,5 +1,7 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
-test("passes", async ({ page }) => {
+test("should render a navbar", async ({ page }) => {
   await page.goto("/");
+
+  await expect(page.getByRole("navigation")).toBeVisible();
 });
