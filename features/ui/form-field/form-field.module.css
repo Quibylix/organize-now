@@ -28,11 +28,20 @@
 
 .showPasswordButton {
   position: absolute;
-  inset: 0 0.5rem 0 auto;
+  inset: 0 0.1rem 0 auto;
   background: none;
   border: none;
   color: var(--light-gray);
   cursor: pointer;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showPasswordIcon {
+  width: 1.3rem;
+  height: auto;
 }
 
 .formFieldLabel {

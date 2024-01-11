@@ -3,6 +3,7 @@
 import { joinClassNames } from "@/utils";
 import { useState } from "react";
 import FormField, { FormFieldProps } from ".";
+import Icon from "../icon";
 import styles from "./form-field.module.css";
 
 export type PasswordFormFieldProps = Omit<FormFieldProps, "type">;
@@ -29,7 +30,10 @@ export default function PasswordFormField({
         onClick={toggleShowPassword}
         type="button"
       >
-        {showPassword ? "Hide" : "Show"}
+        <Icon
+          className={styles.showPasswordIcon}
+          name={showPassword ? "eye-off" : "eye"}
+        />
       </button>
     </span>
   );
