@@ -27,6 +27,7 @@ export default function PasswordFormField({
       <button
         className={styles.showPasswordButton}
         onClick={toggleShowPassword}
+        type="button"
       >
         {showPassword ? "Hide" : "Show"}
       </button>
