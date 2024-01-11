@@ -4,7 +4,7 @@ import HomeIcon from "./home.component";
 import PlusIcon from "./plus.component";
 import ProfileIcon from "./profile.component";
 
-type IconProps = {
+export type IconProps = {
   name: "home" | "calendar" | "clock" | "profile" | "plus";
 } & React.SVGProps<SVGSVGElement>;
 

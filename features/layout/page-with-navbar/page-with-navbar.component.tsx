@@ -1,7 +1,7 @@
 import { Navbar } from "@/features/ui";
 import styles from "./page-with-navbar.module.css";
 
-type PageWithNavbarProps = {
+export type PageWithNavbarProps = {
   children: React.ReactNode;
 };
 

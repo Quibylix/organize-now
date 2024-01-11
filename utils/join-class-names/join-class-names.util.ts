@@ -1,4 +1,4 @@
-type ClassNames =
+export type ClassNames =
   | string
   | undefined
   | {
