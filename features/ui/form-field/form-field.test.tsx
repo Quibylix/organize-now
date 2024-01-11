@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import FormField from ".";
 
@@ -61,7 +61,7 @@ describe("PasswordFormField", () => {
 
     expect(input).to.have.property("type", "password");
 
-    button.click();
+    act(() => fireEvent.click(button));
 
     expect(input).to.have.property("type", "text");
   });
@@ -74,8 +74,8 @@ describe("PasswordFormField", () => {
 
     expect(input).to.have.property("type", "password");
 
-    button.click();
-    button.click();
+    act(() => fireEvent.click(button));
+    act(() => fireEvent.click(button));
 
     expect(input).to.have.property("type", "password");
   });
