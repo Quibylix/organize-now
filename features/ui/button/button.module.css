@@ -1,0 +1,24 @@
+.button {
+  background-color: var(--perrywinkle);
+  color: var(--white);
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  padding: 0.7rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonWidth__auto {
+  width: auto;
+}
+
+.buttonWidth__full {
+  width: 100%;
+}
+
+.buttonDisabled {
+  background-color: var(--dusk);
+  color: var(--light-gray);
+  cursor: not-allowed;
+}
