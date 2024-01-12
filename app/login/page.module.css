@@ -5,7 +5,9 @@
 }
 
 .title {
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
+  font-size: 2rem;
+  color: var(--silver);
 }
 
 .or {
