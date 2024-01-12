@@ -34,12 +34,12 @@ describe("FormFieldLabel", () => {
   it("should allow to pass a password field", () => {
     render(
       <FormField.Label label="test-label">
-        <FormField.Password />
+        <FormField.Password data-testid="password-field" />
       </FormField.Label>,
     );
 
     screen.getByLabelText("test-label");
-    screen.getByRole("button", { name: "Show" });
+    screen.getByTestId("password-field");
   });
 });
 
@@ -57,7 +57,9 @@ describe("PasswordFormField", () => {
     render(<FormField.Password data-testid="password-field" />);
 
     const input = screen.getByTestId("password-field");
-    const button = screen.getByRole("button", { name: "Show" });
+    const button = screen.getByRole("button", {
+      name: "Toggle password visibility",
+    });
 
     expect(input).to.have.property("type", "password");
 
@@ -70,7 +72,9 @@ describe("PasswordFormField", () => {
     render(<FormField.Password data-testid="password-field" />);
 
     const input = screen.getByTestId("password-field");
-    const button = screen.getByRole("button", { name: "Show" });
+    const button = screen.getByRole("button", {
+      name: "Toggle password visibility",
+    });
 
     expect(input).to.have.property("type", "password");
 

@@ -28,6 +28,7 @@ export default function PasswordFormField({
       <button
         className={styles.showPasswordButton}
         onClick={toggleShowPassword}
+        aria-label="Toggle password visibility"
         type="button"
       >
         <Icon
