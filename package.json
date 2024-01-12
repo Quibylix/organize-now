@@ -16,6 +16,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "next": "14.0.4",
     "pg": "^8.11.3",
     "react": "^18",
@@ -26,6 +27,7 @@
     "@commitlint/config-conventional": "^18.4.4",
     "@playwright/test": "^1.40.1",
     "@testing-library/react": "^14.1.2",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.10.8",
     "@types/pg": "^8.10.9",
     "@types/react": "^18",
