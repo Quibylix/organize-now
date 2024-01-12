@@ -1,6 +1,11 @@
 import { RegisterForm } from "@/features/auth";
+import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "To-do App | Register",
+};
 
 export default function Register() {
   return (
