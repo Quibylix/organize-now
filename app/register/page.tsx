@@ -2,7 +2,7 @@ import { RegisterForm } from "@/features/auth";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export default function Login() {
+export default function Register() {
   return (
     <main className={styles.page}>
       <h1 className={styles.title}>Register</h1>
