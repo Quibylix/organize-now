@@ -1,5 +1,6 @@
 import { joinClassNames } from "@/utils";
 import FormFieldLabel from "./form-field-label.component";
+import FormFieldWithError from "./form-field-with-error.component";
 import styles from "./form-field.module.css";
 import PasswordFormField from "./password-form-field.component";
 
@@ -13,3 +14,4 @@ export default function FormField({ className, ...props }: FormFieldProps) {
 
 FormField.Label = FormFieldLabel;
 FormField.Password = PasswordFormField;
+FormField.WithError = FormFieldWithError;

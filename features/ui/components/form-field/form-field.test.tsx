@@ -84,3 +84,44 @@ describe("PasswordFormField", () => {
     expect(input).to.have.property("type", "password");
   });
 });
+
+describe("FormFieldWithError", () => {
+  it("should render an error message", () => {
+    render(
+      <FormField.WithError error="test-error">
+        <FormField.Label label="test-label">
+          <FormField />
+        </FormField.Label>
+      </FormField.WithError>,
+    );
+
+    expect(screen.getByRole("alert")).to.have.property(
+      "textContent",
+      "test-error",
+    );
+  });
+
+  it("should not render an error message if there is no error", () => {
+    render(
+      <FormField.WithError>
+        <FormField.Label label="test-label">
+          <FormField />
+        </FormField.Label>
+      </FormField.WithError>,
+    );
+
+    expect(() => screen.getByRole("alert")).to.throw();
+  });
+
+  it("should not render an error message if the error is an empty string", () => {
+    render(
+      <FormField.WithError error="">
+        <FormField.Label label="test-label">
+          <FormField />
+        </FormField.Label>
+      </FormField.WithError>,
+    );
+
+    expect(() => screen.getByRole("alert")).to.throw();
+  });
+});
