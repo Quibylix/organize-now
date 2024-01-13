@@ -1,4 +1,4 @@
-import { PageWithNavbar } from "@/features/layout";
+import { PageWithNavbar } from "@/features/layout/components";
 import { Tasks } from "@/features/tasks";
 
 export default function Home() {

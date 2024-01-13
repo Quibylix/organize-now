@@ -1,4 +1,4 @@
-import { Button, FormField } from "@/features/ui";
+import { Button, FormField } from "@/features/ui/components";
 import styles from "./register-form.module.css";
 
 export default function RegisterForm() {
