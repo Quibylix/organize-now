@@ -1,18 +1,59 @@
+"use client";
+
 import { Button, FormField } from "@/features/ui/components";
+import useRegisterForm from "./hooks/use-register-form.hook";
 import styles from "./register-form.module.css";
 
 export default function RegisterForm() {
+  const { values, errors, handleChange, handleBlur, handleSubmit } =
+    useRegisterForm();
+
+  const { username, password, confirmPassword } = values;
+  const {
+    username: usernameError,
+    password: passwordError,
+    confirmPassword: confirmPasswordError,
+  } = errors;
+
   return (
-    <form className={styles.registerForm}>
-      <FormField.Label label="Username">
-        <FormField placeholder="Enter your username" type="text" />
-      </FormField.Label>
-      <FormField.Label label="Password">
-        <FormField.Password placeholder="Enter your password" />
-      </FormField.Label>
-      <FormField.Label label="Confirm Password">
-        <FormField.Password placeholder="Confirm your password" />
-      </FormField.Label>
+    <form
+      onSubmit={handleSubmit}
+      aria-label="Register form"
+      className={styles.registerForm}
+    >
+      <FormField.WithError error={usernameError}>
+        <FormField.Label label="Username">
+          <FormField
+            name="username"
+            placeholder="Enter your username"
+            value={username}
+            onChange={handleChange("username")}
+            onBlur={handleBlur("username")}
+          />
+        </FormField.Label>
+      </FormField.WithError>
+      <FormField.WithError error={passwordError}>
+        <FormField.Label label="Password">
+          <FormField.Password
+            name="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={handleChange("password")}
+            onBlur={handleBlur("password")}
+          />
+        </FormField.Label>
+      </FormField.WithError>
+      <FormField.WithError error={confirmPasswordError}>
+        <FormField.Label label="Confirm Password">
+          <FormField.Password
+            name="confirmPassword"
+            placeholder="Confirm your password"
+            value={confirmPassword}
+            onChange={handleChange("confirmPassword")}
+            onBlur={handleBlur("confirmPassword")}
+          />
+        </FormField.Label>
+      </FormField.WithError>
       <Button className={styles.submitButton} type="submit" width="full">
         Register
       </Button>
