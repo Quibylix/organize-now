@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.0.4",
     "pg": "^8.11.3",
     "react": "^18",
@@ -28,6 +29,7 @@
     "@playwright/test": "^1.40.1",
     "@testing-library/react": "^14.1.2",
     "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.10.8",
     "@types/pg": "^8.10.9",
     "@types/react": "^18",
