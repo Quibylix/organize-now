@@ -37,6 +37,7 @@ export function useRequest<T>() {
       controllerRef.current = requestCall.controller;
       const data = await requestCall();
       setData(data);
+      setError(null);
     } catch (error) {
       setError(handleError(error));
     } finally {
