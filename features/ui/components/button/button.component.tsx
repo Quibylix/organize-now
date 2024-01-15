@@ -22,7 +22,7 @@ export default function Button({
   );
 
   return (
-    <button className={buttonClassName} {...props}>
+    <button className={buttonClassName} disabled={disabled} {...props}>
       {children}
     </button>
   );
