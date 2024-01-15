@@ -3,11 +3,20 @@ import ClockIcon from "./clock.component";
 import { EyeOffIcon } from "./eye-off.component";
 import { EyeIcon } from "./eye.component";
 import HomeIcon from "./home.component";
+import InfoIcon from "./info.component";
 import PlusIcon from "./plus.component";
 import ProfileIcon from "./profile.component";
 
 export type IconProps = {
-  name: "home" | "calendar" | "clock" | "profile" | "plus" | "eye" | "eye-off";
+  name:
+    | "home"
+    | "calendar"
+    | "clock"
+    | "profile"
+    | "plus"
+    | "eye"
+    | "eye-off"
+    | "info";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -26,5 +35,7 @@ export default function Icon({ name, ...props }: IconProps) {
       return <EyeIcon {...props} />;
     case "eye-off":
       return <EyeOffIcon {...props} />;
+    case "info":
+      return <InfoIcon {...props} />;
   }
 }
