@@ -1,5 +1,7 @@
 import { db } from "@/db";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 import { DatabaseError } from "pg";
 import { validatePassword, validateUsername } from "../utils";
 
@@ -7,7 +9,7 @@ export class AuthController {
   static DUPLICATE_KEY_ERROR = "23505";
 
   static async registerUser(req: Request) {
-    console.log(req.url);
+    const cookieStore = cookies();
 
     let body;
     try {
@@ -76,7 +78,7 @@ export class AuthController {
     const QUERY = `
     INSERT INTO users (username, hashed_password)
     VALUES ($1, $2)
-    RETURNING id, username
+    RETURNING id
     `;
 
     let result;
@@ -106,7 +108,24 @@ export class AuthController {
       });
     }
 
-    console.log(result.rows[0]);
+    let authToken;
+    try {
+      authToken = await AuthController.generateTokenFromUserId(
+        result.rows[0].id,
+      );
+    } catch (err) {
+      console.log(err);
+
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Something went wrong",
+        },
+        status: 500,
+      });
+    }
+
+    cookieStore.set("auth-token", authToken);
 
     return AuthController.createJsonResponse({
       body: { success: true },
@@ -133,5 +152,9 @@ export class AuthController {
       },
       status,
     });
+  }
+
+  private static async generateTokenFromUserId(id: number) {
+    return jwt.sign({ id }, process.env.JWT_SECRET!);
   }
 }
