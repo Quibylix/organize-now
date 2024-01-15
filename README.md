@@ -19,7 +19,8 @@ pnpm install
 3. Create a `.env.local` file in the root directory and add the following environment variables:
 
 ```sh
-'DATABASE_URL=postgres://<username>:<password>@localhost:5432/<database>' > .env.local
+'DATABASE_URL=postgres://<username>:<password>@localhost:5432/<database>
+JWT_SECRET=<secret>' > .env.local
 ```
 
 To configure the database, see [Database Setup](#database-setup).
