@@ -1,5 +1,7 @@
 import { validatePassword, validateUsername } from "@/features/auth/utils";
+import { useRequest } from "@/hooks";
 import { useState } from "react";
+import { registerUser } from "../services";
 
 type FieldName = "username" | "password" | "confirmPassword";
 
@@ -15,6 +17,8 @@ export default function useRegisterForm() {
     password: "",
     confirmPassword: "",
   });
+
+  const { error: submitError, isLoading, handleRequest } = useRequest();
 
   const handleErrors = (
     values: Record<FieldName, string>,
@@ -72,6 +76,25 @@ export default function useRegisterForm() {
       password: passwordError,
       confirmPassword: confirmPasswordError,
     });
+
+    if (usernameError || passwordError || confirmPasswordError) {
+      return;
+    }
+
+    const handleFormError = (err: unknown) => {
+      if (err instanceof Error) {
+        return err.message;
+      }
+
+      return "Something went wrong";
+    };
+
+    handleRequest(
+      registerUser({ username: values.username, password: values.password }),
+      {
+        handleError: handleFormError,
+      },
+    );
   };
 
   const handleBlur = (fieldName: FieldName) => {
@@ -86,5 +109,7 @@ export default function useRegisterForm() {
     handleChange,
     handleBlur,
     handleSubmit,
+    submitError,
+    isLoading,
   };
 }
