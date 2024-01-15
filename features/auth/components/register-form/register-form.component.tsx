@@ -1,12 +1,19 @@
 "use client";
 
-import { Button, FormField } from "@/features/ui/components";
+import { Button, FormField, Icon } from "@/features/ui/components";
 import useRegisterForm from "./hooks/use-register-form.hook";
 import styles from "./register-form.module.css";
 
 export default function RegisterForm() {
-  const { values, errors, handleChange, handleBlur, handleSubmit } =
-    useRegisterForm();
+  const {
+    values,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    submitError,
+    isLoading,
+  } = useRegisterForm();
 
   const { username, password, confirmPassword } = values;
   const {
@@ -21,6 +28,12 @@ export default function RegisterForm() {
       aria-label="Register form"
       className={styles.registerForm}
     >
+      {submitError && (
+        <p className={styles.submitError}>
+          <Icon name="info" className={styles.submitErrorIcon} />
+          <span>{submitError}</span>
+        </p>
+      )}
       <FormField.WithError error={usernameError}>
         <FormField.Label label="Username">
           <FormField
@@ -54,8 +67,13 @@ export default function RegisterForm() {
           />
         </FormField.Label>
       </FormField.WithError>
-      <Button className={styles.submitButton} type="submit" width="full">
-        Register
+      <Button
+        className={styles.submitButton}
+        type="submit"
+        width="full"
+        disabled={isLoading}
+      >
+        {isLoading ? "Loading..." : "Register"}
       </Button>
     </form>
   );
