@@ -1,6 +1,28 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { afterAll, describe, expect, it, vi } from "vitest";
 import RegisterForm from ".";
+
+vi.mock(
+  "@/features/auth/components/register-form/services/register-user.service",
+  () => ({
+    default: () => {
+      const call = () => Promise.resolve({ success: true });
+      call.controller = new AbortController();
+
+      return call;
+    },
+  }),
+);
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: () => {},
+  }),
+}));
+
+afterAll(() => {
+  vi.clearAllMocks();
+});
 
 describe("RegisterForm", () => {
   it("should render a form with username, password, and confirm password fields", () => {
