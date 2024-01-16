@@ -134,6 +134,142 @@ export class AuthController {
     });
   }
 
+  static async loginUser(req: Request) {
+    const cookieStore = cookies();
+
+    let body;
+    try {
+      body = await req.json();
+    } catch {
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Invalid request body",
+        },
+        status: 400,
+      });
+    }
+
+    if (typeof body !== "object" || body === null || Array.isArray(body)) {
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Invalid request body",
+        },
+        status: 400,
+      });
+    }
+
+    const { username, password } = body;
+
+    const { success: usernameSuccess, error: usernameError } =
+      validateUsername(username);
+    if (!usernameSuccess) {
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: usernameError,
+        },
+        status: 400,
+      });
+    }
+
+    const { success: passwordSuccess, error: passwordError } =
+      validatePassword(password);
+    if (!passwordSuccess) {
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: passwordError,
+        },
+        status: 400,
+      });
+    }
+
+    const QUERY = `
+    SELECT id, hashed_password
+    FROM users
+    WHERE username = $1
+    `;
+
+    let result;
+    try {
+      result = await db.query(QUERY, [username]);
+    } catch (err) {
+      console.log(err);
+
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Something went wrong",
+        },
+        status: 500,
+      });
+    }
+
+    if (result.rows.length === 0) {
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Invalid username or password",
+        },
+        status: 400,
+      });
+    }
+
+    const { id, hashed_password: hashedPassword } = result.rows[0] as {
+      id: number;
+      hashed_password: string;
+    };
+
+    let passwordsMatch;
+    try {
+      passwordsMatch = await bcrypt.compare(password, hashedPassword);
+    } catch (err) {
+      console.log(err);
+
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Something went wrong",
+        },
+        status: 500,
+      });
+    }
+
+    if (!passwordsMatch) {
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Invalid username or password",
+        },
+        status: 400,
+      });
+    }
+
+    let authToken;
+    try {
+      authToken = await AuthController.generateTokenFromUserId(id);
+    } catch (err) {
+      console.log(err);
+
+      return AuthController.createJsonResponse({
+        body: {
+          success: false,
+          error: "Something went wrong",
+        },
+        status: 500,
+      });
+    }
+
+    cookieStore.set("auth-token", authToken);
+
+    return AuthController.createJsonResponse({
+      body: { success: true },
+      status: 200,
+    });
+  }
+
   private static async hashPassword(password: string) {
     const saltRounds = 10;
 
