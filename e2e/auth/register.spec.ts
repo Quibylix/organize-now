@@ -1,4 +1,7 @@
+import { prepareDatabaseForTest } from "@/scripts";
 import test, { expect } from "@playwright/test";
+
+test.beforeAll(prepareDatabaseForTest);
 
 test("should display an error message if the username does not have the required length", async ({
   page,
@@ -115,4 +118,31 @@ test("should not display any error messages if the username and password are val
     page.getByText("Password must contain at least one number"),
   ).not.toBeVisible();
   await expect(page.getByText("Passwords do not match")).not.toBeVisible();
+});
+
+test("Should display an error message if the username is already taken", async ({
+  page,
+}) => {
+  await page.goto("/register");
+
+  // The username is already taken because of the prepareDatabaseForTest function
+  await page.getByLabel("Username").fill("Username");
+  await page.getByLabel("Password", { exact: true }).fill("Test1234");
+  await page.getByLabel("Confirm Password").fill("Test1234");
+
+  await page.getByRole("button", { name: "Register" }).click();
+
+  await expect(page.getByText("Username already taken")).toBeVisible();
+});
+
+test("should allow the user to register", async ({ page }) => {
+  await page.goto("/register");
+
+  await page.getByLabel("Username").fill("Username2");
+  await page.getByLabel("Password", { exact: true }).fill("Test1234");
+  await page.getByLabel("Confirm Password").fill("Test1234");
+
+  await page.getByRole("button", { name: "Register" }).click();
+
+  await expect(page).toHaveURL("/");
 });
