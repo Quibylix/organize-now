@@ -1,5 +1,6 @@
 import { validatePassword, validateUsername } from "@/features/auth/utils";
 import { useRequest } from "@/hooks";
+import { ValidationResponse } from "@/types";
 import { useState } from "react";
 import { registerUser } from "../services";
 
@@ -18,7 +19,11 @@ export default function useRegisterForm() {
     confirmPassword: "",
   });
 
-  const { error: submitError, isLoading, handleRequest } = useRequest();
+  const {
+    error: submitError,
+    isLoading,
+    handleRequest,
+  } = useRequest<ValidationResponse>();
 
   const handleErrors = (
     values: Record<FieldName, string>,
