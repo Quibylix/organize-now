@@ -1,4 +1,4 @@
-import { LoginForm } from "@/features/auth/components";
+import LoginForm from "@/features/auth/components/login-form/login-form.component";
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";

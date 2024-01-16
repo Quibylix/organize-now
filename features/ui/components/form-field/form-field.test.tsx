@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import FormField from ".";
+import FormField from "./form-field.component";
 
 describe("FormField", () => {
   it("should render an input", () => {

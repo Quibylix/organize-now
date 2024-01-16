@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { afterAll, describe, expect, it, vi } from "vitest";
-import RegisterForm from ".";
+import RegisterForm from "./register-form.component";
 
 vi.mock(
   "@/features/auth/components/register-form/services/register-user.service",

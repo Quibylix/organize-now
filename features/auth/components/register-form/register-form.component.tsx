@@ -1,6 +1,8 @@
 "use client";
 
-import { Button, FormField, Icon } from "@/features/ui/components";
+import Button from "@/features/ui/components/button/button.component";
+import FormField from "@/features/ui/components/form-field/form-field.component";
+import Icon from "@/features/ui/components/icon/icon.component";
 import useRegisterForm from "./hooks/use-register-form.hook";
 import styles from "./register-form.module.css";
 

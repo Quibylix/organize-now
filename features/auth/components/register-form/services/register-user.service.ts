@@ -1,4 +1,5 @@
-import { RequestCall, ValidationResponse } from "@/types";
+import { RequestCall } from "@/types/request-call.type";
+import { ValidationResponse } from "@/types/validation-response.type";
 
 type UserInfo = {
   username: string;

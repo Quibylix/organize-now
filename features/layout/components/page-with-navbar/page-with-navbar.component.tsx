@@ -1,4 +1,4 @@
-import { Navbar } from "@/features/ui/components";
+import Navbar from "@/features/ui/components/navbar/navbar.component";
 import styles from "./page-with-navbar.module.css";
 
 export type PageWithNavbarProps = {

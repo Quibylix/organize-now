@@ -1,4 +1,4 @@
-import { RequestCall } from "@/types";
+import { RequestCall } from "@/types/request-call.type";
 import { useEffect, useRef, useState } from "react";
 
 type HandleRequestOptions = {

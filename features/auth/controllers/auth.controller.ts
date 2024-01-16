@@ -1,9 +1,10 @@
-import { db } from "@/db";
+import db from "@/db/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { DatabaseError } from "pg";
-import { validatePassword, validateUsername } from "../utils";
+import { validatePassword } from "../utils/validate-password/validate-password.util";
+import { validateUsername } from "../utils/validate-username/validate-username.util";
 
 export class AuthController {
   static DUPLICATE_KEY_ERROR = "23505";

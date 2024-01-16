@@ -1,9 +1,9 @@
 "use client";
 
-import { joinClassNames } from "@/utils";
+import { joinClassNames } from "@/utils/join-class-names/join-class-names.util";
 import { useState } from "react";
-import FormField, { FormFieldProps } from ".";
-import Icon from "../icon";
+import Icon from "../icon/icon.component";
+import FormField, { FormFieldProps } from "./form-field.component";
 import styles from "./form-field.module.css";
 
 export type PasswordFormFieldProps = Omit<FormFieldProps, "type">;

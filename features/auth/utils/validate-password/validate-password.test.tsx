@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validatePassword } from ".";
+import { validatePassword } from "./validate-password.util";
 
 describe("validatePassword", () => {
   it("should return an object with an error message if the password does not have the required length", () => {

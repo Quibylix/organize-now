@@ -1,4 +1,4 @@
-import { MOCKED_TASKS } from "./__mocks__";
+import { MOCKED_TASKS } from "./__mocks__/tasks.mock";
 import styles from "./tasks.module.css";
 
 export default function Tasks() {

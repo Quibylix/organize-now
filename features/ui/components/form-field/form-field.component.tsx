@@ -1,4 +1,4 @@
-import { joinClassNames } from "@/utils";
+import { joinClassNames } from "@/utils/join-class-names/join-class-names.util";
 import FormFieldLabel from "./form-field-label.component";
 import FormFieldWithError from "./form-field-with-error.component";
 import styles from "./form-field.module.css";

@@ -1,9 +1,10 @@
-import { validatePassword, validateUsername } from "@/features/auth/utils";
-import { useRequest } from "@/hooks";
-import { ValidationResponse } from "@/types";
+import { validatePassword } from "@/features/auth/utils/validate-password/validate-password.util";
+import { validateUsername } from "@/features/auth/utils/validate-username/validate-username.util";
+import { useRequest } from "@/hooks/use-request.hook";
+import { ValidationResponse } from "@/types/validation-response.type";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { registerUser } from "../services";
+import { registerUser } from "../services/register-user.service";
 
 type FieldName = "username" | "password" | "confirmPassword";
 

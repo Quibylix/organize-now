@@ -1,4 +1,4 @@
-import { joinClassNames } from "@/utils";
+import { joinClassNames } from "@/utils/join-class-names/join-class-names.util";
 import styles from "./button.module.css";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

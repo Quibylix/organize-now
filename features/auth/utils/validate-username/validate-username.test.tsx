@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateUsername } from ".";
+import { validateUsername } from "./validate-username.util";
 
 describe("validateUsername", () => {
   it("should return an object with an error message if the username does not have the required length", () => {

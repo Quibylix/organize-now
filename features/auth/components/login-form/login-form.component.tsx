@@ -1,4 +1,5 @@
-import { Button, FormField } from "@/features/ui/components";
+import Button from "@/features/ui/components/button/button.component";
+import FormField from "@/features/ui/components/form-field/form-field.component";
 import styles from "./login-form.module.css";
 
 export default function LoginForm() {

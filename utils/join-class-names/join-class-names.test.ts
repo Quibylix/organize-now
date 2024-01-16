@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { joinClassNames } from ".";
+import { joinClassNames } from "./join-class-names.util";
 
 describe("joinClassNames", () => {
   it("should join class names", () => {

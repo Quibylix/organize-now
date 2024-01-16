@@ -1,4 +1,4 @@
-import { prepareDatabaseForTest } from "@/scripts";
+import { prepareDatabaseForTest } from "@/scripts/prepareDatabaseForTest";
 import test, { expect } from "@playwright/test";
 
 test.beforeAll(prepareDatabaseForTest);

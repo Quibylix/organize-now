@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it } from "vitest";
-import { LINKS } from "./constants";
+import { LINKS } from "./constants/links.constant";
 import Navbar from "./navbar.component";
 
 describe("Navbar", () => {

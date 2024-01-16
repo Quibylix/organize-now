@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Icon from "../icon";
-import { LINKS } from "./constants";
+import Icon from "../icon/icon.component";
+import { LINKS } from "./constants/links.constant";
 import styles from "./navbar.module.css";
 
 export default function Navbar() {

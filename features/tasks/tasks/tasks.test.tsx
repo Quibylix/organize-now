@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { MOCKED_TASKS } from "./__mocks__";
+import { MOCKED_TASKS } from "./__mocks__/tasks.mock";
 import Tasks from "./tasks.component";
 
 describe("Tasks", () => {

@@ -1,4 +1,4 @@
-import { ValidationResponse } from "@/types";
+import { ValidationResponse } from "@/types/validation-response.type";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
