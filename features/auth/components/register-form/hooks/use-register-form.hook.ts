@@ -1,7 +1,8 @@
 import { validatePassword, validateUsername } from "@/features/auth/utils";
 import { useRequest } from "@/hooks";
 import { ValidationResponse } from "@/types";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { registerUser } from "../services";
 
 type FieldName = "username" | "password" | "confirmPassword";
@@ -20,10 +21,24 @@ export default function useRegisterForm() {
   });
 
   const {
+    data: submitData,
     error: submitError,
     isLoading,
     handleRequest,
   } = useRequest<ValidationResponse>();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!submitData) {
+      return;
+    }
+
+    const { success } = submitData;
+
+    if (success) {
+      router.push("/");
+    }
+  }, [submitData, router]);
 
   const handleErrors = (
     values: Record<FieldName, string>,
