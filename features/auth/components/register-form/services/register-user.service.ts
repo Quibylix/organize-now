@@ -1,19 +1,14 @@
-import { RequestCall } from "@/types";
+import { RequestCall, ValidationResponse } from "@/types";
 
 type UserInfo = {
   username: string;
   password: string;
 };
 
-type RegisterUserResponse = {
-  success: boolean;
-  error?: string;
-};
-
 export function registerUser({
   username,
   password,
-}: UserInfo): RequestCall<RegisterUserResponse> {
+}: UserInfo): RequestCall<ValidationResponse> {
   const controller = new AbortController();
 
   const call = async () => {
