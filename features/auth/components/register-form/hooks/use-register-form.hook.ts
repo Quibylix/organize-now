@@ -37,7 +37,7 @@ export default function useRegisterForm() {
     const { success } = submitData;
 
     if (success) {
-      router.push("/");
+      router.push("/onboarding/1");
     }
   }, [submitData, router]);
 
