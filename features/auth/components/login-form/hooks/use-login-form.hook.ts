@@ -2,7 +2,7 @@ import { validatePassword } from "@/features/auth/utils/validate-password/valida
 import { validateUsername } from "@/features/auth/utils/validate-username/validate-username.util";
 import { useRequest } from "@/hooks/use-request.hook";
 import { ValidationResponse } from "@/types/validation-response.type";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
 import { useEffect, useState } from "react";
 import { loginUser } from "../services/login-user.service";
 

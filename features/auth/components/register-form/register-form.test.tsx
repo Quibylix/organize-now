@@ -14,7 +14,7 @@ vi.mock(
   }),
 );
 
-vi.mock("next/navigation", () => ({
+vi.mock("next-nprogress-bar", () => ({
   useRouter: () => ({
     push: () => {},
   }),
