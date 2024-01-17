@@ -9,6 +9,8 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
 export default function Button({
   width = "auto",
   disabled,
+  variant = "solid",
+  size = "md",
   className,
   children,
   ...props
@@ -16,6 +18,8 @@ export default function Button({
   const buttonClassName = joinClassNames(
     styles.button,
     styles[`buttonWidth__${width}`],
+    styles[`buttonVariant__${variant}`],
+    styles[`buttonSize__${size}`],
     className,
   );
 

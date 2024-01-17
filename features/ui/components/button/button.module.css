@@ -9,10 +9,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.button:hover {
-  background-color: var(--lavender-blue);
-}
-
 .buttonAsLink {
   text-decoration: none;
 }
@@ -33,4 +29,59 @@
   background-color: var(--dusk);
   color: var(--light-gray);
   cursor: not-allowed;
+}
+
+.buttonVariant__solid {
+  background-color: var(--perrywinkle);
+  color: var(--white);
+  border: 1px solid var(--perrywinkle);
+}
+
+.buttonVariant__solid:hover {
+  background-color: var(--lavender-blue);
+  border: 1px solid var(--lavender-blue);
+}
+
+.buttonVariant__outline {
+  background-color: transparent;
+  color: var(--perrywinkle);
+  border: 1px solid var(--perrywinkle);
+}
+
+.buttonVariant__outline:hover {
+  background-color: var(--twilight);
+  color: var(--white);
+  border: 1px solid var(--twilight);
+}
+
+.buttonVariant__text {
+  background-color: transparent;
+  color: var(--perrywinkle);
+  border: 1px solid transparent;
+}
+
+.buttonVariant__text:hover {
+  background-color: var(--twilight);
+  color: var(--white);
+  border: 1px solid var(--twilight);
+}
+
+.buttonSize__xs {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.5rem;
+}
+
+.buttonSize__sm {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.9rem;
+}
+
+.buttonSize__md {
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+}
+
+.buttonSize__lg {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
 }

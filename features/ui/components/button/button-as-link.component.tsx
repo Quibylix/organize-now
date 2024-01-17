@@ -8,6 +8,8 @@ export type ButtonAsLinkProps = React.ComponentProps<typeof Link> &
 
 export default function ButtonAsLink({
   width = "auto",
+  variant = "solid",
+  size = "md",
   className,
   ...props
 }: ButtonAsLinkProps) {
@@ -15,6 +17,8 @@ export default function ButtonAsLink({
     styles.button,
     styles.buttonAsLink,
     styles[`buttonWidth__${width}`],
+    styles[`buttonVariant__${variant}`],
+    styles[`buttonSize__${size}`],
     className,
   );
 
