@@ -12,7 +12,12 @@ export default function OnboardingStep({ step }: OnboardingStepProps) {
 
   return (
     <div className={styles.onboardingStep}>
-      <Button.AsLink className={styles.skipButton} href="/">
+      <Button.AsLink
+        className={styles.skipButton}
+        href="/"
+        size="sm"
+        variant="text"
+      >
         Skip
       </Button.AsLink>
       <img
@@ -24,7 +29,9 @@ export default function OnboardingStep({ step }: OnboardingStepProps) {
       <p className={styles.description}>{stepInfo.description}</p>
       <div className={styles.buttons}>
         {!isFirstStep && (
-          <Button.AsLink href={`/onboarding/${step - 1}`}>Back</Button.AsLink>
+          <Button.AsLink variant="outline" href={`/onboarding/${step - 1}`}>
+            Back
+          </Button.AsLink>
         )}
         <Button.AsLink
           className={styles.nextButton}
