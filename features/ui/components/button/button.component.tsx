@@ -1,4 +1,5 @@
 import { joinClassNames } from "@/utils/join-class-names/join-class-names.util";
+import ButtonAsLink from "./button-as-link.component";
 import styles from "./button.module.css";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -24,3 +25,5 @@ export default function Button({
     </button>
   );
 }
+
+Button.AsLink = ButtonAsLink;
