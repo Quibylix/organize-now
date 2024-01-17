@@ -25,6 +25,10 @@
   width: 100%;
 }
 
+.buttonWidth__content {
+  width: fit-content;
+}
+
 .button:disabled {
   background-color: var(--dusk);
   color: var(--light-gray);

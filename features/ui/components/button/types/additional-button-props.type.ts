@@ -1,3 +1,3 @@
 export type AdditionalButtonProps = {
-  width?: "full" | "auto";
+  width?: "full" | "auto" | "content";
 };
