@@ -1,7 +1,6 @@
-import { prepareDatabaseForTest } from "@/scripts/prepareDatabaseForTest";
 import test, { expect } from "@playwright/test";
 
-test.beforeAll(prepareDatabaseForTest);
+test.use({ storageState: "e2e/.auth/no-user.json" });
 
 test("should display an error message if the username does not have the required length", async ({
   page,

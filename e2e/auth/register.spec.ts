@@ -1,7 +1,6 @@
-import { prepareDatabaseForTest } from "@/scripts/prepareDatabaseForTest";
 import test, { expect } from "@playwright/test";
 
-test.beforeAll(prepareDatabaseForTest);
+test.use({ storageState: "e2e/.auth/no-user.json" });
 
 test("should display an error message if the username does not have the required length", async ({
   page,
@@ -135,7 +134,9 @@ test("Should display an error message if the username is already taken", async (
   await expect(page.getByText("Username already taken")).toBeVisible();
 });
 
-test("should allow the user to register", async ({ page }) => {
+test("should allow the user to register and redirect to the onboarding page", async ({
+  page,
+}) => {
   await page.goto("/register");
 
   await page.getByLabel("Username").fill("Username2");
@@ -144,5 +145,5 @@ test("should allow the user to register", async ({ page }) => {
 
   await page.getByRole("button", { name: "Register" }).click();
 
-  await expect(page).toHaveURL("/");
+  await expect(page).toHaveURL("/onboarding/1");
 });

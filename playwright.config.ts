@@ -10,7 +10,9 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:3000",
     trace: "on-first-retry",
+    storageState: "e2e/.auth/user.json",
   },
+  globalSetup: "e2e/global.setup.ts",
   projects: [
     {
       name: "chromium",
