@@ -1,0 +1,15 @@
+.page {
+  box-sizing: border-box;
+  height: 100dvh;
+  max-width: 35rem;
+  margin: 0 auto;
+  padding: 2rem;
+  overflow: auto;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 4rem 3rem;
+    border-radius: 0.5rem;
+  }
+}
