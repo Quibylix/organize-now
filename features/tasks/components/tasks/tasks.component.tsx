@@ -1,10 +1,22 @@
-import { MOCKED_TASKS } from "./__mocks__/tasks.mock";
+import { getTasks } from "./services/getTasks.service";
 import styles from "./tasks.module.css";
 
-export default function Tasks() {
+export default async function Tasks() {
+  const response = await getTasks();
+
+  if (!response.success) {
+    return <p>{response.error}</p>;
+  }
+
+  const { data: tasks } = response;
+
+  if (tasks.length === 0) {
+    return <p>No tasks found</p>;
+  }
+
   return (
     <ul className={styles.tasks}>
-      {MOCKED_TASKS.map(({ id, name, category, priority, date, status }) => (
+      {tasks.map(({ id, name, category, priority, datetime, status }) => (
         <li key={id}>
           <article className={styles.task}>
             <input
@@ -14,7 +26,7 @@ export default function Tasks() {
               readOnly
             />
             <h3 className={styles.name}>{name}</h3>
-            <p className={styles.date}>{date.toLocaleString()}</p>
+            <p className={styles.date}>{new Date(datetime).toLocaleString()}</p>
             <p className={styles.category}>{category}</p>
             <p className={styles.priority}>{priority}</p>
           </article>
