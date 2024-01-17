@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-.buttonDisabled {
+.button:disabled {
   background-color: var(--dusk);
   color: var(--light-gray);
   cursor: not-allowed;

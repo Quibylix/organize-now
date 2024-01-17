@@ -15,9 +15,6 @@ export default function Button({
   const buttonClassName = joinClassNames(
     styles.button,
     styles[`buttonWidth__${width}`],
-    {
-      [styles.buttonDisabled]: disabled,
-    },
     className,
   );
 
