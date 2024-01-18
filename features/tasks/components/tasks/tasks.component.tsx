@@ -1,3 +1,4 @@
+import Alert from "@/features/ui/components/alert/alert.component";
 import EmptyTasks from "./empty-tasks.component";
 import { getTasks } from "./services/getTasks.service";
 import styles from "./tasks.module.css";
@@ -6,7 +7,7 @@ export default async function Tasks() {
   const response = await getTasks();
 
   if (!response.success) {
-    return <p>{response.error}</p>;
+    return <Alert message={response.error} />;
   }
 
   const { data: tasks } = response;
