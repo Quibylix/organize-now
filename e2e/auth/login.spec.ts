@@ -112,9 +112,6 @@ test("Should render a message error if the username or the password are not vali
 }) => {
   await page.goto("/login");
 
-  // The only valid user credentials created by the prepareDatabaseForTest script are:
-  // Username: Username
-  // Password: Password1234
   await page.getByLabel("Username").fill("Username");
   await page.getByLabel("Password", { exact: true }).fill("Password12345");
 
