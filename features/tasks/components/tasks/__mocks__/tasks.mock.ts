@@ -1,11 +1,13 @@
-export const MOCKED_TASKS = [
+import { Task } from "../types/task.type";
+
+export const MOCKED_TASKS: Task[] = [
   {
     id: 1,
     name: "Task 1",
     description: "Description 1",
     category: "Category 1",
     priority: 4,
-    date: new Date("2020-01-01 00:00:00"),
+    datetime: new Date("2020-01-01 00:00:00"),
     status: "completed",
   },
   {
@@ -14,7 +16,7 @@ export const MOCKED_TASKS = [
     description: "Description 2",
     category: "Category 2",
     priority: 8,
-    date: new Date("2020-02-02 00:00:00"),
+    datetime: new Date("2020-02-02 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -23,7 +25,7 @@ export const MOCKED_TASKS = [
     description: "Description 3",
     category: "Category 3",
     priority: 10,
-    date: new Date("2020-03-03 00:00:00"),
+    datetime: new Date("2020-03-03 00:00:00"),
     status: "completed",
   },
   {
@@ -32,7 +34,7 @@ export const MOCKED_TASKS = [
     description: "Description 4",
     category: "Category 4",
     priority: 1,
-    date: new Date("2020-04-04 00:00:00"),
+    datetime: new Date("2020-04-04 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -41,7 +43,7 @@ export const MOCKED_TASKS = [
     description: "Description 5",
     category: "Category 5",
     priority: 2,
-    date: new Date("2020-05-05 00:00:00"),
+    datetime: new Date("2020-05-05 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -50,7 +52,7 @@ export const MOCKED_TASKS = [
     description: "Description 6",
     category: "Category 6",
     priority: 5,
-    date: new Date("2020-06-06 00:00:00"),
+    datetime: new Date("2020-06-06 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -59,7 +61,7 @@ export const MOCKED_TASKS = [
     description: "Description 7",
     category: "Category 7",
     priority: 9,
-    date: new Date("2020-07-07 00:00:00"),
+    datetime: new Date("2020-07-07 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -68,7 +70,7 @@ export const MOCKED_TASKS = [
     description: "Description 8",
     category: "Category 8",
     priority: 3,
-    date: new Date("2020-08-08 00:00:00"),
+    datetime: new Date("2020-08-08 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -77,7 +79,7 @@ export const MOCKED_TASKS = [
     description: "Description 9",
     category: "Category 9",
     priority: 7,
-    date: new Date("2020-09-09 00:00:00"),
+    datetime: new Date("2020-09-09 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -86,7 +88,7 @@ export const MOCKED_TASKS = [
     description: "Description 10",
     category: "Category 10",
     priority: 6,
-    date: new Date("2020-10-10 00:00:00"),
+    datetime: new Date("2020-10-10 00:00:00"),
     status: "uncompleted",
   },
   {
@@ -95,7 +97,7 @@ export const MOCKED_TASKS = [
     description: "Description 11",
     category: "Category 11",
     priority: 9,
-    date: new Date("2020-11-11 00:00:00"),
+    datetime: new Date("2020-11-11 00:00:00"),
     status: "completed",
   },
 ];
