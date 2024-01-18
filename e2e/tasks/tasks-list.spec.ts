@@ -44,7 +44,7 @@ test.describe("Tasks list | Logged in user without tasks", () => {
 
     await expect(itemList).not.toBeVisible();
 
-    const message = page.getByText("No tasks found");
+    const message = page.getByText("What do you want to do today?");
 
     await expect(message).toBeVisible();
   });
