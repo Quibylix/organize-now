@@ -12,18 +12,3 @@
 .submitButton {
   margin-top: 2rem;
 }
-
-.submitError {
-  display: flex;
-  gap: 0.3rem;
-  color: var(--salmon-pink);
-  border-left: 0.2rem solid var(--salmon-pink);
-  font-weight: bold;
-  padding: 1rem;
-}
-
-.submitErrorIcon {
-  flex-shrink: 0;
-  width: 1.3rem;
-  height: 1.3rem;
-}

@@ -1,8 +1,8 @@
 "use client";
 
+import Alert from "@/features/ui/components/alert/alert.component";
 import Button from "@/features/ui/components/button/button.component";
 import FormField from "@/features/ui/components/form-field/form-field.component";
-import Icon from "@/features/ui/components/icon/icon.component";
 import { useLoginForm } from "./hooks/use-login-form.hook";
 import styles from "./login-form.module.css";
 
@@ -26,12 +26,7 @@ export default function LoginForm() {
       aria-label="Login form"
       className={styles.loginForm}
     >
-      {submitError && (
-        <p className={styles.submitError}>
-          <Icon name="info" className={styles.submitErrorIcon} />
-          <span>{submitError}</span>
-        </p>
-      )}
+      {submitError && <Alert message={submitError} />}
       <FormField.WithError error={usernameError}>
         <FormField.Label label="Username">
           <FormField
