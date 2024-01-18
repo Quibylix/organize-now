@@ -1,3 +1,4 @@
+import EmptyTasks from "./empty-tasks.component";
 import { getTasks } from "./services/getTasks.service";
 import styles from "./tasks.module.css";
 
@@ -11,7 +12,7 @@ export default async function Tasks() {
   const { data: tasks } = response;
 
   if (tasks.length === 0) {
-    return <p>No tasks found</p>;
+    return <EmptyTasks />;
   }
 
   return (
