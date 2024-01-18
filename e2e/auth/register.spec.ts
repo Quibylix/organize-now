@@ -139,7 +139,7 @@ test("should allow the user to register and redirect to the onboarding page", as
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Username").fill("Username2");
+  await page.getByLabel("Username").fill("unused_username");
   await page.getByLabel("Password", { exact: true }).fill("Test1234");
   await page.getByLabel("Confirm Password").fill("Test1234");
 
