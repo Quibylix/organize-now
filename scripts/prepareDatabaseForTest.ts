@@ -62,19 +62,14 @@ const insertMockedUsers = async (db: Client) => {
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash("Password1234", saltRounds);
 
-  return db
-    .query(
-      `
+  return db.query(
+    `
   INSERT INTO users (username, hashed_password) VALUES
   ('Username', '${hashedPassword}'),
   ('Username2', '${hashedPassword}'),
-  ('Username3', '${hashedPassword}'),;
+  ('Username3', '${hashedPassword}');
   `,
-    )
-    .catch(err => {
-      console.error("Failed to restart database");
-      console.log(err.message);
-    });
+  );
 };
 
 const insertMockedTasks = (db: Client, userId: number) => {
