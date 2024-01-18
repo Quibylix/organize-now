@@ -15,7 +15,7 @@ export default async function Tasks() {
   }
 
   return (
-    <ul className={styles.tasks}>
+    <ul className={styles.tasks} aria-label="Tasks list">
       {tasks.map(({ id, name, category, priority, datetime, status }) => (
         <li key={id}>
           <article className={styles.task}>
