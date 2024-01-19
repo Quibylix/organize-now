@@ -32,6 +32,78 @@ test.describe("Tasks list | Logged in user with tasks", () => {
       }),
     );
   });
+
+  test("should allow the user to filter the tasks list by category using the url", async ({
+    page,
+  }) => {
+    await page.goto("/?category=category 1");
+
+    const itemList = page.getByRole("list", { name: "Tasks list" });
+
+    await expect(itemList).toBeVisible();
+
+    const items = await itemList.getByRole("listitem").all();
+
+    await Promise.all(
+      items.map(async item => {
+        await expect(item.getByText("category 1")).toBeVisible();
+      }),
+    );
+  });
+
+  test("should allow the user to filter the tasks list by priority using the url", async ({
+    page,
+  }) => {
+    await page.goto("/?priority=9");
+
+    const itemList = page.getByRole("list", { name: "Tasks list" });
+
+    await expect(itemList).toBeVisible();
+
+    const items = await itemList.getByRole("listitem").all();
+
+    await Promise.all(
+      items.map(async item => {
+        await expect(item.getByText("9", { exact: true })).toBeVisible();
+      }),
+    );
+  });
+
+  test("should allow the user to filter the tasks by search using the url", async ({
+    page,
+  }) => {
+    await page.goto("/?search=Task 1");
+
+    const itemList = page.getByRole("list", { name: "Tasks list" });
+
+    await expect(itemList).toBeVisible();
+
+    const items = await itemList.getByRole("listitem").all();
+
+    await Promise.all(
+      items.map(async item => {
+        await expect(item.getByText("Task 1")).toBeVisible();
+      }),
+    );
+  });
+
+  test("should allow the user to filter the tasks by status using the url", async ({
+    page,
+  }) => {
+    await page.goto("/?status=completed");
+
+    const itemList = page.getByRole("list", { name: "Tasks list" });
+
+    await expect(itemList).toBeVisible();
+
+    const items = await itemList.getByRole("listitem").all();
+
+    await Promise.all(
+      items.map(async item => {
+        await expect(item.getByRole("checkbox")).toBeChecked();
+      }),
+    );
+  });
 });
 
 test.describe("Tasks list | Logged in user without tasks", () => {
