@@ -2,9 +2,14 @@ import Alert from "@/features/ui/components/alert/alert.component";
 import EmptyTasks from "./empty-tasks.component";
 import { getTasks } from "./services/getTasks.service";
 import styles from "./tasks.module.css";
+import { TasksFilters } from "./types/tasks-filters.type";
 
-export default async function Tasks() {
-  const response = await getTasks();
+type TasksProps = {
+  filters?: TasksFilters;
+};
+
+export default async function Tasks({ filters }: TasksProps) {
+  const response = await getTasks(filters);
 
   if (!response.success) {
     return <Alert message={response.error} />;

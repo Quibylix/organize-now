@@ -12,7 +12,7 @@ vi.mock("./services/getTasks.service", () => ({
 
 describe("Tasks", () => {
   it("should render a list of mocked tasks with its name, category, date and priority", async () => {
-    render(await Tasks());
+    render(await Tasks({}));
 
     const items = screen.getAllByRole("listitem");
     expect(items.length).to.be.equal(MOCKED_TASKS.length);
@@ -28,14 +28,14 @@ describe("Tasks", () => {
   });
 
   it("should render a checkbox for each task", async () => {
-    render(await Tasks());
+    render(await Tasks({}));
 
     const checkboxes = screen.getAllByRole("checkbox");
     expect(checkboxes.length).to.be.equal(MOCKED_TASKS.length);
   });
 
   it("should render a checked checkbox for each completed task", async () => {
-    render(await Tasks());
+    render(await Tasks({}));
 
     const checkboxes = screen.getAllByRole("checkbox");
 
