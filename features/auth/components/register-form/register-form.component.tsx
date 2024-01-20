@@ -2,7 +2,7 @@
 
 import Alert from "@/features/ui/components/alert/alert.component";
 import Button from "@/features/ui/components/button/button.component";
-import FormField from "@/features/ui/components/form-field/form-field.component";
+import Input from "@/features/ui/components/input/input.component";
 import useRegisterForm from "./hooks/use-register-form.hook";
 import styles from "./register-form.module.css";
 
@@ -31,39 +31,34 @@ export default function RegisterForm() {
       className={styles.registerForm}
     >
       {submitError && <Alert message={submitError} />}
-      <FormField.WithError error={usernameError}>
-        <FormField.Label label="Username">
-          <FormField
-            name="username"
-            placeholder="Enter your username"
-            value={username}
-            onChange={handleChange("username")}
-            onBlur={handleBlur("username")}
-          />
-        </FormField.Label>
-      </FormField.WithError>
-      <FormField.WithError error={passwordError}>
-        <FormField.Label label="Password">
-          <FormField.Password
-            name="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={handleChange("password")}
-            onBlur={handleBlur("password")}
-          />
-        </FormField.Label>
-      </FormField.WithError>
-      <FormField.WithError error={confirmPasswordError}>
-        <FormField.Label label="Confirm Password">
-          <FormField.Password
-            name="confirmPassword"
-            placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={handleChange("confirmPassword")}
-            onBlur={handleBlur("confirmPassword")}
-          />
-        </FormField.Label>
-      </FormField.WithError>
+      <Input
+        name="username"
+        value={username}
+        onChange={handleChange("username")}
+        onBlur={handleBlur("username")}
+        placeholder="Enter your username"
+        type="text"
+        label="Username"
+        error={usernameError}
+      />
+      <Input.Password
+        name="password"
+        value={password}
+        onChange={handleChange("password")}
+        onBlur={handleBlur("password")}
+        placeholder="Enter your password"
+        label="Password"
+        error={passwordError}
+      />
+      <Input.Password
+        name="confirmPassword"
+        value={confirmPassword}
+        onChange={handleChange("confirmPassword")}
+        onBlur={handleBlur("confirmPassword")}
+        placeholder="Confirm your password"
+        label="Confirm Password"
+        error={confirmPasswordError}
+      />
       <Button
         className={styles.submitButton}
         type="submit"
