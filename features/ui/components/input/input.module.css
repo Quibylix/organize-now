@@ -1,0 +1,57 @@
+.label {
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputContainer {
+  border-radius: 0.3rem;
+  border: 0.07rem solid var(--light-gray);
+  background: var(--almost-black);
+  font-size: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  box-sizing: border-box;
+}
+
+.inputContainerFocused {
+  border-color: var(--perrywinkle);
+}
+
+.input {
+  border: none;
+  outline: none;
+  background: inherit;
+  color: var(--white);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--light-gray);
+}
+
+.error {
+  margin-top: 0.5rem;
+  color: var(--salmon-pink);
+  font-size: 0.9rem;
+}
+
+.showPasswordButton {
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  cursor: pointer;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showPasswordIcon {
+  width: 1.3rem;
+  height: auto;
+}
