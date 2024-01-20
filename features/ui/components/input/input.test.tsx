@@ -57,25 +57,28 @@ describe("Input", () => {
   it("should display error message if error prop is provided", () => {
     render(<Input error="Invalid input" />);
 
-    screen.getByRole("alert", { name: "Invalid input" });
+    expect(screen.getByRole("alert")).to.have.property(
+      "textContent",
+      "Invalid input",
+    );
   });
 });
 
 describe("Input.Password", () => {
   it("should render a password input field", () => {
-    render(<Input.Password />);
+    render(<Input.Password label="Password label" />);
 
-    const inputElement = screen.getByRole("textbox");
+    const inputElement = screen.getByLabelText("Password label");
     expect(inputElement.getAttribute("type")).toBe("password");
   });
 
   it("should toggle password visibility when show password button is clicked", () => {
-    render(<Input.Password />);
+    render(<Input.Password label="Password label" />);
 
     const showPasswordButton = screen.getByLabelText(
       "Toggle password visibility",
     );
-    const inputElement = screen.getByRole("textbox");
+    const inputElement = screen.getByLabelText("Password label");
 
     fireEvent.click(showPasswordButton);
     expect(inputElement.getAttribute("type")).toBe("text");
