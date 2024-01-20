@@ -7,6 +7,7 @@
 }
 
 .inputContainer {
+  cursor: text;
   border-radius: 0.3rem;
   border: 0.07rem solid var(--light-gray);
   background: var(--almost-black);
