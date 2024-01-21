@@ -2,7 +2,6 @@
 
 import { joinClassNames } from "@/utils/join-class-names/join-class-names.util";
 import { useId, useRef, useState } from "react";
-import Icon from "../icon/icon.component";
 import styles from "./input.module.css";
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
@@ -78,36 +77,3 @@ export default function Input({
     </div>
   );
 }
-
-export type PasswordInputProps = Omit<InputProps, "type"> & {};
-
-Input.Password = function PasswordInput({ endContent, ...props }: InputProps) {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const toggleShowPassword = () => {
-    setShowPassword(prev => !prev);
-  };
-
-  return (
-    <Input
-      type={showPassword ? "text" : "password"}
-      endContent={
-        <>
-          <button
-            className={styles.showPasswordButton}
-            onClick={toggleShowPassword}
-            aria-label="Toggle password visibility"
-            type="button"
-          >
-            <Icon
-              className={styles.showPasswordIcon}
-              name={showPassword ? "eye-off" : "eye"}
-            />
-          </button>
-          {endContent}
-        </>
-      }
-      {...props}
-    />
-  );
-};

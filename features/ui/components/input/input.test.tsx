@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import Input from "./input.component";
+import PasswordInput from "./password-input.component";
 
 describe("Input", () => {
   it("should render an input field", () => {
@@ -64,16 +65,16 @@ describe("Input", () => {
   });
 });
 
-describe("Input.Password", () => {
+describe("PasswordInput", () => {
   it("should render a password input field", () => {
-    render(<Input.Password label="Password label" />);
+    render(<PasswordInput label="Password label" />);
 
     const inputElement = screen.getByLabelText("Password label");
     expect(inputElement.getAttribute("type")).toBe("password");
   });
 
   it("should toggle password visibility when show password button is clicked", () => {
-    render(<Input.Password label="Password label" />);
+    render(<PasswordInput label="Password label" />);
 
     const showPasswordButton = screen.getByLabelText(
       "Toggle password visibility",
@@ -88,7 +89,7 @@ describe("Input.Password", () => {
   });
 
   it("should render end content along with show password button", () => {
-    render(<Input.Password endContent={<span>End</span>} />);
+    render(<PasswordInput endContent={<span>End</span>} />);
 
     screen.getByText("End");
     screen.getByLabelText("Toggle password visibility");

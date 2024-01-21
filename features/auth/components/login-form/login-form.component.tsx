@@ -3,6 +3,7 @@
 import Alert from "@/features/ui/components/alert/alert.component";
 import Button from "@/features/ui/components/button/button.component";
 import Input from "@/features/ui/components/input/input.component";
+import PasswordInput from "@/features/ui/components/input/password-input.component";
 import { useLoginForm } from "./hooks/use-login-form.hook";
 import styles from "./login-form.module.css";
 
@@ -37,7 +38,7 @@ export default function LoginForm() {
         label="Username"
         error={usernameError}
       />
-      <Input.Password
+      <PasswordInput
         name="password"
         value={password}
         onChange={handleChange("password")}

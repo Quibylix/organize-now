@@ -3,6 +3,7 @@
 import Alert from "@/features/ui/components/alert/alert.component";
 import Button from "@/features/ui/components/button/button.component";
 import Input from "@/features/ui/components/input/input.component";
+import PasswordInput from "@/features/ui/components/input/password-input.component";
 import useRegisterForm from "./hooks/use-register-form.hook";
 import styles from "./register-form.module.css";
 
@@ -41,7 +42,7 @@ export default function RegisterForm() {
         label="Username"
         error={usernameError}
       />
-      <Input.Password
+      <PasswordInput
         name="password"
         value={password}
         onChange={handleChange("password")}
@@ -50,7 +51,7 @@ export default function RegisterForm() {
         label="Password"
         error={passwordError}
       />
-      <Input.Password
+      <PasswordInput
         name="confirmPassword"
         value={confirmPassword}
         onChange={handleChange("confirmPassword")}
