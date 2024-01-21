@@ -1,6 +1,7 @@
 import Alert from "@/features/ui/components/alert/alert.component";
 import EmptyTasks from "./empty-tasks.component";
 import { getTasks } from "./services/getTasks.service";
+import Task from "./task.component";
 import styles from "./tasks.module.css";
 import { TasksFilters } from "./types/tasks-filters.type";
 
@@ -23,20 +24,9 @@ export default async function Tasks({ filters }: TasksProps) {
 
   return (
     <ul className={styles.tasks} aria-label="Tasks list">
-      {tasks.map(({ id, name, category, priority, datetime, status }) => (
+      {tasks.map(({ id, ...taskDetails }) => (
         <li key={id}>
-          <article className={styles.task}>
-            <input
-              className={styles.checkbox}
-              type="checkbox"
-              checked={status === "completed"}
-              readOnly
-            />
-            <h3 className={styles.name}>{name}</h3>
-            <p className={styles.date}>{new Date(datetime).toLocaleString()}</p>
-            <p className={styles.category}>{category}</p>
-            <p className={styles.priority}>{priority}</p>
-          </article>
+          <Task {...taskDetails} />
         </li>
       ))}
     </ul>
