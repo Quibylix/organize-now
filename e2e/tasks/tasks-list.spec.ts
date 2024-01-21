@@ -104,6 +104,30 @@ test.describe("Tasks list | Logged in user with tasks", () => {
       }),
     );
   });
+
+  test("should allow the user to search for tasks by name using the search bar", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const searchInput = page.getByRole("searchbox", { name: "search" });
+
+    await searchInput.fill("Task 1");
+
+    await expect(page).toHaveURL("/?search=Task%201");
+
+    const itemList = page.getByRole("list", { name: "Tasks list" });
+
+    await expect(itemList).toBeVisible();
+
+    const items = await itemList.getByRole("listitem").all();
+
+    await Promise.all(
+      items.map(async item => {
+        await expect(item.getByText("Task 1")).toBeVisible();
+      }),
+    );
+  });
 });
 
 test.describe("Tasks list | Logged in user without tasks", () => {

@@ -1,0 +1,1 @@
+export const TASKS_SEARCH_BAR_DELAY = 500;
