@@ -1,23 +1,65 @@
 import { MOCKED_TASKS } from "@/features/tasks/components/tasks/__mocks__/tasks.mock";
 import test, { expect } from "@playwright/test";
 
+const MOCKED_UNCOMPLETED_TASKS = MOCKED_TASKS.filter(
+  ({ status }) => status === "uncompleted",
+);
+const MOCKED_COMPLETED_TASKS = MOCKED_TASKS.filter(
+  ({ status }) => status === "completed",
+);
+
 test.describe("Tasks list | Logged in user with tasks", () => {
   test.use({ storageState: "e2e/.auth/user.json" });
 
-  test("should display the tasks list the user has created", async ({
+  test("should display a list of the tasks that the user has to do", async ({
     page,
   }) => {
     await page.goto("/");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+      exact: true,
+    });
 
-    await expect(itemList).toBeVisible();
+    await expect(completedTasksList).toBeVisible();
 
-    const items = await itemList.getByRole("listitem").all();
+    const items = await completedTasksList.getByRole("listitem").all();
 
     await Promise.all(
       items.map(async (item, index) => {
-        const task = MOCKED_TASKS[index];
+        const task = MOCKED_UNCOMPLETED_TASKS[index];
+
+        await expect(item.getByText(task.name, { exact: true })).toBeVisible();
+        await expect(
+          item.getByText(task.datetime.toLocaleString(), { exact: true }),
+        ).toBeVisible();
+        await expect(
+          item.getByText(task.category, { exact: true }),
+        ).toBeVisible();
+        await expect(
+          item.getByText(task.priority.toString(), { exact: true }),
+        ).toBeVisible();
+      }),
+    );
+  });
+
+  test("should display a list of the tasks that the user has completed", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+      exact: true,
+    });
+
+    await expect(completedTasksList).toBeVisible();
+
+    const items = await completedTasksList.getByRole("listitem").all();
+
+    await Promise.all(
+      items.map(async (item, index) => {
+        const task = MOCKED_COMPLETED_TASKS[index];
 
         await expect(item.getByText(task.name, { exact: true })).toBeVisible();
         await expect(
@@ -38,11 +80,18 @@ test.describe("Tasks list | Logged in user with tasks", () => {
   }) => {
     await page.goto("/?category=category 1");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+      exact: true,
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+    });
 
-    await expect(itemList).toBeVisible();
-
-    const items = await itemList.getByRole("listitem").all();
+    const items = [
+      ...(await completedTasksList.getByRole("listitem").all()),
+      ...(await uncompletedTasksList.getByRole("listitem").all()),
+    ];
 
     await Promise.all(
       items.map(async item => {
@@ -56,11 +105,18 @@ test.describe("Tasks list | Logged in user with tasks", () => {
   }) => {
     await page.goto("/?priority=9");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+      exact: true,
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+    });
 
-    await expect(itemList).toBeVisible();
-
-    const items = await itemList.getByRole("listitem").all();
+    const items = [
+      ...(await completedTasksList.getByRole("listitem").all()),
+      ...(await uncompletedTasksList.getByRole("listitem").all()),
+    ];
 
     await Promise.all(
       items.map(async item => {
@@ -74,11 +130,18 @@ test.describe("Tasks list | Logged in user with tasks", () => {
   }) => {
     await page.goto("/?search=Task 1");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+      exact: true,
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+    });
 
-    await expect(itemList).toBeVisible();
-
-    const items = await itemList.getByRole("listitem").all();
+    const items = [
+      ...(await completedTasksList.getByRole("listitem").all()),
+      ...(await uncompletedTasksList.getByRole("listitem").all()),
+    ];
 
     await Promise.all(
       items.map(async item => {
@@ -92,11 +155,18 @@ test.describe("Tasks list | Logged in user with tasks", () => {
   }) => {
     await page.goto("/?status=completed");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+      exact: true,
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+    });
 
-    await expect(itemList).toBeVisible();
-
-    const items = await itemList.getByRole("listitem").all();
+    const items = [
+      ...(await completedTasksList.getByRole("listitem").all()),
+      ...(await uncompletedTasksList.getByRole("listitem").all()),
+    ];
 
     await Promise.all(
       items.map(async item => {
@@ -116,11 +186,18 @@ test.describe("Tasks list | Logged in user with tasks", () => {
 
     await expect(page).toHaveURL("/?search=Task%201");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+      exact: true,
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+    });
 
-    await expect(itemList).toBeVisible();
-
-    const items = await itemList.getByRole("listitem").all();
+    const items = [
+      ...(await completedTasksList.getByRole("listitem").all()),
+      ...(await uncompletedTasksList.getByRole("listitem").all()),
+    ];
 
     await Promise.all(
       items.map(async item => {
@@ -136,9 +213,15 @@ test.describe("Tasks list | Logged in user without tasks", () => {
   test("should display a message when there is no tasks", async ({ page }) => {
     await page.goto("/");
 
-    const itemList = page.getByRole("list", { name: "Tasks list" });
+    const completedTasksList = page.getByRole("list", {
+      name: "Completed tasks",
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: "Uncompleted tasks",
+    });
 
-    await expect(itemList).not.toBeVisible();
+    await expect(completedTasksList).not.toBeVisible();
+    await expect(uncompletedTasksList).not.toBeVisible();
 
     const message = page.getByText("What do you want to do today?");
 

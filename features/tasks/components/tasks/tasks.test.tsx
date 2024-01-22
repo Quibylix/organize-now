@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { MOCKED_TASKS } from "./__mocks__/tasks.mock";
 import Tasks from "./tasks.component";
@@ -10,20 +10,47 @@ vi.mock("./services/getTasks.service", () => ({
   }),
 }));
 
+const MOCKED_UNCOMPLETED_TASKS = MOCKED_TASKS.filter(
+  ({ status }) => status === "uncompleted",
+);
+const MOCKED_COMPLETED_TASKS = MOCKED_TASKS.filter(
+  ({ status }) => status === "completed",
+);
+
 describe("Tasks", () => {
-  it("should render a list of mocked tasks with its name, category, date and priority", async () => {
+  it("should render a list of uncompleted tasks with its name, category, date and priority", async () => {
     render(await Tasks({}));
 
-    const items = screen.getAllByRole("listitem");
-    expect(items.length).to.be.equal(MOCKED_TASKS.length);
+    const uncompletedTasks = within(
+      screen.getByRole("list", { name: "Uncompleted tasks" }),
+    ).getAllByRole("listitem");
 
-    items.forEach((item, index) => {
-      const task = MOCKED_TASKS[index];
+    uncompletedTasks.forEach((task, index) => {
+      const { name, datetime, category, priority } =
+        MOCKED_UNCOMPLETED_TASKS[index];
 
-      expect(item.textContent).to.include(task.name);
-      expect(item.textContent).to.include(task.datetime.toLocaleString());
-      expect(item.textContent).to.include(task.category);
-      expect(item.textContent).to.include(task.priority);
+      expect(task.textContent).to.include(name);
+      expect(task.textContent).to.include(datetime.toLocaleString());
+      expect(task.textContent).to.include(category);
+      expect(task.textContent).to.include(priority);
+    });
+  });
+
+  it("should render a list of completed tasks with its name, category, date and priority", async () => {
+    render(await Tasks({}));
+
+    const completedTasks = within(
+      screen.getByRole("list", { name: "Completed tasks" }),
+    ).getAllByRole("listitem");
+
+    completedTasks.forEach((task, index) => {
+      const { name, datetime, category, priority } =
+        MOCKED_COMPLETED_TASKS[index];
+
+      expect(task.textContent).to.include(name);
+      expect(task.textContent).to.include(datetime.toLocaleString());
+      expect(task.textContent).to.include(category);
+      expect(task.textContent).to.include(priority);
     });
   });
 
@@ -37,10 +64,12 @@ describe("Tasks", () => {
   it("should render a checked checkbox for each completed task", async () => {
     render(await Tasks({}));
 
-    const checkboxes = screen.getAllByRole("checkbox");
+    const checkboxes = within(
+      screen.getByRole("list", { name: "Completed tasks" }),
+    ).getAllByRole("checkbox");
 
     checkboxes.forEach((checkbox, index) => {
-      const { status } = MOCKED_TASKS[index];
+      const { status } = MOCKED_COMPLETED_TASKS[index];
       expect(checkbox).to.have.property("checked", status === "completed");
     });
   });

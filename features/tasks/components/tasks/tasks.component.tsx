@@ -22,13 +22,38 @@ export default async function Tasks({ filters }: TasksProps) {
     return <EmptyTasks />;
   }
 
+  const completedTasks = tasks.filter(task => task.status === "completed");
+  const uncompletedTasks = tasks.filter(task => task.status === "uncompleted");
+
+  const hasCompletedTasks = Boolean(completedTasks.length);
+  const hasUncompletedTasks = Boolean(uncompletedTasks.length);
+
   return (
-    <ul className={styles.tasks} aria-label="Tasks list">
-      {tasks.map(({ id, ...taskDetails }) => (
-        <li key={id}>
-          <Task {...taskDetails} />
-        </li>
-      ))}
-    </ul>
+    <div>
+      {hasUncompletedTasks && (
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Uncompleted Tasks</h2>
+          <ul className={styles.tasks} aria-label="Uncompleted tasks">
+            {uncompletedTasks.map(({ id, ...taskDetails }) => (
+              <li key={id}>
+                <Task {...taskDetails} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {hasCompletedTasks && (
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Completed Tasks</h2>
+          <ul className={styles.tasks} aria-label="Completed tasks">
+            {completedTasks.map(({ id, ...taskDetails }) => (
+              <li key={id}>
+                <Task {...taskDetails} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
   );
 }
