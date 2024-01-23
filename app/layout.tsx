@@ -1,3 +1,5 @@
+import { getLanguage } from "@/features/i18n/services/get-language.service";
+import { getTranslation } from "@/features/i18n/services/get-translation.service";
 import ProgressBar from "@/features/ui/components/progress-bar/progress-bar.component";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -5,9 +7,13 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "To-do App | Add, edit, and delete to-dos",
-  description: "A simple to-do app built with Next.js and TypeScript.",
+export const generateMetadata = async (): Promise<Metadata> => {
+  const dictionary = await getTranslation();
+
+  return {
+    title: dictionary.title,
+    description: dictionary.description,
+  };
 };
 
 export default function RootLayout({
@@ -16,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang={getLanguage()}>
       <body className={inter.className}>
         <ProgressBar />
         {children}
