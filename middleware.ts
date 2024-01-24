@@ -34,7 +34,22 @@ export function middleware(req: NextRequest) {
     req.headers.get(ACCEPTED_LANGUAGES_HEADER) ?? "",
   );
 
-  const response = NextResponse.next();
+  // Next.js cookies set in the middleware are not available in the cookies() function,
+  // so we need to set the cookie in the headers as well
+  const { headers } = req;
+
+  const newHeaders = new Headers(headers);
+  const cookieHeader = newHeaders.get("cookie");
+  const newCookie = `${LANGUAGE_COOKIE_NAME}=${matchedLanguage};`;
+
+  const newCookieHeader = cookieHeader
+    ? `${cookieHeader}; ${newCookie}`
+    : newCookie;
+
+  newHeaders.set("cookie", newCookieHeader);
+
+  const response = NextResponse.next({ headers: newHeaders });
+
   response.cookies.set(LANGUAGE_COOKIE_NAME, matchedLanguage, {
     maxAge: 60 * 60 * 24 * 400, // TODO: store the user language preference in the database and set it when the user logs in
     path: "/",
