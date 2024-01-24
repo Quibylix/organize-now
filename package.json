@@ -18,6 +18,7 @@
   "dependencies": {
     "accept-language-parser": "^1.5.0",
     "bcrypt": "^5.1.1",
+    "cookie": "^0.6.0",
     "jsonwebtoken": "^9.0.2",
     "next": "14.0.4",
     "next-nprogress-bar": "^2.1.2",
@@ -32,6 +33,7 @@
     "@testing-library/react": "^14.1.2",
     "@types/accept-language-parser": "^1.5.6",
     "@types/bcrypt": "^5.0.2",
+    "@types/cookie": "^0.6.0",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.10.8",
     "@types/pg": "^8.10.9",
