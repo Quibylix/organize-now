@@ -23,6 +23,25 @@ const findBestMatchingLanguage = (acceptLangHeader: string) => {
 
 const isValidLanguage = (lang: string) => LANGUAGES.some(l => l === lang);
 
+const getUpdatedHeadersWithLanguageCookie = (
+  req: NextRequest,
+  language: string,
+) => {
+  const { headers } = req;
+
+  const newHeaders = new Headers(headers);
+  const cookieHeader = newHeaders.get("cookie");
+  const newCookie = `${LANGUAGE_COOKIE_NAME}=${language};`;
+
+  const newCookieHeader = cookieHeader
+    ? `${cookieHeader}; ${newCookie}`
+    : newCookie;
+
+  newHeaders.set("cookie", newCookieHeader);
+
+  return newHeaders;
+};
+
 export function middleware(req: NextRequest) {
   const langCookie = req.cookies.get(LANGUAGE_COOKIE_NAME)?.value;
 
@@ -36,17 +55,7 @@ export function middleware(req: NextRequest) {
 
   // Next.js cookies set in the middleware are not available in the cookies() function,
   // so we need to set the cookie in the headers as well
-  const { headers } = req;
-
-  const newHeaders = new Headers(headers);
-  const cookieHeader = newHeaders.get("cookie");
-  const newCookie = `${LANGUAGE_COOKIE_NAME}=${matchedLanguage};`;
-
-  const newCookieHeader = cookieHeader
-    ? `${cookieHeader}; ${newCookie}`
-    : newCookie;
-
-  newHeaders.set("cookie", newCookieHeader);
+  const newHeaders = getUpdatedHeadersWithLanguageCookie(req, matchedLanguage);
 
   const response = NextResponse.next({ headers: newHeaders });
 
