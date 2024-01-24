@@ -1,3 +1,4 @@
+import en from "@/features/i18n/data/en.json";
 import test, { expect } from "@playwright/test";
 
 test.use({ storageState: "e2e/.auth/no-user.json" });
@@ -7,7 +8,9 @@ test("should display an error message if the username does not have the required
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Username").fill("a");
+  await page
+    .getByLabel(en.register.form.usernameLabel, { exact: true })
+    .fill("a");
 
   await expect(
     page.getByText("Username must be between 3 and 20 characters"),
@@ -19,7 +22,9 @@ test("should display an error message if the username has characters other than 
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Username").fill("test@");
+  await page
+    .getByLabel(en.register.form.usernameLabel, { exact: true })
+    .fill("test@");
 
   await expect(
     page.getByText(
@@ -33,7 +38,9 @@ test("should display an error message if the password does not have the required
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Password", { exact: true }).fill("a");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("a");
 
   await expect(
     page.getByText("Password must be between 8 and 50 characters"),
@@ -45,7 +52,9 @@ test("should display an error message if the password does not have an uppercase
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Password", { exact: true }).fill("test1234");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("test1234");
 
   await expect(
     page.getByText("Password must contain at least one uppercase letter"),
@@ -57,7 +66,9 @@ test("should display an error message if the password does not have a lowercase 
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Password", { exact: true }).fill("TEST1234");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("TEST1234");
 
   await expect(
     page.getByText("Password must contain at least one lowercase letter"),
@@ -69,7 +80,9 @@ test("should display an error message if the password does not have a number", a
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Password", { exact: true }).fill("TestTest");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("TestTest");
 
   await expect(
     page.getByText("Password must contain at least one number"),
@@ -81,8 +94,12 @@ test("should display an error message if the password confirmation does not matc
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Password", { exact: true }).fill("Test1234");
-  await page.getByLabel("Confirm Password").fill("Test12345");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("Test1234");
+  await page
+    .getByLabel(en.register.form.confirmPasswordLabel, { exact: true })
+    .fill("Test12345");
 
   await expect(page.getByText("Passwords do not match")).toBeVisible();
 });
@@ -92,9 +109,15 @@ test("should not display any error messages if the username and password are val
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Username").fill("test");
-  await page.getByLabel("Password", { exact: true }).fill("Test1234");
-  await page.getByLabel("Confirm Password").fill("Test1234");
+  await page
+    .getByLabel(en.register.form.usernameLabel, { exact: true })
+    .fill("test");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("Test1234");
+  await page
+    .getByLabel(en.register.form.confirmPasswordLabel, { exact: true })
+    .fill("Test1234");
 
   await expect(
     page.getByText("Username must be between 3 and 20 characters"),
@@ -125,11 +148,19 @@ test("Should display an error message if the username is already taken", async (
   await page.goto("/register");
 
   // The username is already taken because of the prepareDatabaseForTest function
-  await page.getByLabel("Username").fill("Username");
-  await page.getByLabel("Password", { exact: true }).fill("Test1234");
-  await page.getByLabel("Confirm Password").fill("Test1234");
+  await page
+    .getByLabel(en.register.form.usernameLabel, { exact: true })
+    .fill("Username");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("Test1234");
+  await page
+    .getByLabel(en.register.form.confirmPasswordLabel, { exact: true })
+    .fill("Test1234");
 
-  await page.getByRole("button", { name: "Register" }).click();
+  await page
+    .getByRole("button", { name: en.register.form.submitButton, exact: true })
+    .click();
 
   await expect(page.getByText("Username already taken")).toBeVisible();
 });
@@ -139,11 +170,19 @@ test("should allow the user to register and redirect to the onboarding page", as
 }) => {
   await page.goto("/register");
 
-  await page.getByLabel("Username").fill("unused_username");
-  await page.getByLabel("Password", { exact: true }).fill("Test1234");
-  await page.getByLabel("Confirm Password").fill("Test1234");
+  await page
+    .getByLabel(en.register.form.usernameLabel, { exact: true })
+    .fill("unused_username");
+  await page
+    .getByLabel(en.register.form.passwordLabel, { exact: true })
+    .fill("Test1234");
+  await page
+    .getByLabel(en.register.form.confirmPasswordLabel, { exact: true })
+    .fill("Test1234");
 
-  await page.getByRole("button", { name: "Register" }).click();
+  await page
+    .getByRole("button", { name: en.register.form.submitButton, exact: true })
+    .click();
 
   await expect(page).toHaveURL("/onboarding/1");
 });
