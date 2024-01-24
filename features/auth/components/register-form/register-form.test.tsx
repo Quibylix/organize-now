@@ -1,3 +1,4 @@
+import en from "@/features/i18n/data/en.json";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { afterAll, describe, expect, it, vi } from "vitest";
 import RegisterForm from "./register-form.component";
@@ -24,38 +25,40 @@ afterAll(() => {
   vi.clearAllMocks();
 });
 
+const dictionary = en.register.form;
+
 describe("RegisterForm", () => {
   it("should render a form with username, password, and confirm password fields", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    screen.getByRole("form", { name: "Register form" });
-    screen.getByLabelText("Username");
-    screen.getByLabelText("Password");
-    screen.getByLabelText("Confirm Password");
+    screen.getByRole("form", { name: dictionary.formTitle });
+    screen.getByLabelText(dictionary.usernameLabel);
+    screen.getByLabelText(dictionary.passwordLabel);
+    screen.getByLabelText(dictionary.confirmPasswordLabel);
   });
 
   it("should render a submit button", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    screen.getByRole("button", { name: "Register" });
+    screen.getByRole("button", { name: dictionary.submitButton });
   });
 
   it("should render an error message if the username does not have the required length", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Username").focus());
-    act(() => screen.getByLabelText("Username").blur());
+    act(() => screen.getByLabelText(dictionary.usernameLabel).focus());
+    act(() => screen.getByLabelText(dictionary.usernameLabel).blur());
 
     screen.getByText("Username must be between 3 and 20 characters");
   });
 
   it("should render an error message if the username has other characters than letters, numbers, and underscores", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Username").focus());
-    act(() => screen.getByLabelText("Username").blur());
+    act(() => screen.getByLabelText(dictionary.usernameLabel).focus());
+    act(() => screen.getByLabelText(dictionary.usernameLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Username"), {
+      fireEvent.input(screen.getByLabelText(dictionary.usernameLabel), {
         target: { value: "test!" },
       }),
     );
@@ -66,12 +69,12 @@ describe("RegisterForm", () => {
   });
 
   it("should not render an error message if the username is valid", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Username").focus());
-    act(() => screen.getByLabelText("Username").blur());
+    act(() => screen.getByLabelText(dictionary.usernameLabel).focus());
+    act(() => screen.getByLabelText(dictionary.usernameLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Username"), {
+      fireEvent.input(screen.getByLabelText(dictionary.usernameLabel), {
         target: { value: "test" },
       }),
     );
@@ -82,21 +85,21 @@ describe("RegisterForm", () => {
   });
 
   it("should render an error message if the password does not have the required length", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Password").focus());
-    act(() => screen.getByLabelText("Password").blur());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).focus());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).blur());
 
     screen.getByText("Password must be between 8 and 50 characters");
   });
 
   it("should render an error message if the password has no uppercase letters", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Password").focus());
-    act(() => screen.getByLabelText("Password").blur());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).focus());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByLabelText(dictionary.passwordLabel), {
         target: { value: "testpassword" },
       }),
     );
@@ -105,12 +108,12 @@ describe("RegisterForm", () => {
   });
 
   it("should render an error message if the password has no lowercase letters", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Password").focus());
-    act(() => screen.getByLabelText("Password").blur());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).focus());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByLabelText(dictionary.passwordLabel), {
         target: { value: "TESTPASSWORD" },
       }),
     );
@@ -119,12 +122,12 @@ describe("RegisterForm", () => {
   });
 
   it("should render an error message if the password has no numbers", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Password").focus());
-    act(() => screen.getByLabelText("Password").blur());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).focus());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByLabelText(dictionary.passwordLabel), {
         target: { value: "TestPassword" },
       }),
     );
@@ -133,12 +136,12 @@ describe("RegisterForm", () => {
   });
 
   it("should render an error message if the confirm password does not match the password", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Password").focus());
-    act(() => screen.getByLabelText("Password").blur());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).focus());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByLabelText(dictionary.passwordLabel), {
         target: { value: "TestPassword1" },
       }),
     );
@@ -147,17 +150,17 @@ describe("RegisterForm", () => {
   });
 
   it("should not render an error message if both passwords match", () => {
-    render(<RegisterForm />);
+    render(<RegisterForm dictionary={dictionary} />);
 
-    act(() => screen.getByLabelText("Password").focus());
-    act(() => screen.getByLabelText("Password").blur());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).focus());
+    act(() => screen.getByLabelText(dictionary.passwordLabel).blur());
     act(() =>
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByLabelText(dictionary.passwordLabel), {
         target: { value: "TestPassword1" },
       }),
     );
     act(() =>
-      fireEvent.input(screen.getByLabelText("Confirm Password"), {
+      fireEvent.input(screen.getByLabelText(dictionary.confirmPasswordLabel), {
         target: { value: "TestPassword1" },
       }),
     );

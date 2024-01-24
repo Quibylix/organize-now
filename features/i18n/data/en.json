@@ -1,4 +1,23 @@
 {
   "title": "To-do App | Add, edit, and delete to-dos",
-  "description": "A simple to-do app built with Next.js and TypeScript."
+  "description": "A simple to-do app built with Next.js and TypeScript.",
+  "register": {
+    "title": "To-do App | Register",
+    "description": "Register a new account",
+    "heading": "Register",
+    "or": "or",
+    "alreadyHaveAccount": "Already have an account?",
+    "login": "Login",
+    "form": {
+      "formTitle": "Register",
+      "usernamePlaceholder": "Enter your username",
+      "usernameLabel": "Username",
+      "passwordPlaceholder": "Enter your password",
+      "passwordLabel": "Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "confirmPasswordLabel": "Confirm Password",
+      "submitButton": "Register",
+      "loading": "Loading..."
+    }
+  }
 }

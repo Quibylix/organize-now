@@ -1,4 +1,23 @@
 {
   "title": "To-do App | Añade, edita y elimina tareas",
-  "description": "Una simple aplicación de tareas construida con Next.js y TypeScript."
+  "description": "Una simple aplicación de tareas construida con Next.js y TypeScript.",
+  "register": {
+    "title": "To-do App | Regístrate",
+    "description": "Registra una nueva cuenta",
+    "heading": "Regístrate",
+    "or": "o",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "login": "Inicia sesión",
+    "form": {
+      "formTitle": "Regístrate",
+      "usernamePlaceholder": "Introduce tu nombre de usuario",
+      "usernameLabel": "Nombre de usuario",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "passwordLabel": "Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "confirmPasswordLabel": "Confirmar contraseña",
+      "submitButton": "Regístrate",
+      "loading": "Cargando..."
+    }
+  }
 }

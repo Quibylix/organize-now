@@ -7,7 +7,21 @@ import PasswordInput from "@/features/ui/components/input/password-input.compone
 import useRegisterForm from "./hooks/use-register-form.hook";
 import styles from "./register-form.module.css";
 
-export default function RegisterForm() {
+type RegisterFormProps = {
+  dictionary: {
+    formTitle: string;
+    usernamePlaceholder: string;
+    usernameLabel: string;
+    passwordPlaceholder: string;
+    passwordLabel: string;
+    confirmPasswordPlaceholder: string;
+    confirmPasswordLabel: string;
+    submitButton: string;
+    loading: string;
+  };
+};
+
+export default function RegisterForm({ dictionary }: RegisterFormProps) {
   const {
     values,
     errors,
@@ -28,7 +42,7 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      aria-label="Register form"
+      aria-label={dictionary.formTitle}
       className={styles.registerForm}
     >
       {submitError && <Alert message={submitError} />}
@@ -37,9 +51,9 @@ export default function RegisterForm() {
         value={username}
         onChange={handleChange("username")}
         onBlur={handleBlur("username")}
-        placeholder="Enter your username"
+        placeholder={dictionary.usernamePlaceholder}
         type="text"
-        label="Username"
+        label={dictionary.usernameLabel}
         error={usernameError}
       />
       <PasswordInput
@@ -47,8 +61,8 @@ export default function RegisterForm() {
         value={password}
         onChange={handleChange("password")}
         onBlur={handleBlur("password")}
-        placeholder="Enter your password"
-        label="Password"
+        placeholder={dictionary.passwordPlaceholder}
+        label={dictionary.passwordLabel}
         error={passwordError}
       />
       <PasswordInput
@@ -56,8 +70,8 @@ export default function RegisterForm() {
         value={confirmPassword}
         onChange={handleChange("confirmPassword")}
         onBlur={handleBlur("confirmPassword")}
-        placeholder="Confirm your password"
-        label="Confirm Password"
+        placeholder={dictionary.confirmPasswordPlaceholder}
+        label={dictionary.confirmPasswordLabel}
         error={confirmPasswordError}
       />
       <Button
@@ -66,7 +80,7 @@ export default function RegisterForm() {
         width="full"
         disabled={isLoading}
       >
-        {isLoading ? "Loading..." : "Register"}
+        {isLoading ? dictionary.loading : dictionary.submitButton}
       </Button>
     </form>
   );
