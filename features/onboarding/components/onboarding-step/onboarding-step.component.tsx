@@ -1,14 +1,16 @@
+import { getTranslation } from "@/features/i18n/services/get-translation.service";
 import Button from "@/features/ui/components/button/button.component";
-import { STEPS_INFO } from "./constants/steps-info.constant";
 import styles from "./onboarding-step.module.css";
 
 export type OnboardingStepProps = { step: 1 | 2 | 3 };
 
-export default function OnboardingStep({ step }: OnboardingStepProps) {
+export default async function OnboardingStep({ step }: OnboardingStepProps) {
   const isFirstStep = step === 1;
   const isLastStep = step === 3;
 
-  const stepInfo = STEPS_INFO[step];
+  const dictionary = await getTranslation();
+
+  const stepInfo = dictionary.onboarding[`step${step}`];
 
   return (
     <div className={styles.onboardingStep}>
@@ -18,7 +20,7 @@ export default function OnboardingStep({ step }: OnboardingStepProps) {
         size="sm"
         variant="text"
       >
-        Skip
+        {dictionary.onboarding.skip}
       </Button.AsLink>
       <img
         className={styles.image}
@@ -30,14 +32,16 @@ export default function OnboardingStep({ step }: OnboardingStepProps) {
       <div className={styles.buttons}>
         {!isFirstStep && (
           <Button.AsLink variant="outline" href={`/onboarding/${step - 1}`}>
-            Back
+            {dictionary.onboarding.back}
           </Button.AsLink>
         )}
         <Button.AsLink
           className={styles.nextButton}
           href={isLastStep ? "/" : `/onboarding/${step + 1}`}
         >
-          {isLastStep ? "Get Started" : "Next"}
+          {isLastStep
+            ? dictionary.onboarding.getStarted
+            : dictionary.onboarding.next}
         </Button.AsLink>
       </div>
     </div>

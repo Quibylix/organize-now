@@ -19,5 +19,23 @@
       "submitButton": "Regístrate",
       "loading": "Cargando..."
     }
+  },
+  "onboarding": {
+    "skip": "Saltar",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "getStarted": "Empezar",
+    "step1": {
+      "title": "Gestiona tus tareas",
+      "description": "Puedes gestionar fácilmente todas tus tareas diarias de forma gratuita"
+    },
+    "step2": {
+      "title": "Crea una rutina diaria",
+      "description": "Puedes crear tu rutina personalizada para mantenerte productivo"
+    },
+    "step3": {
+      "title": "Organiza tus tareas",
+      "description": "Puedes organizar tus tareas diarias añadiéndolas en categorías separadas"
+    }
   }
 }
