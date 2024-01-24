@@ -1,4 +1,5 @@
 import langParser from "accept-language-parser";
+import cookie from "cookie";
 import { NextRequest, NextResponse } from "next/server";
 import {
   ACCEPTED_LANGUAGES_HEADER,
@@ -31,12 +32,13 @@ const getUpdatedHeadersWithLanguageCookie = (
 
   const newHeaders = new Headers(headers);
   const cookieHeader = newHeaders.get("cookie");
-  const newCookie = `${LANGUAGE_COOKIE_NAME}=${language};`;
 
-  const newCookieHeader = cookieHeader
-    ? `${cookieHeader}; ${newCookie}`
-    : newCookie;
+  const cookies = cookie.parse(cookieHeader ?? "");
+  cookies[LANGUAGE_COOKIE_NAME] = language;
 
+  const newCookieHeader = Object.entries(cookies)
+    .map(([key, value]) => cookie.serialize(key, value))
+    .join("; ");
   newHeaders.set("cookie", newCookieHeader);
 
   return newHeaders;
