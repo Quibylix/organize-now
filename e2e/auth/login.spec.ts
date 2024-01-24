@@ -1,3 +1,4 @@
+import en from "@/features/i18n/data/en.json" assert { "type": "json" };
 import test, { expect } from "@playwright/test";
 
 test.use({ storageState: "e2e/.auth/no-user.json" });
@@ -7,7 +8,7 @@ test("should display an error message if the username does not have the required
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Username").fill("a");
+  await page.getByLabel(en.login.form.usernameLabel, { exact: true }).fill("a");
 
   await expect(
     page.getByText("Username must be between 3 and 20 characters"),
@@ -19,7 +20,9 @@ test("should display an error message if the username has characters other than 
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Username").fill("test@");
+  await page
+    .getByLabel(en.login.form.usernameLabel, { exact: true })
+    .fill("test@");
 
   await expect(
     page.getByText(
@@ -33,7 +36,7 @@ test("should display an error message if the password does not have the required
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Password", { exact: true }).fill("a");
+  await page.getByLabel(en.login.form.passwordLabel, { exact: true }).fill("a");
 
   await expect(
     page.getByText("Password must be between 8 and 50 characters"),
@@ -45,7 +48,9 @@ test("should display an error message if the password does not have an uppercase
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Password", { exact: true }).fill("test1234");
+  await page
+    .getByLabel(en.login.form.passwordLabel, { exact: true })
+    .fill("test1234");
 
   await expect(
     page.getByText("Password must contain at least one uppercase letter"),
@@ -57,7 +62,9 @@ test("should display an error message if the password does not have a lowercase 
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Password", { exact: true }).fill("TEST1234");
+  await page
+    .getByLabel(en.login.form.passwordLabel, { exact: true })
+    .fill("TEST1234");
 
   await expect(
     page.getByText("Password must contain at least one lowercase letter"),
@@ -69,7 +76,9 @@ test("should display an error message if the password does not have a number", a
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Password", { exact: true }).fill("TestTest");
+  await page
+    .getByLabel(en.login.form.passwordLabel, { exact: true })
+    .fill("TestTest");
 
   await expect(
     page.getByText("Password must contain at least one number"),
@@ -81,8 +90,12 @@ test("should not display any error messages if the username and password are val
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Username").fill("test");
-  await page.getByLabel("Password", { exact: true }).fill("Test1234");
+  await page
+    .getByLabel(en.login.form.usernameLabel, { exact: true })
+    .fill("test");
+  await page
+    .getByLabel(en.login.form.passwordLabel, { exact: true })
+    .fill("Test1234");
 
   await expect(
     page.getByText("Username must be between 3 and 20 characters"),
@@ -112,10 +125,16 @@ test("Should render a message error if the username or the password are not vali
 }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Username").fill("Username");
-  await page.getByLabel("Password", { exact: true }).fill("Password12345");
+  await page
+    .getByLabel(en.login.form.usernameLabel, { exact: true })
+    .fill("Username");
+  await page
+    .getByLabel(en.login.form.passwordLabel, { exact: true })
+    .fill("Password12345");
 
-  await page.getByRole("button", { name: "Login" }).click();
+  await page
+    .getByRole("button", { name: en.login.form.submitButton, exact: true })
+    .click();
 
   await expect(page.getByText("Invalid username or password")).toBeVisible();
 });
@@ -123,10 +142,16 @@ test("Should render a message error if the username or the password are not vali
 test("should allow the user to login", async ({ page }) => {
   await page.goto("/login");
 
-  await page.getByLabel("Username").fill("Username");
-  await page.getByLabel("Password", { exact: true }).fill("Password1234");
+  await page
+    .getByLabel(en.login.form.usernameLabel, { exact: true })
+    .fill("Username");
+  await page
+    .getByLabel(en.login.form.passwordLabel, { exact: true })
+    .fill("Password1234");
 
-  await page.getByRole("button", { name: "Login" }).click();
+  await page
+    .getByRole("button", { name: en.login.form.submitButton, exact: true })
+    .click();
 
   await expect(page).toHaveURL("/");
 });

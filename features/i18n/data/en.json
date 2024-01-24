@@ -20,6 +20,23 @@
       "loading": "Loading..."
     }
   },
+  "login": {
+    "title": "To-do App | Login",
+    "description": "Login to your account",
+    "heading": "Login",
+    "or": "or",
+    "dontHaveAccount": "Don't have an account?",
+    "register": "Register",
+    "form": {
+      "formTitle": "Login",
+      "usernamePlaceholder": "Enter your username",
+      "usernameLabel": "Username",
+      "passwordPlaceholder": "Enter your password",
+      "passwordLabel": "Password",
+      "submitButton": "Login",
+      "loading": "Loading..."
+    }
+  },
   "onboarding": {
     "skip": "Skip",
     "next": "Next",

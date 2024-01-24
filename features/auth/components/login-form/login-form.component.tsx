@@ -7,7 +7,19 @@ import PasswordInput from "@/features/ui/components/input/password-input.compone
 import { useLoginForm } from "./hooks/use-login-form.hook";
 import styles from "./login-form.module.css";
 
-export default function LoginForm() {
+type LoginFormProps = {
+  dictionary: {
+    formTitle: string;
+    usernameLabel: string;
+    usernamePlaceholder: string;
+    passwordLabel: string;
+    passwordPlaceholder: string;
+    submitButton: string;
+    loading: string;
+  };
+};
+
+export default function LoginForm({ dictionary }: LoginFormProps) {
   const {
     values,
     errors,
@@ -24,7 +36,7 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      aria-label="Login form"
+      aria-label={dictionary.formTitle}
       className={styles.loginForm}
     >
       {submitError && <Alert message={submitError} />}
@@ -33,9 +45,9 @@ export default function LoginForm() {
         value={username}
         onChange={handleChange("username")}
         onBlur={handleBlur("username")}
-        placeholder="Enter your username"
+        placeholder={dictionary.usernamePlaceholder}
         type="text"
-        label="Username"
+        label={dictionary.usernameLabel}
         error={usernameError}
       />
       <PasswordInput
@@ -43,8 +55,8 @@ export default function LoginForm() {
         value={password}
         onChange={handleChange("password")}
         onBlur={handleBlur("password")}
-        placeholder="Enter your password"
-        label="Password"
+        placeholder={dictionary.passwordPlaceholder}
+        label={dictionary.passwordLabel}
         error={passwordError}
       />
       <Button
@@ -53,7 +65,7 @@ export default function LoginForm() {
         width="full"
         disabled={isLoading}
       >
-        {isLoading ? "Loading..." : "Login"}
+        {isLoading ? dictionary.loading : dictionary.submitButton}
       </Button>
     </form>
   );

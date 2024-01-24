@@ -20,6 +20,23 @@
       "loading": "Cargando..."
     }
   },
+  "login": {
+    "title": "To-do App | Inicia sesión",
+    "description": "Inicia sesión en tu cuenta",
+    "heading": "Inicia sesión",
+    "or": "o",
+    "dontHaveAccount": "¿No tienes una cuenta?",
+    "register": "Regístrate",
+    "form": {
+      "formTitle": "Inicia sesión",
+      "usernamePlaceholder": "Introduce tu nombre de usuario",
+      "usernameLabel": "Nombre de usuario",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "passwordLabel": "Contraseña",
+      "submitButton": "Inicia sesión",
+      "loading": "Cargando..."
+    }
+  },
   "onboarding": {
     "skip": "Saltar",
     "next": "Siguiente",
