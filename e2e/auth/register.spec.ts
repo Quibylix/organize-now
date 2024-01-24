@@ -1,4 +1,4 @@
-import en from "@/features/i18n/data/en.json";
+import en from "@/features/i18n/data/en.json" assert { "type": "json" };
 import test, { expect } from "@playwright/test";
 
 test.use({ storageState: "e2e/.auth/no-user.json" });
