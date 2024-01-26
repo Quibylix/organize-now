@@ -1,6 +1,13 @@
 {
   "title": "To-do App | Añade, edita y elimina tareas",
   "description": "Una simple aplicación de tareas construida con Next.js y TypeScript.",
+  "navbar": {
+    "index": "Inicio",
+    "calendar": "Calendario",
+    "newTask": "Nueva tarea",
+    "focus": "Enfócate",
+    "profile": "Perfil"
+  },
   "register": {
     "title": "To-do App | Regístrate",
     "description": "Registra una nueva cuenta",

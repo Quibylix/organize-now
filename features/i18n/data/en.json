@@ -1,6 +1,13 @@
 {
   "title": "To-do App | Add, edit, and delete to-dos",
   "description": "A simple to-do app built with Next.js and TypeScript.",
+  "navbar": {
+    "index": "Index",
+    "calendar": "Calendar",
+    "newTask": "New Task",
+    "focus": "Focus",
+    "profile": "Profile"
+  },
   "register": {
     "title": "To-do App | Register",
     "description": "Register a new account",
