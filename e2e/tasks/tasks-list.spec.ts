@@ -1,3 +1,4 @@
+import en from "@/features/i18n/data/en.json" assert { type: "json" };
 import { MOCKED_TASKS } from "@/features/tasks/components/tasks/__mocks__/tasks.mock";
 import test, { expect } from "@playwright/test";
 
@@ -17,7 +18,7 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await page.goto("/");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
       exact: true,
     });
 
@@ -49,7 +50,7 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await page.goto("/");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
       exact: true,
     });
 
@@ -81,11 +82,11 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await page.goto("/?category=category 1");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
       exact: true,
     });
     const uncompletedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
     });
 
     const items = [
@@ -106,11 +107,11 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await page.goto("/?priority=9");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
       exact: true,
     });
     const uncompletedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
     });
 
     const items = [
@@ -131,11 +132,11 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await page.goto("/?search=Task 1");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
       exact: true,
     });
     const uncompletedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
     });
 
     const items = [
@@ -156,11 +157,11 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await page.goto("/?status=completed");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
       exact: true,
     });
     const uncompletedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
     });
 
     const items = [
@@ -187,11 +188,11 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     await expect(page).toHaveURL("/?search=Task%201");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
       exact: true,
     });
     const uncompletedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
     });
 
     const items = [
@@ -214,16 +215,16 @@ test.describe("Tasks list | Logged in user without tasks", () => {
     await page.goto("/");
 
     const completedTasksList = page.getByRole("list", {
-      name: "Completed tasks",
+      name: en.tasks.completedTasks,
     });
     const uncompletedTasksList = page.getByRole("list", {
-      name: "Uncompleted tasks",
+      name: en.tasks.uncompletedTasks,
     });
 
     await expect(completedTasksList).not.toBeVisible();
     await expect(uncompletedTasksList).not.toBeVisible();
 
-    const message = page.getByText("What do you want to do today?");
+    const message = page.getByText(en.tasks.whatDoYouWantToDo);
 
     await expect(message).toBeVisible();
   });

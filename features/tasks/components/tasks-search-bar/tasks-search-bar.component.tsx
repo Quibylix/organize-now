@@ -6,7 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import { TASKS_SEARCH_BAR_DELAY } from "./constants/search-delay.constant";
 import styles from "./tasks-search-bar.module.css";
 
-export default function TaskSearchBar() {
+type TaskSearchBarProps = {
+  dictionary: {
+    searchBarPlaceholder: string;
+  };
+};
+
+export default function TaskSearchBar({ dictionary }: TaskSearchBarProps) {
   const [query, setQuery] = useState("");
   const timeout = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
@@ -36,7 +42,7 @@ export default function TaskSearchBar() {
     <form className={styles.tasksSearchBar} onSubmit={e => e.preventDefault()}>
       <SearchInput
         name="search"
-        placeholder="Search tasks..."
+        placeholder={dictionary.searchBarPlaceholder}
         value={query}
         onChange={changeHandler}
       />

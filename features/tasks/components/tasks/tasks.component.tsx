@@ -1,3 +1,4 @@
+import { getTranslation } from "@/features/i18n/services/get-translation.service";
 import Alert from "@/features/ui/components/alert/alert.component";
 import EmptyTasks from "./empty-tasks.component";
 import { getTasks } from "./services/getTasks.service";
@@ -11,6 +12,7 @@ type TasksProps = {
 
 export default async function Tasks({ filters }: TasksProps) {
   const response = await getTasks(filters);
+  const dictionary = await getTranslation();
 
   if (!response.success) {
     return <Alert message={response.error} />;
@@ -32,8 +34,13 @@ export default async function Tasks({ filters }: TasksProps) {
     <div>
       {hasUncompletedTasks && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Uncompleted Tasks</h2>
-          <ul className={styles.tasks} aria-label="Uncompleted tasks">
+          <h2 className={styles.sectionTitle}>
+            {dictionary.tasks.uncompletedTasks}
+          </h2>
+          <ul
+            className={styles.tasks}
+            aria-label={dictionary.tasks.uncompletedTasks}
+          >
             {uncompletedTasks.map(({ id, ...taskDetails }) => (
               <li key={id}>
                 <Task {...taskDetails} />
@@ -44,8 +51,13 @@ export default async function Tasks({ filters }: TasksProps) {
       )}
       {hasCompletedTasks && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Completed Tasks</h2>
-          <ul className={styles.tasks} aria-label="Completed tasks">
+          <h2 className={styles.sectionTitle}>
+            {dictionary.tasks.completedTasks}
+          </h2>
+          <ul
+            className={styles.tasks}
+            aria-label={dictionary.tasks.completedTasks}
+          >
             {completedTasks.map(({ id, ...taskDetails }) => (
               <li key={id}>
                 <Task {...taskDetails} />

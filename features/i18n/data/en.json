@@ -54,5 +54,13 @@
       "title": "Organize your tasks",
       "description": "You can organize your daily tasks by adding your tasks into separate categories"
     }
+  },
+  "tasks": {
+    "uncompletedTasks": "Uncompleted Tasks",
+    "completedTasks": "Completed Tasks",
+    "whatDoYouWantToDo": "What do you want to do today?",
+    "tap": "Tap",
+    "toAddYourTasks": "to add your tasks",
+    "searchBarPlaceholder": "Search your tasks..."
   }
 }

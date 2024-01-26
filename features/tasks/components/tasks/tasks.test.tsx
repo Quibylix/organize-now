@@ -1,3 +1,5 @@
+import { LANGUAGE_COOKIE_NAME } from "@/features/i18n/constants/language.constant";
+import en from "@/features/i18n/data/en.json";
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { MOCKED_TASKS } from "./__mocks__/tasks.mock";
@@ -7,6 +9,13 @@ vi.mock("./services/getTasks.service", () => ({
   getTasks: () => ({
     success: true,
     data: MOCKED_TASKS,
+  }),
+}));
+
+vi.mock("next/headers", () => ({
+  ...vi.importActual("next/headers"),
+  cookies: () => ({
+    get: () => ({ name: LANGUAGE_COOKIE_NAME, value: "en" }),
   }),
 }));
 
@@ -22,7 +31,7 @@ describe("Tasks", () => {
     render(await Tasks({}));
 
     const uncompletedTasks = within(
-      screen.getByRole("list", { name: "Uncompleted tasks" }),
+      screen.getByRole("list", { name: en.tasks.uncompletedTasks }),
     ).getAllByRole("listitem");
 
     uncompletedTasks.forEach((task, index) => {
@@ -40,7 +49,7 @@ describe("Tasks", () => {
     render(await Tasks({}));
 
     const completedTasks = within(
-      screen.getByRole("list", { name: "Completed tasks" }),
+      screen.getByRole("list", { name: en.tasks.completedTasks }),
     ).getAllByRole("listitem");
 
     completedTasks.forEach((task, index) => {
@@ -65,7 +74,7 @@ describe("Tasks", () => {
     render(await Tasks({}));
 
     const checkboxes = within(
-      screen.getByRole("list", { name: "Completed tasks" }),
+      screen.getByRole("list", { name: en.tasks.completedTasks }),
     ).getAllByRole("checkbox");
 
     checkboxes.forEach((checkbox, index) => {

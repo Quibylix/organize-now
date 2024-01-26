@@ -54,5 +54,13 @@
       "title": "Organiza tus tareas",
       "description": "Puedes organizar tus tareas diarias añadiéndolas en categorías separadas"
     }
+  },
+  "tasks": {
+    "uncompletedTasks": "Tareas incompletas",
+    "completedTasks": "Tareas completadas",
+    "whatDoYouWantToDo": "¿Qué quieres hacer hoy?",
+    "tap": "Presiona",
+    "toAddYourTasks": "para añadir tus tareas",
+    "searchBarPlaceholder": "Buscar tus tareas..."
   }
 }
