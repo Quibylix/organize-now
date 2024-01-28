@@ -1,0 +1,25 @@
+.circularProgress {
+  --size: 250px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 10px;
+  --radius: calc(var(--half-size) - var(--stroke-width) / 2);
+  --circumference: calc(var(--radius) * 3.141 * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+}
+
+.circularProgress circle {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circularProgress circle.bg {
+  stroke: #ddd;
+}
+
+.circularProgress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.1s linear 0s;
+  stroke: var(--perrywinkle);
+}
