@@ -23,6 +23,9 @@ export type PomodoroTimerProps = {
   };
 };
 
+const clickAudio = new Audio("/audios/click-effect.mp3");
+const alarmAudio = new Audio("/audios/alarm.mp3");
+
 export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
   const getStateTranslation = (state: PomodoroState) => {
     switch (state) {
@@ -55,6 +58,17 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
         ? "success"
         : "danger";
 
+  const onPomodoroStateChange = () => {
+    alarmAudio.play();
+  };
+
+  function clickWithAudio(fn: () => void) {
+    return () => {
+      clickAudio.play();
+      fn();
+    };
+  }
+
   return (
     <section className={styles.pomodoroTimer}>
       <div className={styles.wrapper}>
@@ -65,7 +79,11 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
       </div>
       <div className={styles.buttons}>
         {timerState !== TimerState.RUNNING ? (
-          <Button size="lg" className={styles.mainButton} onClick={startTimer}>
+          <Button
+            size="lg"
+            className={styles.mainButton}
+            onClick={clickWithAudio(() => startTimer(onPomodoroStateChange))}
+          >
             {dictionary.start}
           </Button>
         ) : (
@@ -73,7 +91,7 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
             variant="outline"
             size="lg"
             className={styles.mainButton}
-            onClick={pauseTimer}
+            onClick={clickWithAudio(pauseTimer)}
           >
             {dictionary.pause}
           </Button>

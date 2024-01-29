@@ -44,7 +44,7 @@ export function usePomodoroTimer() {
     return PomodoroState.SHORT_BREAK;
   };
 
-  const startTimer = () => {
+  const startTimer = (onStateChange?: () => void) => {
     if (timerState === TimerState.RUNNING) {
       return;
     }
@@ -97,6 +97,8 @@ export function usePomodoroTimer() {
 
       intervalState.state = newState;
       intervalState.pomodoroCount = newPomodoroCount;
+
+      onStateChange?.();
     };
 
     intervalRef.current = setInterval(handleTimerUpdate, UPDATE_INTERVAL_TIME);
