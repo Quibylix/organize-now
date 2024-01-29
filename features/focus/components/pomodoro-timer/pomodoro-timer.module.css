@@ -39,6 +39,10 @@
   grid-column: 1 / -1;
 }
 
+.mainButton:active {
+  transform: scale(0.95);
+}
+
 .pomodoroState {
   margin-top: 2rem;
   font-size: 1.5rem;
