@@ -69,5 +69,21 @@
     "tap": "Presiona",
     "toAddYourTasks": "para añadir tus tareas",
     "searchBarPlaceholder": "Buscar tus tareas..."
+  },
+  "focus": {
+    "title": "To-do App | Enfócate en tus tareas",
+    "description": "Enfócate en tus tareas con To-do App usando la Técnica Pomodoro. Aumenta tu productividad y calidad de trabajo. Haz más en menos tiempo.",
+    "timer": {
+      "start": "Iniciar",
+      "pause": "Pausar",
+      "reset": "Reiniciar",
+      "resetAll": "Reiniciar todo",
+      "stateLabel": "Estado del Pomodoro",
+      "state": {
+        "focus": "Enfócate",
+        "shortBreak": "Descanso corto",
+        "longBreak": "Descanso largo"
+      }
+    }
   }
 }

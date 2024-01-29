@@ -69,5 +69,21 @@
     "tap": "Tap",
     "toAddYourTasks": "to add your tasks",
     "searchBarPlaceholder": "Search your tasks..."
+  },
+  "focus": {
+    "title": "To-do App | Focus in your tasks",
+    "description": "Focus in your tasks with To-do App using the Pomodoro Technique. Increase your productivity and quality of work. Get more done in less time.",
+    "timer": {
+      "start": "Start",
+      "pause": "Pause",
+      "reset": "Reset",
+      "resetAll": "Reset All",
+      "stateLabel": "Pomodoro State",
+      "state": {
+        "focus": "Focus",
+        "shortBreak": "Short Break",
+        "longBreak": "Long Break"
+      }
+    }
   }
 }
