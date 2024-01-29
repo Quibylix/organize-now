@@ -14,6 +14,7 @@ export type PomodoroTimerProps = {
     pause: string;
     reset: string;
     resetAll: string;
+    stateLabel: string;
     state: {
       focus: string;
       shortBreak: string;
@@ -58,7 +59,9 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
     <section className={styles.pomodoroTimer}>
       <div className={styles.wrapper}>
         <CircularProgressBar progress={barProgress} color={barColor} />
-        <p className={styles.timeLeft}>{formatTime(timeLeft)}</p>
+        <p role="timer" className={styles.timeLeft}>
+          {formatTime(timeLeft)}
+        </p>
       </div>
       <div className={styles.buttons}>
         {timerState !== TimerState.RUNNING ? (
@@ -82,10 +85,16 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
           {dictionary.resetAll}
         </Button>
       </div>
-      <p className={styles.pomodoroState}>
+      <p
+        role="status"
+        aria-label={dictionary.stateLabel}
+        className={styles.pomodoroState}
+      >
         {getStateTranslation(pomodoroState)}
       </p>
-      <p className={styles.pomodoroCount}># {pomodoroCount}</p>
+      <p role="status" className={styles.pomodoroCount}>
+        # {pomodoroCount}
+      </p>
     </section>
   );
 }
