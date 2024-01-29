@@ -20,6 +20,26 @@
   transform: rotate(-90deg);
   transform-origin: var(--half-size) var(--half-size);
   stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
-  transition: stroke-dasharray 0.1s linear 0s;
+  transition: stroke-dasharray 0.2s linear 0s;
   stroke: var(--perrywinkle);
+}
+
+.circularProgressColor__primary circle.fg {
+  stroke: var(--perrywinkle);
+}
+
+.circularProgressColor__secondary circle.fg {
+  stroke: var(--soft-blue);
+}
+
+.circularProgressColor__success circle.fg {
+  stroke: var(--pale-cerulean);
+}
+
+.circularProgressColor__danger circle.fg {
+  stroke: var(--salmon-pink);
+}
+
+.circularProgressColor__warning circle.fg {
+  stroke: var(--wheat);
 }
