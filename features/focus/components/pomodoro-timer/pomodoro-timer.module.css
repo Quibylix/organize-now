@@ -1,0 +1,54 @@
+.pomodoroTimer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 0 0.5rem 0.25rem var(--color-shadow);
+}
+
+.wrapper {
+  position: relative;
+  width: max-content;
+}
+
+.timeLeft {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: max-content max-content;
+  gap: 1rem;
+}
+
+.mainButton {
+  grid-column: 1 / -1;
+}
+
+.pomodoroState {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--perrywinkle);
+}
+
+.pomodoroCount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
