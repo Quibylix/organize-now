@@ -13,10 +13,14 @@ const dictionary = en.focus.timer;
 describe("PomodoroTimer", () => {
   beforeAll(() => {
     vi.useFakeTimers();
+    vi.spyOn(window.HTMLMediaElement.prototype, "play").mockImplementation(
+      async () => {},
+    );
   });
 
   afterAll(() => {
     vi.useRealTimers();
+    vi.clearAllMocks();
   });
 
   it("should render the timer", () => {
