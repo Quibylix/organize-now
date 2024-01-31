@@ -2,6 +2,7 @@ import CalendarIcon from "./calendar.component";
 import ClockIcon from "./clock.component";
 import { EyeOffIcon } from "./eye-off.component";
 import { EyeIcon } from "./eye.component";
+import FlagIcon from "./flag.component";
 import HomeIcon from "./home.component";
 import InfoIcon from "./info.component";
 import PlusIcon from "./plus.component";
@@ -18,7 +19,8 @@ export type IconProps = {
     | "eye"
     | "eye-off"
     | "info"
-    | "search";
+    | "search"
+    | "flag";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -41,5 +43,7 @@ export default function Icon({ name, ...props }: IconProps) {
       return <InfoIcon {...props} />;
     case "search":
       return <SearchIcon {...props} />;
+    case "flag":
+      return <FlagIcon {...props} />;
   }
 }
