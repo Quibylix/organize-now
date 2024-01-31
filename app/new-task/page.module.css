@@ -1,0 +1,10 @@
+.wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 2.1rem;
+  font-size: 2rem;
+  color: var(--silver);
+}

@@ -1,0 +1,58 @@
+.form {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.submitButton {
+  margin-top: 2rem;
+}
+
+.prioritySet {
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  border: 0.07rem solid var(--light-gray);
+  background: var(--almost-black);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.priorityLegend {
+  padding: 0 0.5rem;
+  margin-left: -0.2rem;
+  font-size: 0.9rem;
+}
+
+.priorityInput {
+  display: none;
+}
+
+.priorityButton {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  background: var(--dark-gray);
+  color: var(--white);
+  cursor: pointer;
+  border: 0.07rem solid var(--light-gray);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.priorityButton:hover {
+  background: var(--dusk);
+}
+
+.priorityInput:checked + .priorityButton {
+  background: var(--perrywinkle);
+}
+
+.priorityIcon {
+  font-size: 1.3rem;
+}
