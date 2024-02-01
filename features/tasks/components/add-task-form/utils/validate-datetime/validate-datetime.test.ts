@@ -3,7 +3,7 @@ import { validateDatetime } from "./validate-datetime.util";
 
 describe("validateDatetime", () => {
   it("should return success for valid datetime", () => {
-    const value = "2022-12-31T23:59";
+    const value = `${new Date().getFullYear() + 1}-12-31T23:59`;
     const expectedResponse = {
       success: true,
     };
