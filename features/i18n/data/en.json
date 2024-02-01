@@ -85,5 +85,23 @@
         "longBreak": "Long Break"
       }
     }
+  },
+  "addTask": {
+    "title": "To-do App | Add a new task",
+    "description": "Add a new task to your to-do list",
+    "heading": "Add a new task",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter the name...",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Enter the description...",
+      "datetimeLabel": "Date and Time",
+      "datetimePlaceholder": "Enter the date and time...",
+      "priorityLabel": "Priority",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "Enter the category...",
+      "submitButton": "Add Task",
+      "loading": "Loading..."
+    }
   }
 }

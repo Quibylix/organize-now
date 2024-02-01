@@ -85,5 +85,23 @@
         "longBreak": "Descanso largo"
       }
     }
+  },
+  "addTask": {
+    "title": "To-do App | Añade una nueva tarea",
+    "description": "Añade una nueva tarea a tu lista de tareas",
+    "heading": "Añade una nueva tarea",
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Introduce el nombre...",
+      "descriptionLabel": "Descripción",
+      "descriptionPlaceholder": "Introduce la descripción...",
+      "datetimeLabel": "Fecha y hora",
+      "datetimePlaceholder": "Introduce la fecha y hora...",
+      "priorityLabel": "Prioridad",
+      "categoryLabel": "Categoría",
+      "categoryPlaceholder": "Introduce la categoría...",
+      "submitButton": "Añadir tarea",
+      "loading": "Cargando..."
+    }
   }
 }

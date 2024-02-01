@@ -7,7 +7,23 @@ import styles from "./add-task-form.module.css";
 import { useAddTaskForm } from "./hooks/use-add-task-form.hook";
 import PriorityInputButton from "./priority-input-button.component";
 
-export default function AddTaskForm() {
+type AddTaskFormProps = {
+  dictionary: {
+    nameLabel: string;
+    namePlaceholder: string;
+    descriptionLabel: string;
+    descriptionPlaceholder: string;
+    datetimeLabel: string;
+    datetimePlaceholder: string;
+    priorityLabel: string;
+    categoryLabel: string;
+    categoryPlaceholder: string;
+    submitButton: string;
+    loading: string;
+  };
+};
+
+export default function AddTaskForm({ dictionary }: AddTaskFormProps) {
   const {
     values,
     errors,
@@ -36,8 +52,8 @@ export default function AddTaskForm() {
         onChange={handleChange("name")}
         onBlur={handleBlur("name")}
         type="text"
-        label="Name"
-        placeholder="Name"
+        label={dictionary.nameLabel}
+        placeholder={dictionary.namePlaceholder}
         name="name"
         autoFocus
       />
@@ -47,8 +63,8 @@ export default function AddTaskForm() {
         onChange={handleChange("description")}
         onBlur={handleBlur("description")}
         type="text"
-        label="Description"
-        placeholder="Description"
+        label={dictionary.descriptionLabel}
+        placeholder={dictionary.descriptionPlaceholder}
         name="description"
       />
       <Input
@@ -57,12 +73,14 @@ export default function AddTaskForm() {
         onChange={handleChange("datetime")}
         onBlur={handleBlur("datetime")}
         type="datetime-local"
-        label="Datetime"
-        placeholder="Task Datetime"
+        label={dictionary.datetimeLabel}
+        placeholder={dictionary.datetimePlaceholder}
         name="datetime"
       />
       <fieldset className={styles.prioritySet}>
-        <legend className={styles.priorityLegend}>Priority</legend>
+        <legend className={styles.priorityLegend}>
+          {dictionary.priorityLabel}
+        </legend>
         {Array.from({ length: 10 }).map((_, index) => (
           <PriorityInputButton
             onChange={handleChange("priority")}
@@ -80,8 +98,8 @@ export default function AddTaskForm() {
         onChange={handleChange("category")}
         onBlur={handleBlur("category")}
         type="text"
-        label="Category"
-        placeholder="Category"
+        label={dictionary.categoryLabel}
+        placeholder={dictionary.categoryPlaceholder}
         name="category"
       />
       <Button
@@ -89,7 +107,7 @@ export default function AddTaskForm() {
         disabled={isLoading}
         type="submit"
       >
-        {isLoading ? "Loading..." : "Add Task"}
+        {isLoading ? dictionary.loading : dictionary.submitButton}
       </Button>
     </form>
   );
