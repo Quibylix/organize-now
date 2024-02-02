@@ -1,5 +1,5 @@
 import Icon from "@/features/ui/components/icon/icon.component";
-import { useRef } from "react";
+import { useId, useRef } from "react";
 import styles from "./add-task-form.module.css";
 
 export type PriorityInputButtonProps = Omit<
@@ -14,6 +14,7 @@ export default function PriorityInputButton({
   value,
   ...props
 }: PriorityInputButtonProps) {
+  const id = useId();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -27,12 +28,14 @@ export default function PriorityInputButton({
         ref={inputRef}
         value={value}
         type="radio"
+        aria-labelledby={id}
         {...props}
       />
       <button
         className={styles.priorityButton}
         type="button"
         onClick={handleClick}
+        id={id}
       >
         <span className={styles.priorityIcon}>
           <Icon name="flag" />
