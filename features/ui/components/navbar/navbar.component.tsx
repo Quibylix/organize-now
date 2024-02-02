@@ -13,12 +13,12 @@ export default async function Navbar() {
     <nav className={styles.navbar}>
       <ul className={styles.navbarList}>
         {links.map(({ label, path, icon }) => (
-          <li key={label}>
+          <li className={styles.navbarItem} key={label}>
             <Link className={styles.navbarLink} href={path}>
               <i>
                 <Icon name={icon} className={styles.icon} />
               </i>
-              {label}
+              <span className={styles.linkLabel}>{label}</span>
             </Link>
           </li>
         ))}
