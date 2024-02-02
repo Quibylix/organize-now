@@ -3,6 +3,7 @@
 import Alert from "@/features/ui/components/alert/alert.component";
 import Button from "@/features/ui/components/button/button.component";
 import Input from "@/features/ui/components/input/input.component";
+import { useEffect, useState } from "react";
 import styles from "./add-task-form.module.css";
 import { useAddTaskForm } from "./hooks/use-add-task-form.hook";
 import PriorityInputButton from "./priority-input-button.component";
@@ -33,6 +34,11 @@ export default function AddTaskForm({ dictionary }: AddTaskFormProps) {
     submitError,
     isLoading,
   } = useAddTaskForm();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const { name, description, datetime, priority, category } = values;
   const {
@@ -42,6 +48,11 @@ export default function AddTaskForm({ dictionary }: AddTaskFormProps) {
     priority: priorityError,
     category: categoryError,
   } = errors;
+
+  // Avoid the user can submit the form before the client is ready to handle the form submission
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
