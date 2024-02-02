@@ -55,7 +55,6 @@ export default function AddTaskForm({ dictionary }: AddTaskFormProps) {
         label={dictionary.nameLabel}
         placeholder={dictionary.namePlaceholder}
         name="name"
-        autoFocus
       />
       <Input
         error={descriptionError}
