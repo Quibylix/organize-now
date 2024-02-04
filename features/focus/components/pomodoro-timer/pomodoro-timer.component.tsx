@@ -2,6 +2,7 @@
 
 import Button from "@/features/ui/components/button/button.component";
 import CircularProgressBar from "@/features/ui/components/circular-progress-bar/circular-progress-bar.component";
+import { useEffect, useRef } from "react";
 import { PomodoroState, TimerState } from "./constants/pomodoro-state.constant";
 import { usePomodoroTimer } from "./hooks/use-pomodoro-timer.hook";
 import styles from "./pomodoro-timer.module.css";
@@ -22,9 +23,6 @@ export type PomodoroTimerProps = {
     };
   };
 };
-
-const clickAudio = new Audio("/audios/click-effect.mp3");
-const alarmAudio = new Audio("/audios/alarm.mp3");
 
 export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
   const getStateTranslation = (state: PomodoroState) => {
@@ -49,6 +47,14 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
     resetTimer,
   } = usePomodoroTimer();
 
+  const clickAudioRef = useRef<HTMLAudioElement | null>(null);
+  const alarmAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    clickAudioRef.current = new Audio("/audios/click-effect.mp3");
+    alarmAudioRef.current = new Audio("/audios/alarm.mp3");
+  }, []);
+
   const barProgress = 100 - calculatePomodoroProgress(timeLeft, pomodoroState);
 
   const barColor =
@@ -59,12 +65,12 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
         : "danger";
 
   const onPomodoroStateChange = () => {
-    alarmAudio.play();
+    alarmAudioRef.current?.play();
   };
 
   function clickWithAudio(fn: () => void) {
     return () => {
-      clickAudio.play();
+      clickAudioRef.current?.play();
       fn();
     };
   }
