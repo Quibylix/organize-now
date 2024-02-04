@@ -1,11 +1,8 @@
 import { validatePriority } from "@/features/tasks/utils/validate-priority/validate-priority.util";
-import { useRequest } from "@/hooks/use-request.hook";
-import { ValidationResponse } from "@/types/validation-response.type";
 import { validateNonEmptyString } from "@/utils/validate-non-empty-string/validate-non-empty-string.util";
 import { useRouter } from "next-nprogress-bar";
-import { useEffect, useState } from "react";
-import { addTask } from "../services/add-task.service";
-import { datetimeLocalValueToDate } from "../utils/datetime-local-value-to-date/datetime-local-value-to-date.util";
+import { useState } from "react";
+import { addTask } from "../actions/add-task.action";
 import { validateDatetime } from "../utils/validate-datetime/validate-datetime.util";
 
 export type FieldName =
@@ -36,20 +33,10 @@ export function useAddTaskForm() {
     category: "",
   });
 
-  const {
-    data: submitData,
-    error: submitError,
-    isLoading,
-    handleRequest,
-  } = useRequest<ValidationResponse>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const router = useRouter();
-
-  useEffect(() => {
-    if (submitData?.success) {
-      router.push("/");
-    }
-  }, [submitData, router]);
 
   const handleErrors = (values: Values, fieldName: FieldName) => {
     switch (fieldName) {
@@ -114,7 +101,7 @@ export function useAddTaskForm() {
     };
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const nameError = validateNonEmptyString(values.name, "Name").error ?? "";
@@ -135,23 +122,16 @@ export function useAddTaskForm() {
       return;
     }
 
-    const handleFormError = (err: unknown) => {
-      if (err instanceof Error) {
-        return err.message;
-      }
+    setIsLoading(true);
+    const { success, error } = await addTask(values);
+    setIsLoading(false);
 
-      return "Something went wrong";
-    };
+    if (!success) {
+      setSubmitError(error ?? "Something went wrong");
+      return;
+    }
 
-    handleRequest(
-      addTask({
-        ...values,
-        datetime: datetimeLocalValueToDate(values.datetime),
-      }),
-      {
-        handleError: handleFormError,
-      },
-    );
+    router.push("/");
   };
 
   return {
