@@ -8,6 +8,8 @@ import InfoIcon from "./info.component";
 import PlusIcon from "./plus.component";
 import ProfileIcon from "./profile.component";
 import { SearchIcon } from "./search.component";
+import TagIcon from "./tag.component";
+import TrashIcon from "./trash.component";
 
 export type IconProps = {
   name:
@@ -20,7 +22,9 @@ export type IconProps = {
     | "eye-off"
     | "info"
     | "search"
-    | "flag";
+    | "flag"
+    | "tag"
+    | "trash";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -45,5 +49,9 @@ export default function Icon({ name, ...props }: IconProps) {
       return <SearchIcon {...props} />;
     case "flag":
       return <FlagIcon {...props} />;
+    case "tag":
+      return <TagIcon {...props} />;
+    case "trash":
+      return <TrashIcon {...props} />;
   }
 }
