@@ -18,6 +18,9 @@
 }
 
 .buttonWidth__full {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
   width: 100%;
 }
 
