@@ -73,6 +73,16 @@
   font-weight: normal;
 }
 
+.link {
+  display: block;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 .date {
   font-size: 0.9rem;
   color: var(--light-gray);

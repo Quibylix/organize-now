@@ -41,8 +41,8 @@ export default async function Tasks({ filters }: TasksProps) {
             className={styles.tasks}
             aria-label={dictionary.tasks.uncompletedTasks}
           >
-            {uncompletedTasks.map(({ id, ...taskDetails }) => (
-              <li key={id}>
+            {uncompletedTasks.map(taskDetails => (
+              <li key={taskDetails.id}>
                 <Task {...taskDetails} />
               </li>
             ))}
@@ -58,8 +58,8 @@ export default async function Tasks({ filters }: TasksProps) {
             className={styles.tasks}
             aria-label={dictionary.tasks.completedTasks}
           >
-            {completedTasks.map(({ id, ...taskDetails }) => (
-              <li key={id}>
+            {completedTasks.map(taskDetails => (
+              <li key={taskDetails.id}>
                 <Task {...taskDetails} />
               </li>
             ))}

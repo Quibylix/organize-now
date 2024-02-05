@@ -41,4 +41,32 @@ test.describe("Task details", () => {
       ).not.toHaveAttribute("checked");
     }
   });
+
+  test("should display the task details if the user clicks on the task name in the tasks list", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const task = MOCKED_TASKS[0];
+
+    await page.getByRole("heading", { name: task.name, exact: true }).click();
+
+    await expect(page).toHaveURL("/task/1");
+
+    await expect(page.getByText(task.name)).toBeVisible();
+    await expect(page.getByText(task.description)).toBeVisible();
+    await expect(page.getByText(task.datetime.toLocaleString())).toBeVisible();
+    await expect(page.getByText(task.priority.toString())).toBeVisible();
+    await expect(page.getByText(task.category)).toBeVisible();
+
+    if (task.status === "completed") {
+      await expect(page.getByRole("checkbox", { exact: true })).toHaveAttribute(
+        "checked",
+      );
+    } else {
+      await expect(
+        page.getByRole("checkbox", { exact: true }),
+      ).not.toHaveAttribute("checked");
+    }
+  });
 });
