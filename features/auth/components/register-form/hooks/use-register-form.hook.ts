@@ -1,10 +1,8 @@
 import { validatePassword } from "@/features/auth/utils/validate-password/validate-password.util";
 import { validateUsername } from "@/features/auth/utils/validate-username/validate-username.util";
-import { useRequest } from "@/hooks/use-request.hook";
-import { ValidationResponse } from "@/types/validation-response.type";
 import { useRouter } from "next-nprogress-bar";
-import { useEffect, useState } from "react";
-import { registerUser } from "../services/register-user.service";
+import { useState } from "react";
+import { registerUser } from "../actions/register-user.action";
 
 type FieldName = "username" | "password" | "confirmPassword";
 
@@ -21,25 +19,10 @@ export default function useRegisterForm() {
     confirmPassword: "",
   });
 
-  const {
-    data: submitData,
-    error: submitError,
-    isLoading,
-    handleRequest,
-  } = useRequest<ValidationResponse>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
   const router = useRouter();
-
-  useEffect(() => {
-    if (!submitData) {
-      return;
-    }
-
-    const { success } = submitData;
-
-    if (success) {
-      router.push("/onboarding/1");
-    }
-  }, [submitData, router]);
 
   const handleErrors = (
     values: Record<FieldName, string>,
@@ -82,7 +65,7 @@ export default function useRegisterForm() {
     };
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const usernameError = validateUsername(values.username).error ?? "";
@@ -102,20 +85,15 @@ export default function useRegisterForm() {
       return;
     }
 
-    const handleFormError = (err: unknown) => {
-      if (err instanceof Error) {
-        return err.message;
-      }
+    setIsLoading(true);
+    const { success, error } = await registerUser(values);
+    setIsLoading(false);
 
-      return "Something went wrong";
-    };
+    if (!success) {
+      setSubmitError(error ?? "Something went wrong");
+    }
 
-    handleRequest(
-      registerUser({ username: values.username, password: values.password }),
-      {
-        handleError: handleFormError,
-      },
-    );
+    router.push("/onboarding/1");
   };
 
   const handleBlur = (fieldName: FieldName) => {
