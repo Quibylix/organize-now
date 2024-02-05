@@ -10,6 +10,7 @@ export default function ButtonAsLink({
   width = "auto",
   variant = "solid",
   size = "md",
+  color = "primary",
   className,
   ...props
 }: ButtonAsLinkProps) {
@@ -19,6 +20,7 @@ export default function ButtonAsLink({
     styles[`buttonWidth__${width}`],
     styles[`buttonVariant__${variant}`],
     styles[`buttonSize__${size}`],
+    styles[`buttonColor__${color}`],
     className,
   );
 

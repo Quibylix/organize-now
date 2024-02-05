@@ -16,6 +16,8 @@ body {
   --light-gray: #b3b3b3;
   --perrywinkle: #8687e7;
   --soft-blue: #809cff;
+  --dark-blue: #5d75ca;
+  --apollo-blue: #163968;
   --lavender-blue: #6868cd;
   --twilight: #565697;
   --salmon-pink: #ff8080;
@@ -23,4 +25,13 @@ body {
   --pale-cerulean: #9ee09e;
   --dusk: #4c4c7c;
   --silver: #d9d9d9;
+  --boring-green: #5fad5f;
+  --light-forest-green: #468a46;
+  --pine: #3c5a3c;
+  --dusty-red: #bb4d4d;
+  --light-maroon: #a13737;
+  --purple-brown: #663434;
+  --camel: #e4b165;
+  --dark-tan: #b68a47;
+  --coffee: #816337;
 }

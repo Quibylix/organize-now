@@ -11,6 +11,7 @@ export default function Button({
   disabled,
   variant = "solid",
   size = "md",
+  color = "primary",
   className,
   children,
   ...props
@@ -20,6 +21,7 @@ export default function Button({
     styles[`buttonWidth__${width}`],
     styles[`buttonVariant__${variant}`],
     styles[`buttonSize__${size}`],
+    styles[`buttonColor__${color}`],
     className,
   );
 

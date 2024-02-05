@@ -1,6 +1,4 @@
 .button {
-  background-color: var(--perrywinkle);
-  color: var(--white);
   border: none;
   font-size: 1rem;
   border-radius: 0.3rem;
@@ -28,45 +26,92 @@
   width: fit-content;
 }
 
+.buttonColor__primary {
+  --color-1: var(--perrywinkle);
+  --color-2: var(--lavender-blue);
+  --color-3: var(--white);
+  --color-4: var(--light-gray);
+  --color-5: var(--dusk);
+}
+
+.buttonColor__secondary {
+  --color-1: var(--soft-blue);
+  --color-2: var(--dark-blue);
+  --color-3: var(--white);
+  --color-4: var(--light-gray);
+  --color-5: var(--apollo-blue);
+}
+
+.buttonColor__success {
+  --color-1: var(--boring-green);
+  --color-2: var(--light-forest-green);
+  --color-3: var(--white);
+  --color-4: var(--light-gray);
+  --color-5: var(--pine);
+}
+
+.buttonColor__danger {
+  --color-1: var(--dusty-red);
+  --color-2: var(--light-maroon);
+  --color-3: var(--white);
+  --color-4: var(--light-gray);
+  --color-5: var(--purple-brown);
+}
+
+.buttonColor__warning {
+  --color-1: var(--camel);
+  --color-2: var(--dark-tan);
+  --color-3: var(--white);
+  --color-4: var(--light-gray);
+  --color-5: var(--coffee);
+}
+
 .button:disabled {
-  background-color: var(--dusk);
-  color: var(--light-gray);
+  background-color: var(--color-5);
+  color: var(--color-4);
+  border: 1px solid var(--color-5);
   cursor: not-allowed;
 }
 
+.button:disabled:hover {
+  background-color: var(--color-5);
+  color: var(--color-4);
+  border: 1px solid var(--color-5);
+}
+
 .buttonVariant__solid {
-  background-color: var(--perrywinkle);
-  color: var(--white);
-  border: 1px solid var(--perrywinkle);
+  background-color: var(--color-1);
+  color: var(--color-3);
+  border: 1px solid var(--color-1);
 }
 
 .buttonVariant__solid:hover {
-  background-color: var(--lavender-blue);
-  border: 1px solid var(--lavender-blue);
+  background-color: var(--color-2);
+  border: 1px solid var(--color-2);
 }
 
 .buttonVariant__outline {
   background-color: transparent;
-  color: var(--perrywinkle);
-  border: 1px solid var(--perrywinkle);
+  color: var(--color-1);
+  border: 1px solid var(--color-1);
 }
 
 .buttonVariant__outline:hover {
-  background-color: var(--twilight);
-  color: var(--white);
-  border: 1px solid var(--twilight);
+  background-color: var(--color-2);
+  color: var(--color-3);
+  border: 1px solid var(--color-2);
 }
 
 .buttonVariant__text {
   background-color: transparent;
-  color: var(--perrywinkle);
+  color: var(--color-1);
   border: 1px solid transparent;
 }
 
 .buttonVariant__text:hover {
-  background-color: var(--twilight);
-  color: var(--white);
-  border: 1px solid var(--twilight);
+  background-color: var(--color-2);
+  color: var(--color-3);
+  border: 1px solid var(--color-2);
 }
 
 .buttonSize__xs {
