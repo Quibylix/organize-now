@@ -57,7 +57,7 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
 
   const barProgress = 100 - calculatePomodoroProgress(timeLeft, pomodoroState);
 
-  const barColor =
+  const color =
     pomodoroState === PomodoroState.FOCUS
       ? "primary"
       : pomodoroState === PomodoroState.SHORT_BREAK
@@ -78,7 +78,7 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
   return (
     <section className={styles.pomodoroTimer}>
       <div className={styles.wrapper}>
-        <CircularProgressBar progress={barProgress} color={barColor} />
+        <CircularProgressBar progress={barProgress} color={color} />
         <p role="timer" className={styles.timeLeft}>
           {formatTime(timeLeft)}
         </p>
@@ -89,6 +89,7 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
             size="lg"
             className={styles.mainButton}
             onClick={clickWithAudio(() => startTimer(onPomodoroStateChange))}
+            color={color}
           >
             {dictionary.start}
           </Button>
@@ -98,14 +99,15 @@ export default function PomodoroTimer({ dictionary }: PomodoroTimerProps) {
             size="lg"
             className={styles.mainButton}
             onClick={clickWithAudio(pauseTimer)}
+            color={color}
           >
             {dictionary.pause}
           </Button>
         )}
-        <Button variant="text" onClick={resetCurrentTimer}>
+        <Button variant="text" onClick={resetCurrentTimer} color={color}>
           {dictionary.reset}
         </Button>
-        <Button variant="text" onClick={resetTimer}>
+        <Button variant="text" onClick={resetTimer} color={color}>
           {dictionary.resetAll}
         </Button>
       </div>
