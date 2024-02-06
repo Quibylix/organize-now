@@ -103,5 +103,14 @@
       "submitButton": "Añadir tarea",
       "loading": "Cargando..."
     }
+  },
+  "task": {
+    "taskTime": "Hora",
+    "taskPriority": "Prioridad",
+    "taskCategory": "Categoría",
+    "editTask": "Editar tarea",
+    "deleteTask": "Eliminar tarea",
+    "complete": "Completar",
+    "reopen": "Reabrir"
   }
 }

@@ -103,5 +103,14 @@
       "submitButton": "Add Task",
       "loading": "Loading..."
     }
+  },
+  "task": {
+    "taskTime": "Task time",
+    "taskPriority": "Task priority",
+    "taskCategory": "Task category",
+    "editTask": "Edit task",
+    "deleteTask": "Delete task",
+    "complete": "Complete",
+    "reopen": "Reopen"
   }
 }
