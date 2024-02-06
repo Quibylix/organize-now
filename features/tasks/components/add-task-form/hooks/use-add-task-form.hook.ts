@@ -132,6 +132,7 @@ export function useAddTaskForm() {
     }
 
     router.push("/");
+    router.refresh();
   };
 
   return {
