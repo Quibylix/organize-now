@@ -109,7 +109,15 @@
     "taskPriority": "Task priority",
     "taskCategory": "Task category",
     "editTask": "Edit task",
-    "deleteTask": "Delete task",
+    "delete": {
+      "deleteTask": "Delete task",
+      "deleteTaskTitle": "Delete Task",
+      "areYouSure": "Are you sure you want to delete this task?",
+      "taskName": "Task Name",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "loading": "Loading..."
+    },
     "complete": "Complete",
     "reopen": "Reopen"
   }

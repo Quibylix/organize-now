@@ -25,11 +25,17 @@ test.describe("Task details", () => {
 
     const task = MOCKED_TASKS[0];
 
-    await expect(page.getByText(task.name)).toBeVisible();
-    await expect(page.getByText(task.description)).toBeVisible();
-    await expect(page.getByText(task.datetime.toLocaleString())).toBeVisible();
-    await expect(page.getByText(task.priority.toString())).toBeVisible();
-    await expect(page.getByText(task.category)).toBeVisible();
+    await expect(page.getByText(task.name, { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(task.description, { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByText(task.datetime.toLocaleString(), { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByText(task.priority.toString(), { exact: true }),
+    ).toBeVisible();
+    await expect(page.getByText(task.category, { exact: true })).toBeVisible();
 
     if (task.status === "completed") {
       await expect(page.getByRole("checkbox", { exact: true })).toHaveAttribute(
@@ -53,11 +59,17 @@ test.describe("Task details", () => {
 
     await expect(page).toHaveURL("/task/1");
 
-    await expect(page.getByText(task.name)).toBeVisible();
-    await expect(page.getByText(task.description)).toBeVisible();
-    await expect(page.getByText(task.datetime.toLocaleString())).toBeVisible();
-    await expect(page.getByText(task.priority.toString())).toBeVisible();
-    await expect(page.getByText(task.category)).toBeVisible();
+    await expect(page.getByText(task.name, { exact: true })).toBeVisible();
+    await expect(
+      page.getByText(task.description, { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByText(task.datetime.toLocaleString(), { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByText(task.priority.toString(), { exact: true }),
+    ).toBeVisible();
+    await expect(page.getByText(task.category, { exact: true })).toBeVisible();
 
     if (task.status === "completed") {
       await expect(page.getByRole("checkbox", { exact: true })).toHaveAttribute(

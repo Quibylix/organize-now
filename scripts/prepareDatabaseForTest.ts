@@ -29,6 +29,10 @@ export async function prepareDatabaseForTest() {
     console.error("Failed to insert mocked tasks");
     console.log(err.message);
   });
+  await insertMockedTasks(db, 4).catch(err => {
+    console.error("Failed to insert mocked tasks");
+    console.log(err.message);
+  });
 }
 
 const createDatabases = (db: Client) => {
@@ -67,7 +71,8 @@ const insertMockedUsers = async (db: Client) => {
   INSERT INTO users (username, hashed_password) VALUES
   ('Username', '${hashedPassword}'),
   ('Username2', '${hashedPassword}'),
-  ('Username3', '${hashedPassword}');
+  ('Username3', '${hashedPassword}'),
+  ('Username4', '${hashedPassword}');
   `,
   );
 };

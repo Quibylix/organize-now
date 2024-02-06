@@ -4,6 +4,7 @@ import ButtonAsLink from "@/features/ui/components/button/button-as-link.compone
 import Button from "@/features/ui/components/button/button.component";
 import Icon from "@/features/ui/components/icon/icon.component";
 import { getTaskDetails } from "./actions/get-task-details.action";
+import DeleteTaskButton from "./delete-task-button.component";
 import styles from "./task.module.css";
 
 type TaskProps = {
@@ -59,18 +60,11 @@ export default async function Task({ id }: TaskProps) {
         <span>{dictionary.task.taskPriority}</span>
         <span>{task.priority}</span>
       </p>
-      <Button
-        className={styles.deleteTaskButton}
-        type="button"
-        color="danger"
-        width="full"
-        variant="text"
-      >
-        <span className={styles.trashIcon}>
-          <Icon name="trash" />
-        </span>
-        {dictionary.task.deleteTask}
-      </Button>
+      <DeleteTaskButton
+        dictionary={dictionary.task.delete}
+        taskId={id}
+        taskName={task.name}
+      />
       <ButtonAsLink width="full" href={`/task/edit/${id}`}>
         {dictionary.task.editTask}
       </ButtonAsLink>

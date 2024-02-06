@@ -100,3 +100,42 @@
 .trashIcon {
   font-size: 1.15rem;
 }
+
+.modal {
+  inset: 0;
+  margin: auto;
+  padding: 1rem;
+  background-color: var(--dark-gray);
+  color: var(--white);
+  border: none;
+  outline: none;
+}
+
+.modal::backdrop {
+  backdrop-filter: blur(0.1rem);
+  background: #1d1d1d44;
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: center;
+  color: var(--light-gray);
+}
+
+.modalDivider {
+  margin: 0.5rem 0 1rem;
+  border: 1px solid var(--light-gray);
+}
+
+.modalContent {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.modalButtons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}

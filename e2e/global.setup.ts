@@ -52,5 +52,19 @@ export default async function globalSetup() {
     .context()
     .storageState({ path: "e2e/.auth/user-to-add-tasks.json" });
 
+  // User to delete tasks
+  await page.goto("/login");
+
+  await page.getByLabel("Username").fill("Username4");
+  await page.getByLabel("Password", { exact: true }).fill("Password1234");
+
+  await page.getByRole("button", { name: "Login" }).click();
+
+  await expect(page).toHaveURL("/");
+
+  await page
+    .context()
+    .storageState({ path: "e2e/.auth/user-to-delete-tasks.json" });
+
   await browser.close();
 }

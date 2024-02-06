@@ -109,7 +109,15 @@
     "taskPriority": "Prioridad",
     "taskCategory": "Categoría",
     "editTask": "Editar tarea",
-    "deleteTask": "Eliminar tarea",
+    "delete": {
+      "deleteTask": "Eliminar tarea",
+      "deleteTaskTitle": "Eliminar tarea",
+      "areYouSure": "¿Estás seguro de que quieres eliminar esta tarea?",
+      "taskName": "Nombre de la tarea",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "loading": "Cargando..."
+    },
     "complete": "Completar",
     "reopen": "Reabrir"
   }
