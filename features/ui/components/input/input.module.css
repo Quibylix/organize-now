@@ -22,17 +22,24 @@
   border-color: var(--perrywinkle);
 }
 
-.input {
+.input,
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
   border: none;
   outline: none;
-  background: inherit;
+  background: var(--almost-black);
   color: var(--white);
   font-size: 1rem;
   width: 100%;
+  -webkit-box-shadow: 0 0 0 3rem var(--almost-black) inset;
+  -webkit-text-fill-color: var(--white);
+  caret-color: var(--white);
 }
 
 .input::placeholder {
   color: var(--light-gray);
+  -webkit-text-fill-color: var(--light-gray);
 }
 
 .error {
