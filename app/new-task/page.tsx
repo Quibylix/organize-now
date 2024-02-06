@@ -14,7 +14,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-export default async function NewTask() {
+export default async function NewTaskPage() {
   const dictionary = await getTranslation();
 
   return (

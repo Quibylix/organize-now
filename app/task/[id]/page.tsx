@@ -1,10 +1,14 @@
 import ProtectedRoute from "@/features/auth/components/protected-route/protected-route";
 import PageWithNavbar from "@/features/layout/components/page-with-navbar/page-with-navbar.component";
-import TaskComponent from "@/features/tasks/components/task/task.component";
+import Task from "@/features/tasks/components/task/task.component";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
-export default function Task({ params: { id } }: { params: { id: string } }) {
+export default function TaskPage({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   if (isNaN(Number(id))) {
     notFound();
   }
@@ -13,7 +17,7 @@ export default function Task({ params: { id } }: { params: { id: string } }) {
     <ProtectedRoute>
       <PageWithNavbar>
         <div className={styles.wrapper}>
-          <TaskComponent id={Number(id)} />
+          <Task id={Number(id)} />
         </div>
       </PageWithNavbar>
     </ProtectedRoute>

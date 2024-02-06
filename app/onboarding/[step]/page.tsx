@@ -8,7 +8,7 @@ export const generateStaticParams = async () => {
 
 export const dynamicParams = false;
 
-export default function Onboarding({
+export default function OnboardingPage({
   params: { step },
 }: {
   params: { step: "1" | "2" | "3" };

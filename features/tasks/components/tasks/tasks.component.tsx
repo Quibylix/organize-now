@@ -2,7 +2,7 @@ import { getTranslation } from "@/features/i18n/services/get-translation.service
 import Alert from "@/features/ui/components/alert/alert.component";
 import EmptyTasks from "./empty-tasks.component";
 import { getTasks } from "./services/getTasks.service";
-import Task from "./task.component";
+import TaskPreview from "./task-preview.component";
 import styles from "./tasks.module.css";
 import { TasksFilters } from "./types/tasks-filters.type";
 
@@ -43,7 +43,7 @@ export default async function Tasks({ filters }: TasksProps) {
           >
             {uncompletedTasks.map(taskDetails => (
               <li key={taskDetails.id}>
-                <Task {...taskDetails} />
+                <TaskPreview {...taskDetails} />
               </li>
             ))}
           </ul>
@@ -60,7 +60,7 @@ export default async function Tasks({ filters }: TasksProps) {
           >
             {completedTasks.map(taskDetails => (
               <li key={taskDetails.id}>
-                <Task {...taskDetails} />
+                <TaskPreview {...taskDetails} />
               </li>
             ))}
           </ul>

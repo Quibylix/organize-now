@@ -4,7 +4,7 @@ import { Task as TaskType } from "./types/task.type";
 
 export type TaskProps = TaskType;
 
-export default function Task({
+export default function TaskPreview({
   id,
   name,
   category,

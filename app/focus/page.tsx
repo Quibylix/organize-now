@@ -12,7 +12,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-export default async function Focus() {
+export default async function FocusPage() {
   const dictionary = await getTranslation();
 
   return (

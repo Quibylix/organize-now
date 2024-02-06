@@ -13,7 +13,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-export default async function Register() {
+export default async function RegisterPage() {
   const dictionary = await getTranslation();
 
   return (

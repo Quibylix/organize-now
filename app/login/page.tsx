@@ -13,7 +13,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-export default async function Login() {
+export default async function LoginPage() {
   const dictionary = await getTranslation();
 
   return (

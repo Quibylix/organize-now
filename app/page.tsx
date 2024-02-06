@@ -6,11 +6,11 @@ import Tasks from "@/features/tasks/components/tasks/tasks.component";
 import { searchParamsToTasksFilters } from "@/features/tasks/components/tasks/utils/search-params-to-tasks-filters/search-params-to-tasks-filters.util";
 import styles from "./page.module.css";
 
-export type HomeProps = {
+export type HomePageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export default async function Home({ searchParams }: HomeProps) {
+export default async function HomePage({ searchParams }: HomePageProps) {
   const dictionary = await getTranslation();
 
   const searchBarDictionary = {
