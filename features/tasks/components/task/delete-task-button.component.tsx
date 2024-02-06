@@ -94,7 +94,12 @@ export default function DeleteTaskButton({
           >
             {dictionary.cancel}
           </Button>
-          <Button type="button" color="danger" onClick={handleDelete}>
+          <Button
+            type="button"
+            color="danger"
+            onClick={handleDelete}
+            disabled={isLoading}
+          >
             {isLoading ? dictionary.loading : dictionary.delete}
           </Button>
         </div>
