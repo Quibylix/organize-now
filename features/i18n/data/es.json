@@ -118,7 +118,10 @@
       "delete": "Eliminar",
       "loading": "Cargando..."
     },
-    "complete": "Completar",
-    "reopen": "Reabrir"
+    "toggleStatus": {
+      "complete": "Completar",
+      "reopen": "Reabrir",
+      "loading": "Cargando..."
+    }
   }
 }

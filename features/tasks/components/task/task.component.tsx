@@ -1,11 +1,11 @@
 import { getTranslation } from "@/features/i18n/services/get-translation.service";
 import Alert from "@/features/ui/components/alert/alert.component";
 import ButtonAsLink from "@/features/ui/components/button/button-as-link.component";
-import Button from "@/features/ui/components/button/button.component";
 import Icon from "@/features/ui/components/icon/icon.component";
 import { getTaskDetails } from "./actions/get-task-details.action";
 import DeleteTaskButton from "./delete-task-button.component";
 import styles from "./task.module.css";
+import ToggleStatusButton from "./toggle-status-button.component";
 
 type TaskProps = {
   id: number;
@@ -33,11 +33,11 @@ export default async function Task({ id }: TaskProps) {
         />
         <h1 className={styles.name}>{task.name}</h1>
         <p className={styles.description}>{task.description}</p>
-        <Button type="button" variant="text" size="sm" color="secondary">
-          {task.status === "completed"
-            ? dictionary.task.reopen
-            : dictionary.task.complete}
-        </Button>
+        <ToggleStatusButton
+          taskId={id}
+          taskStatus={task.status}
+          dictionary={dictionary.task.toggleStatus}
+        />
       </header>
       <p className={styles.detail}>
         <span className={styles.detailIcon}>

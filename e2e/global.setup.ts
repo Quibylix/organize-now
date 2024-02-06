@@ -52,7 +52,7 @@ export default async function globalSetup() {
     .context()
     .storageState({ path: "e2e/.auth/user-to-add-tasks.json" });
 
-  // User to delete tasks
+  // User to edit tasks
   await page.goto("/login");
 
   await page.getByLabel("Username").fill("Username4");
@@ -64,7 +64,7 @@ export default async function globalSetup() {
 
   await page
     .context()
-    .storageState({ path: "e2e/.auth/user-to-delete-tasks.json" });
+    .storageState({ path: "e2e/.auth/user-to-edit-tasks.json" });
 
   await browser.close();
 }
