@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.goBackButton {
+  margin-bottom: 1rem;
+}
+
 .title {
   margin-bottom: 1rem;
   font-size: 2rem;

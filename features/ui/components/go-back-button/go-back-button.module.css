@@ -1,0 +1,21 @@
+.goBackButton {
+  display: block;
+  width: max-content;
+  height: max-content;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 0.3rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.goBackButton:hover {
+  color: var(--light-gray);
+}
+
+.goBackButton svg {
+  display: block;
+}

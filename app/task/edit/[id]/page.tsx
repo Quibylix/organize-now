@@ -5,6 +5,7 @@ import { getTaskDetails } from "@/features/tasks/actions/get-task-details.action
 import EditTaskForm from "@/features/tasks/components/edit-task-form/edit-task-form.component";
 import { dateToDatetimeLocalValue } from "@/features/tasks/utils/date-to-datetime-local-value/date-to-datetime-local-value.util";
 import Alert from "@/features/ui/components/alert/alert.component";
+import GoBackButton from "@/features/ui/components/go-back-button/go-back-button.component";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
@@ -33,6 +34,9 @@ export default async function EditTaskPage({
     <ProtectedRoute>
       <PageWithNavbar>
         <div className={styles.wrapper}>
+          <div className={styles.goBackButton}>
+            <GoBackButton href={`/task/${id}`} />
+          </div>
           {!response.success ? (
             <Alert message={response.error} />
           ) : (
