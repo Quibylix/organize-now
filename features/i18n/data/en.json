@@ -123,5 +123,24 @@
       "reopen": "Reopen",
       "loading": "Loading..."
     }
+  },
+  "editTask": {
+    "title": "To-do App | Edit a task",
+    "description": "Edit a task from your to-do list",
+    "heading": "Edit a task",
+    "editingTaskWithName": "Editing task with name",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter the name...",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Enter the description...",
+      "datetimeLabel": "Date and Time",
+      "datetimePlaceholder": "Enter the date and time...",
+      "priorityLabel": "Priority",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "Enter the category...",
+      "submitButton": "Save Changes",
+      "loading": "Loading..."
+    }
   }
 }

@@ -1,0 +1,14 @@
+.wrapper {
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--silver);
+}
+
+.editingTaskWithName {
+  margin-bottom: 1.5rem;
+}

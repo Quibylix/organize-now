@@ -123,5 +123,24 @@
       "reopen": "Reabrir",
       "loading": "Cargando..."
     }
+  },
+  "editTask": {
+    "title": "To-do App | Editar tarea",
+    "description": "Edita una tarea de tu lista de tareas",
+    "heading": "Editar tarea",
+    "editingTaskWithName": "Editando tarea con nombre",
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Introduce el nombre...",
+      "descriptionLabel": "Descripción",
+      "descriptionPlaceholder": "Introduce la descripción...",
+      "datetimeLabel": "Fecha y hora",
+      "datetimePlaceholder": "Introduce la fecha y hora...",
+      "priorityLabel": "Prioridad",
+      "categoryLabel": "Categoría",
+      "categoryPlaceholder": "Introduce la categoría...",
+      "submitButton": "Guardar cambios",
+      "loading": "Cargando..."
+    }
   }
 }
