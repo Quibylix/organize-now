@@ -2,7 +2,7 @@ import { getTranslation } from "@/features/i18n/services/get-translation.service
 import Alert from "@/features/ui/components/alert/alert.component";
 import ButtonAsLink from "@/features/ui/components/button/button-as-link.component";
 import Icon from "@/features/ui/components/icon/icon.component";
-import { getTaskDetails } from "./actions/get-task-details.action";
+import { getTaskDetails } from "../../actions/get-task-details.action";
 import DeleteTaskButton from "./delete-task-button.component";
 import styles from "./task.module.css";
 import ToggleStatusButton from "./toggle-status-button.component";

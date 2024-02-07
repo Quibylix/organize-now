@@ -2,7 +2,7 @@ import db from "@/db/db";
 import type { DataResponse } from "@/types/data-response.type";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
-import type { Task } from "../../tasks/types/task.type";
+import type { Task } from "../components/tasks/types/task.type";
 
 export async function getTaskDetails(
   id: number,
