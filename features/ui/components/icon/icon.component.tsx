@@ -3,6 +3,7 @@ import ClockIcon from "./clock.component";
 import { EyeOffIcon } from "./eye-off.component";
 import { EyeIcon } from "./eye.component";
 import FlagIcon from "./flag.component";
+import GoBackIcon from "./go-back.component";
 import HomeIcon from "./home.component";
 import InfoIcon from "./info.component";
 import PlusIcon from "./plus.component";
@@ -24,7 +25,8 @@ export type IconProps = {
     | "search"
     | "flag"
     | "tag"
-    | "trash";
+    | "trash"
+    | "go-back";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -53,5 +55,7 @@ export default function Icon({ name, ...props }: IconProps) {
       return <TagIcon {...props} />;
     case "trash":
       return <TrashIcon {...props} />;
+    case "go-back":
+      return <GoBackIcon {...props} />;
   }
 }
