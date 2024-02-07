@@ -176,6 +176,42 @@ test.describe("Tasks list | Logged in user with tasks", () => {
     );
   });
 
+  test("should allow the user to filter the tasks by timestamp using the url", async ({
+    page,
+  }) => {
+    const task = MOCKED_TASKS[0];
+
+    const taskYear = task.datetime.getFullYear();
+    const taskMonth = task.datetime.getMonth();
+    const taskDay = task.datetime.getDate();
+
+    const minTimestmap = new Date(taskYear, taskMonth, taskDay).getTime();
+    const maxTimestmap = new Date(taskYear, taskMonth, taskDay + 1).getTime();
+
+    await page.goto(`/?min_ts=${minTimestmap}&max_ts=${maxTimestmap}`);
+
+    const completedTasksList = page.getByRole("list", {
+      name: en.tasks.completedTasks,
+      exact: true,
+    });
+    const uncompletedTasksList = page.getByRole("list", {
+      name: en.tasks.uncompletedTasks,
+    });
+
+    const items = [
+      ...(await completedTasksList.getByRole("listitem").all()),
+      ...(await uncompletedTasksList.getByRole("listitem").all()),
+    ];
+
+    await Promise.all(
+      items.map(async item => {
+        await expect(
+          item.getByText(task.datetime.toLocaleString()),
+        ).toBeVisible();
+      }),
+    );
+  });
+
   test("should allow the user to search for tasks by name using the search bar", async ({
     page,
   }) => {

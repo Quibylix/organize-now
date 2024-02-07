@@ -80,6 +80,61 @@ describe.only("searchParamsToTasksFilters", () => {
     });
   });
 
+  it("should return a filter for timestamp if the params include a min timestamp and max timestamp queries", () => {
+    expect(
+      searchParamsToTasksFilters({
+        minTimestamp: "1707328962997",
+        maxTimestamp: "1707415387905",
+      }),
+    ).toEqual({
+      timestamp: {
+        min: 1707328962997,
+        max: 1707415387905,
+      },
+    });
+  });
+
+  it("should not return a filter for timestamp if the params include a min timestamp query with an empty string", () => {
+    expect(searchParamsToTasksFilters({ minTimestamp: "" })).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params include a min timestamp query with only whitespace", () => {
+    expect(searchParamsToTasksFilters({ minTimestamp: " " })).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params include a min timestamp query with an invalid date", () => {
+    expect(searchParamsToTasksFilters({ minTimestamp: "foo" })).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params include a max timestamp query with an empty string", () => {
+    expect(searchParamsToTasksFilters({ maxTimestamp: "" })).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params include a max timestamp query with only whitespace", () => {
+    expect(searchParamsToTasksFilters({ maxTimestamp: " " })).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params include a max timestamp query with an invalid date", () => {
+    expect(searchParamsToTasksFilters({ maxTimestamp: "foo" })).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params include a min timestamp query with a value greater than the max timestamp query", () => {
+    expect(
+      searchParamsToTasksFilters({
+        minTimestamp: "1707415387905",
+        maxTimestamp: "1707328962997",
+      }),
+    ).toEqual({});
+  });
+
+  it("should not return a filter for timestamp if the params not includes some of the min or max timestamp queries", () => {
+    expect(
+      searchParamsToTasksFilters({
+        minTimestamp: "1707415387905",
+      }),
+    ).toEqual({});
+  });
+
   // several params
   it("should return a filter for search, category, status, and priority if params include all of those queries", () => {
     expect(

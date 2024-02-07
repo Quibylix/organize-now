@@ -41,6 +41,34 @@ export function searchParamsToTasksFilters(searchParams: {
     }
   }
 
+  if (searchParams.min_ts && searchParams.max_ts) {
+    const minTimestamp = Number(
+      Array.isArray(searchParams.min_ts)
+        ? searchParams.min_ts[0]
+        : searchParams.min_ts,
+    );
+
+    const maxTimestamp = Number(
+      Array.isArray(searchParams.max_ts)
+        ? searchParams.max_ts[0]
+        : searchParams.max_ts,
+    );
+
+    const isMinTimestampValid = !isNaN(minTimestamp);
+    const isMaxTimestampValid = !isNaN(maxTimestamp);
+
+    if (
+      isMinTimestampValid &&
+      isMaxTimestampValid &&
+      minTimestamp <= maxTimestamp
+    ) {
+      filters.timestamp = {
+        min: minTimestamp,
+        max: maxTimestamp,
+      };
+    }
+  }
+
   if (searchParams.search) {
     const searchParamsString = Array.isArray(searchParams.search)
       ? searchParams.search[0]

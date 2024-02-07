@@ -59,6 +59,14 @@ export async function getTasks(
     parameters.push(filters.status);
   }
 
+  if (filters?.timestamp) {
+    const { max, min } = filters.timestamp;
+
+    query += `AND datetime >= TO_TIMESTAMP($${parameterIndex++}) AND datetime <= TO_TIMESTAMP($${parameterIndex++}) `;
+    parameters.push(min / 1000);
+    parameters.push(max / 1000);
+  }
+
   if (filters?.search) {
     query += `AND LOWER(name) LIKE LOWER($${parameterIndex++}) `;
     parameters.push(`%${filters.search}%`);
