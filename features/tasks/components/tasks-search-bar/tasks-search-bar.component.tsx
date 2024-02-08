@@ -1,7 +1,7 @@
 "use client";
 
 import SearchInput from "@/features/ui/components/input/search-input.component";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { TASKS_SEARCH_BAR_DELAY } from "./constants/search-delay.constant";
 import styles from "./tasks-search-bar.module.css";
@@ -16,6 +16,9 @@ export default function TaskSearchBar({ dictionary }: TaskSearchBarProps) {
   const [query, setQuery] = useState("");
   const timeout = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
+
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     return () => {
@@ -34,7 +37,13 @@ export default function TaskSearchBar({ dictionary }: TaskSearchBarProps) {
     }
 
     timeout.current = setTimeout(() => {
-      trimmedValue ? router.push("/?search=" + trimmedValue) : router.push("/");
+      const params = new URLSearchParams(searchParams);
+
+      trimmedValue
+        ? params.set("search", trimmedValue)
+        : params.delete("search");
+
+      router.push(`${pathname}?${params.toString()}`);
     }, TASKS_SEARCH_BAR_DELAY);
   };
 
