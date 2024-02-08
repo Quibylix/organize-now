@@ -221,7 +221,7 @@ test.describe("Tasks list | Logged in user with tasks", () => {
 
     await searchInput.fill("Task 1");
 
-    await expect(page).toHaveURL("/?search=Task%201");
+    await expect(page).toHaveURL("/?search=Task+1");
 
     const completedTasksList = page.getByRole("list", {
       name: en.tasks.completedTasks,
