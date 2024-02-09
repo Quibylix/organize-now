@@ -12,7 +12,7 @@ const expectedDaysCount = Math.floor(
 );
 const centerIndex = Math.floor(expectedDaysCount / 2);
 
-describe.only("HorizontalDatePicker", () => {
+describe("HorizontalDatePicker", () => {
   beforeAll(() => {
     // Mock the div clientWidth size
     Object.defineProperty(HTMLElement.prototype, "clientWidth", {
