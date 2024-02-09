@@ -142,5 +142,23 @@
       "submitButton": "Guardar cambios",
       "loading": "Cargando..."
     }
+  },
+  "calendar": {
+    "daysListAriaLabel": "Días",
+    "months": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dic"
+    ],
+    "weekdays": ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
   }
 }

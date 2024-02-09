@@ -1,0 +1,114 @@
+.horizontalDatePicker {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-template-rows: repeat(3, max-content);
+  gap: 0.3rem;
+}
+
+.sliderButton {
+  grid-row: 3 / -1;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  border-radius: 0.3rem;
+  border: none;
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: var(--white);
+}
+
+.sliderButton:hover {
+  color: var(--light-gray);
+}
+
+.yearsContainer,
+.monthsContainer {
+  grid-column: 2 / 3;
+  position: relative;
+}
+
+.yearsContainer {
+  grid-row-start: 1;
+  height: 2.5rem;
+}
+
+.monthsContainer {
+  grid-row-start: 2;
+  height: 1.3rem;
+}
+
+.monthLabel,
+.yearLabel {
+  position: absolute;
+  bottom: 0;
+  color: var(--perrywinkle);
+  left: var(--left);
+}
+
+.yearLabel {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.monthLabel {
+  font-size: 1.1rem;
+}
+
+.daysContainer {
+  min-width: 0;
+  grid-row-start: 3;
+  grid-column: 2 / 3;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-day-width), 1fr));
+  gap: var(--gap);
+  grid-template-rows: max-content;
+  grid-auto-rows: 0;
+  list-style-type: none;
+}
+
+.dayButton {
+  min-height: var(--min-day-width);
+  padding: 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--dark-gray);
+  color: var(--white);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid transparent;
+}
+
+.dayButton:hover {
+  background: var(--dusk);
+}
+
+.selectedDayButton {
+  background: var(--perrywinkle);
+  font-weight: bold;
+}
+
+.selectedDayButton:hover {
+  background: var(--perrywinkle);
+}
+
+.todayDayButton {
+  border: 0.1rem solid var(--perrywinkle);
+}
+
+.weekday {
+  font-size: 0.9rem;
+  color: var(--light-gray);
+}
+
+.weekendDayButton .weekday {
+  color: var(--salmon-pink);
+  font-weight: bold;
+}
+
+.selectedDayButton .weekday {
+  color: var(--white);
+}
