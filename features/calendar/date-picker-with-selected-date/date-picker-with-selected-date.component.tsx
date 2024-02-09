@@ -2,6 +2,7 @@
 
 import DatePicker from "@/features/calendar/horizontal-date-picker/horizontal-date-picker.component";
 import { useEffect, useState } from "react";
+import HorizontalDatePickerSkeleton from "../horizontal-date-picker/horizontal-date-picker-skeleton.component";
 
 export type DatePickerWithSelectedDateProps = {
   timestamp?: {
@@ -31,7 +32,7 @@ export default function DatePickerWithSelectedDate({
   }, [timestamp]);
 
   if (!date) {
-    return null;
+    return <HorizontalDatePickerSkeleton />;
   }
 
   return <DatePicker selectedDate={date} dictionary={dictionary} />;
