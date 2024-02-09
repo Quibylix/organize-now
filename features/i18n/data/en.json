@@ -1,5 +1,5 @@
 {
-  "title": "To-do App | Add, edit, and delete to-dos",
+  "title": "Organize Now | Add, edit, and delete to-dos",
   "description": "A simple to-do app built with Next.js and TypeScript.",
   "navbar": {
     "index": "Index",
@@ -9,7 +9,7 @@
     "profile": "Profile"
   },
   "register": {
-    "title": "To-do App | Register",
+    "title": "Organize Now | Register",
     "description": "Register a new account",
     "heading": "Register",
     "or": "or",
@@ -28,7 +28,7 @@
     }
   },
   "login": {
-    "title": "To-do App | Login",
+    "title": "Organize Now | Login",
     "description": "Login to your account",
     "heading": "Login",
     "or": "or",
@@ -71,8 +71,8 @@
     "searchBarPlaceholder": "Search your tasks..."
   },
   "focus": {
-    "title": "To-do App | Focus in your tasks",
-    "description": "Focus in your tasks with To-do App using the Pomodoro Technique. Increase your productivity and quality of work. Get more done in less time.",
+    "title": "Organize Now | Focus in your tasks",
+    "description": "Focus in your tasks with Organize Now using the Pomodoro Technique. Increase your productivity and quality of work. Get more done in less time.",
     "timer": {
       "start": "Start",
       "pause": "Pause",
@@ -87,7 +87,7 @@
     }
   },
   "addTask": {
-    "title": "To-do App | Add a new task",
+    "title": "Organize Now | Add a new task",
     "description": "Add a new task to your to-do list",
     "heading": "Add a new task",
     "form": {
@@ -125,7 +125,7 @@
     }
   },
   "editTask": {
-    "title": "To-do App | Edit a task",
+    "title": "Organize Now | Edit a task",
     "description": "Edit a task from your to-do list",
     "heading": "Edit a task",
     "editingTaskWithName": "Editing task with name",

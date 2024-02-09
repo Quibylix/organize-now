@@ -1,5 +1,5 @@
 {
-  "title": "To-do App | Añade, edita y elimina tareas",
+  "title": "Organize Now | Añade, edita y elimina tareas",
   "description": "Una simple aplicación de tareas construida con Next.js y TypeScript.",
   "navbar": {
     "index": "Inicio",
@@ -9,7 +9,7 @@
     "profile": "Perfil"
   },
   "register": {
-    "title": "To-do App | Regístrate",
+    "title": "Organize Now | Regístrate",
     "description": "Registra una nueva cuenta",
     "heading": "Regístrate",
     "or": "o",
@@ -28,7 +28,7 @@
     }
   },
   "login": {
-    "title": "To-do App | Inicia sesión",
+    "title": "Organize Now | Inicia sesión",
     "description": "Inicia sesión en tu cuenta",
     "heading": "Inicia sesión",
     "or": "o",
@@ -71,7 +71,7 @@
     "searchBarPlaceholder": "Buscar tus tareas..."
   },
   "focus": {
-    "title": "To-do App | Enfócate en tus tareas",
+    "title": "Organize Now | Enfócate en tus tareas",
     "description": "Enfócate en tus tareas con To-do App usando la Técnica Pomodoro. Aumenta tu productividad y calidad de trabajo. Haz más en menos tiempo.",
     "timer": {
       "start": "Iniciar",
@@ -87,7 +87,7 @@
     }
   },
   "addTask": {
-    "title": "To-do App | Añade una nueva tarea",
+    "title": "Organize Now | Añade una nueva tarea",
     "description": "Añade una nueva tarea a tu lista de tareas",
     "heading": "Añade una nueva tarea",
     "form": {
@@ -125,7 +125,7 @@
     }
   },
   "editTask": {
-    "title": "To-do App | Editar tarea",
+    "title": "Organize Now | Editar tarea",
     "description": "Edita una tarea de tu lista de tareas",
     "heading": "Editar tarea",
     "editingTaskWithName": "Editando tarea con nombre",
