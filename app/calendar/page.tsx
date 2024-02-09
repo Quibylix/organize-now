@@ -1,4 +1,5 @@
 import ProtectedRoute from "@/features/auth/components/protected-route/protected-route";
+import DatePickerWithSelectedDate from "@/features/calendar/date-picker-with-selected-date/date-picker-with-selected-date.component";
 import RedirectToUserTimestamp from "@/features/calendar/redirect-to-user-timestamp/redirect-to-user-timestamp.component";
 import { getTranslation } from "@/features/i18n/services/get-translation.service";
 import PageWithNavbar from "@/features/layout/components/page-with-navbar/page-with-navbar.component";
@@ -30,6 +31,12 @@ export default async function CalendarPage({
     <ProtectedRoute>
       <PageWithNavbar>
         <div className={styles.wrapper}>
+          <div className={styles.datePicker}>
+            <DatePickerWithSelectedDate
+              timestamp={filters.timestamp}
+              dictionary={dictionary.calendar}
+            />
+          </div>
           <TaskSearchBar dictionary={searchBarDictionary} />
           <Tasks filters={filters} />
         </div>
