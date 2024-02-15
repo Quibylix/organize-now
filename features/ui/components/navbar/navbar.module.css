@@ -56,6 +56,11 @@
   height: 3rem;
 }
 
+.navbarItem:nth-child(3) .navbarLink:hover {
+  background: var(--lavender-blue);
+  color: var(--white);
+}
+
 .navbarItem:nth-child(3) .linkLabel {
   display: none;
 }
