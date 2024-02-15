@@ -2,7 +2,7 @@
 
 import { validatePassword } from "@/features/auth/utils/validate-password/validate-password.util";
 import { validateUsername } from "@/features/auth/utils/validate-username/validate-username.util";
-import db from "@/lib/db";
+import { sql } from "@/lib/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
@@ -35,15 +35,12 @@ export async function loginUser(userData: UserData) {
     };
   }
 
-  const QUERY = `
-    SELECT id, hashed_password
-    FROM users
-    WHERE username = $1
-    `;
-
   let result;
   try {
-    result = await db.query(QUERY, [username]);
+    result = await sql`
+    SELECT id, hashed_password
+    FROM users
+    WHERE username = ${username}`;
   } catch (err) {
     console.log(err);
 

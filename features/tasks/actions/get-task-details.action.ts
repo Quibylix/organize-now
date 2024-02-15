@@ -1,4 +1,4 @@
-import db from "@/lib/db";
+import { sql } from "@/lib/db";
 import type { DataResponse } from "@/types/data-response.type";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
@@ -34,15 +34,12 @@ export async function getTaskDetails(
 
   const { id: userId } = decodedToken;
 
-  const QUERY = `
-    SELECT *
-    FROM tasks
-    WHERE id = $1 AND user_id = $2
-    `;
-
   let result;
   try {
-    result = await db.query(QUERY, [id, userId]);
+    result = await sql`
+    SELECT *
+    FROM tasks
+    WHERE id = ${id} AND user_id = ${userId}`;
   } catch (err) {
     console.log(err);
 

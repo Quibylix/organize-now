@@ -3,7 +3,7 @@
 import { datetimeLocalValueToDate } from "@/features/tasks/utils/datetime-local-value-to-date/datetime-local-value-to-date.util";
 import { validateDatetime } from "@/features/tasks/utils/validate-datetime/validate-datetime.util";
 import { validatePriority } from "@/features/tasks/utils/validate-priority/validate-priority.util";
-import db from "@/lib/db";
+import { sql } from "@/lib/db";
 import type { DataResponse } from "@/types/data-response.type";
 import type { ValidationResponse } from "@/types/validation-response.type";
 import { validateNonEmptyString } from "@/utils/validate-non-empty-string/validate-non-empty-string.util";
@@ -89,21 +89,12 @@ export async function addTask(taskInfo: TaskInfo): Promise<ValidationResponse> {
 
   const userId = userIdResponse.data.id;
 
-  const QUERY = `
-    INSERT INTO tasks (user_id, name, description, datetime, priority, category, status)
-    VALUES ($1, $2, $3, $4, $5, $6, $7)
-    `;
-
   try {
-    await db.query(QUERY, [
-      userId,
-      name,
-      description,
-      datetimeLocalValueToDate(datetime),
-      priority,
-      category,
-      "uncompleted",
-    ]);
+    await sql`
+    INSERT INTO tasks (user_id, name, description, datetime, priority, category, status)
+    VALUES (${userId}, ${name}, ${description}, ${datetimeLocalValueToDate(
+      datetime,
+    )}, ${priority}, ${category}, 'uncompleted')`;
   } catch (err) {
     console.log(err);
 

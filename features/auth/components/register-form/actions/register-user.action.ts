@@ -2,7 +2,7 @@
 
 import { validatePassword } from "@/features/auth/utils/validate-password/validate-password.util";
 import { validateUsername } from "@/features/auth/utils/validate-username/validate-username.util";
-import db from "@/lib/db";
+import { sql } from "@/lib/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
@@ -50,15 +50,12 @@ export async function registerUser(userData: UserData) {
     };
   }
 
-  const QUERY = `
-    INSERT INTO users (username, hashed_password)
-    VALUES ($1, $2)
-    RETURNING id
-    `;
-
   let result;
   try {
-    result = await db.query(QUERY, [username, hashedPassword]);
+    result = await sql`
+    INSERT INTO users (username, hashed_password)
+    VALUES (${username}, ${hashedPassword})
+    RETURNING id`;
   } catch (err) {
     if (err instanceof DatabaseError && err.code === DUPLICATE_KEY_ERROR) {
       return {

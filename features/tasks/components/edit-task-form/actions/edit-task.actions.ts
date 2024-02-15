@@ -2,7 +2,7 @@
 
 import { datetimeLocalValueToDate } from "@/features/tasks/utils/datetime-local-value-to-date/datetime-local-value-to-date.util";
 import { validatePriority } from "@/features/tasks/utils/validate-priority/validate-priority.util";
-import db from "@/lib/db";
+import { sql } from "@/lib/db";
 import type { ValidationResponse } from "@/types/validation-response.type";
 import { validateNonEmptyString } from "@/utils/validate-non-empty-string/validate-non-empty-string.util";
 import jwt from "jsonwebtoken";
@@ -96,29 +96,18 @@ export async function editTask(
     return { success: false, error: categoryError };
   }
 
-  const QUERY = `
-    UPDATE tasks
-    SET
-      name = $1,
-      description = $2,
-      datetime = $3,
-      priority = $4,
-      category = $5
-    WHERE id = $6 AND user_id = $7
-    RETURNING id
-    `;
-
   let result;
   try {
-    result = await db.query(QUERY, [
-      name,
-      description,
-      datetimeLocalValueToDate(datetime),
-      priority,
-      category,
-      taskId,
-      userId,
-    ]);
+    result = await sql`
+    UPDATE tasks
+    SET
+      name = ${name},
+      description = ${description},
+      datetime = ${datetimeLocalValueToDate(datetime)},
+      priority = ${priority},
+      category = ${category}
+    WHERE id = ${taskId} AND user_id = ${userId}
+    RETURNING id`;
   } catch (err) {
     console.log(err);
 

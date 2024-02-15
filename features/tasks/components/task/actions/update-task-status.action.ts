@@ -1,6 +1,6 @@
 "use server";
 
-import db from "@/lib/db";
+import { sql } from "@/lib/db";
 import type { ValidationResponse } from "@/types/validation-response.type";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
@@ -50,16 +50,13 @@ export async function updateTaskStatus(
     };
   }
 
-  const QUERY = `
-    UPDATE tasks
-    SET status = $1
-    WHERE id = $2 AND user_id = $3
-    RETURNING id
-    `;
-
   let result;
   try {
-    result = await db.query(QUERY, [newStatus, id, userId]);
+    result = await sql`
+    UPDATE tasks
+    SET status = ${newStatus}
+    WHERE id = ${id} AND user_id = ${userId}
+    RETURNING id`;
   } catch (err) {
     console.log(err);
 

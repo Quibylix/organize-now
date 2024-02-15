@@ -5,3 +5,11 @@ const db = new pg.Pool({
 });
 
 export default db;
+
+export function sql(template: TemplateStringsArray, ...expressions: unknown[]) {
+  const query = template.reduce((acc, curr, i) => {
+    return acc + "$" + i + curr;
+  });
+
+  return db.query(query, expressions);
+}
