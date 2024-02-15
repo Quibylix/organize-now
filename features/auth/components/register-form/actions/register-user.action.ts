@@ -53,8 +53,8 @@ export async function registerUser(userData: UserData) {
   let result;
   try {
     result = await sql`
-    INSERT INTO users (username, hashed_password)
-    VALUES (${username}, ${hashedPassword})
+    INSERT INTO users (username, hashed_password, account_name)
+    VALUES (${username}, ${hashedPassword}, ${username})
     RETURNING id`;
   } catch (err) {
     if (err instanceof DatabaseError && err.code === DUPLICATE_KEY_ERROR) {

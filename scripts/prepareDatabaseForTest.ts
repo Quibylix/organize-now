@@ -67,11 +67,11 @@ const insertMockedUsers = async (db: Client) => {
   const hashedPassword = await bcrypt.hash("Password1234", saltRounds);
 
   return sql`
-  INSERT INTO users (username, hashed_password) VALUES
-  ('Username', '${hashedPassword}'),
-  ('Username2', '${hashedPassword}'),
-  ('Username3', '${hashedPassword}'),
-  ('Username4', '${hashedPassword}');
+  INSERT INTO users (username, hashed_password, account_name) VALUES
+  ('Username', '${hashedPassword}', 'Account Name'),
+  ('Username2', '${hashedPassword}', 'Account Name 2'),
+  ('Username3', '${hashedPassword}', 'Account Name 3'),
+  ('Username4', '${hashedPassword}', 'Account Name 4');
   `;
 };
 

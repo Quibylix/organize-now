@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS users (
   id bigserial NOT NULL PRIMARY KEY,
   username varchar(100) NOT NULL UNIQUE,
   hashed_password varchar(100) NOT NULL,
-  account_name varchar(100),
+  account_name varchar(100) NOT NULL,
   profile_image_url varchar(100)
 );
 
