@@ -1,14 +1,21 @@
+import BusinessIcon from "./business.component";
 import CalendarIcon from "./calendar.component";
 import ClockIcon from "./clock.component";
 import { EyeOffIcon } from "./eye-off.component";
 import { EyeIcon } from "./eye.component";
+import FeedbackIcon from "./feedback.component";
 import FlagIcon from "./flag.component";
 import GoBackIcon from "./go-back.component";
 import HomeIcon from "./home.component";
+import ImageIcon from "./image.component";
 import InfoIcon from "./info.component";
+import KeyIcon from "./key.component";
+import LikeIcon from "./like.component";
+import LogoutIcon from "./logout.component";
 import PlusIcon from "./plus.component";
 import ProfileIcon from "./profile.component";
 import { SearchIcon } from "./search.component";
+import SettingsIcon from "./settings.component";
 import TagIcon from "./tag.component";
 import TrashIcon from "./trash.component";
 
@@ -26,7 +33,14 @@ export type IconProps = {
     | "flag"
     | "tag"
     | "trash"
-    | "go-back";
+    | "go-back"
+    | "business"
+    | "feedback"
+    | "image"
+    | "key"
+    | "like"
+    | "settings"
+    | "logout";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -57,5 +71,19 @@ export default function Icon({ name, ...props }: IconProps) {
       return <TrashIcon {...props} />;
     case "go-back":
       return <GoBackIcon {...props} />;
+    case "business":
+      return <BusinessIcon {...props} />;
+    case "feedback":
+      return <FeedbackIcon {...props} />;
+    case "image":
+      return <ImageIcon {...props} />;
+    case "key":
+      return <KeyIcon {...props} />;
+    case "like":
+      return <LikeIcon {...props} />;
+    case "settings":
+      return <SettingsIcon {...props} />;
+    case "logout":
+      return <LogoutIcon {...props} />;
   }
 }
