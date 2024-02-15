@@ -1,6 +1,5 @@
 import { MOCKED_TASKS } from "@/features/tasks/components/tasks/__mocks__/tasks.mock";
 import { Task } from "@/features/tasks/components/tasks/types/task.type";
-import { sql } from "@/lib/db";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import pg, { Client } from "pg";
@@ -37,7 +36,7 @@ export async function prepareDatabaseForTest() {
 }
 
 const createDatabases = (db: Client) => {
-  return sql`
+  return db.query(`
   DROP TABLE IF EXISTS tasks;
   DROP TABLE IF EXISTS users;
 
@@ -59,20 +58,20 @@ const createDatabases = (db: Client) => {
     status varchar(20) NOT NULL,
     user_id bigint NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-  );`;
+  );`);
 };
 
 const insertMockedUsers = async (db: Client) => {
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash("Password1234", saltRounds);
 
-  return sql`
+  return db.query(`
   INSERT INTO users (username, hashed_password, account_name) VALUES
   ('Username', '${hashedPassword}', 'Account Name'),
   ('Username2', '${hashedPassword}', 'Account Name 2'),
   ('Username3', '${hashedPassword}', 'Account Name 3'),
   ('Username4', '${hashedPassword}', 'Account Name 4');
-  `;
+  `);
 };
 
 const insertMockedTasks = (db: Client, userId: number) => {
