@@ -1,4 +1,3 @@
-import ProtectedRoute from "@/features/auth/components/protected-route/protected-route";
 import OnboardingStep from "@/features/onboarding/components/onboarding-step/onboarding-step.component";
 import styles from "./page.module.css";
 
@@ -14,10 +13,8 @@ export default function OnboardingPage({
   params: { step: "1" | "2" | "3" };
 }) {
   return (
-    <ProtectedRoute>
-      <main className={styles.page}>
-        <OnboardingStep step={+step as 1 | 2 | 3} />
-      </main>
-    </ProtectedRoute>
+    <main className={styles.page}>
+      <OnboardingStep step={+step as 1 | 2 | 3} />
+    </main>
   );
 }
