@@ -1,8 +1,8 @@
 "use server";
 
-import db from "@/db/db";
 import { validatePassword } from "@/features/auth/utils/validate-password/validate-password.util";
 import { validateUsername } from "@/features/auth/utils/validate-username/validate-username.util";
+import db from "@/lib/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";

@@ -1,9 +1,9 @@
 "use server";
 
-import db from "@/db/db";
 import { datetimeLocalValueToDate } from "@/features/tasks/utils/datetime-local-value-to-date/datetime-local-value-to-date.util";
 import { validateDatetime } from "@/features/tasks/utils/validate-datetime/validate-datetime.util";
 import { validatePriority } from "@/features/tasks/utils/validate-priority/validate-priority.util";
+import db from "@/lib/db";
 import type { DataResponse } from "@/types/data-response.type";
 import type { ValidationResponse } from "@/types/validation-response.type";
 import { validateNonEmptyString } from "@/utils/validate-non-empty-string/validate-non-empty-string.util";

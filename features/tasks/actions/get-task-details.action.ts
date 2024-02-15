@@ -1,4 +1,4 @@
-import db from "@/db/db";
+import db from "@/lib/db";
 import type { DataResponse } from "@/types/data-response.type";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
