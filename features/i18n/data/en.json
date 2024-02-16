@@ -183,5 +183,28 @@
       "supportUs": "Support Us"
     },
     "logout": "Logout"
+  },
+  "about": {
+    "title": "Organize Now | About Us",
+    "description": "About Organize Now",
+    "heading": "About Us",
+    "lead": "Welcome to Organize Now, where simplicity meets productivity. Organize Now is not just an app; it is a reflection of our dedication to creating digital solutions that simplify your daily tasks.",
+    "meetDeveloper": "Meet the developer",
+    "developer": "Fredi Barraza - Developer and founder",
+    "developerDescription": [
+      "As a web developer, I have always been fascinated by the potential of technology to transform our lives. My journey began with a passion for coding and a desire to create digital solutions that simplify everyday tasks.",
+      "Driven by a passion for coding and a commitment to user-centered design, I embarked on the journey to create Organize Now. From conceptualization to execution, every line of code represents my dedication to improving your organizational experience."
+    ],
+    "mission": "Our mission",
+    "missionDescription": [
+      "At Organize Now, our mission is to empower you to take control of your daily tasks. We believe that simplicity is the key to productivity, and our app is designed to simplify your organizational experience.",
+      "Our commitment to user-centered design and seamless functionality is reflected in every feature of Organize Now. Whether you are managing your daily tasks or creating a personalized routine, our app is designed to enhance your productivity."
+    ],
+    "vision": "Our vision",
+    "visionDescription": [
+      "Our vision is to create a digital solution that simplifies your daily tasks and enhances your productivity. We believe that technology has the power to transform your organizational experience, and our app is designed to reflect this vision.",
+      "From the simplicity of our user interface to the functionality of our features, every aspect of Organize Now is designed to provide you with the best experience in your daily life."
+    ],
+    "end": "Thank you for choosing Organize Now. We are committed to improving your organizational experience and helping you with your tasks. If you have any questions or comments, please feel free to get in touch. We are here to help you make the most of Organize Now."
   }
 }

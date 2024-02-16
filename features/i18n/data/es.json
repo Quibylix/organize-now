@@ -183,5 +183,28 @@
       "supportUs": "Apóyanos"
     },
     "logout": "Cerrar sesión"
+  },
+  "about": {
+    "title": "Organize Now | Sobre nosotros",
+    "description": "Sobre Organize Now",
+    "heading": "Sobre nosotros",
+    "lead": "Bienvenido a Organize Now, donde la simplicidad se encuentra con la productividad. Organize Now no es solo una aplicación; es un reflejo de nuestra dedicación a crear soluciones digitales que simplifican tus tareas diarias.",
+    "meetDeveloper": "Conoce al desarrollador",
+    "developer": "Fredi Barraza - Desarrollador y fundador",
+    "developerDescription": [
+      "Como desarrollador web, siempre me ha fascinado el potencial de la tecnología para transformar nuestras vidas. Mi viaje comenzó con una pasión por la codificación y el deseo de crear soluciones digitales que simplifican las tareas cotidianas.",
+      "Impulsado por una pasión por la codificación y un compromiso con el diseño centrado en el usuario, me embarqué en el viaje para crear Organize Now. Desde la conceptualización hasta la ejecución, cada línea de código representa mi dedicación para mejorar tu experiencia organizativa."
+    ],
+    "mission": "Nuestra misión",
+    "missionDescription": [
+      "En Organize Now, nuestra misión es empoderarte para tomar el control de tus tareas diarias. Creemos que la simplicidad es la clave de la productividad, y nuestra aplicación está diseñada para simplificar tu experiencia organizativa.",
+      "Nuestro compromiso con el diseño centrado en el usuario y la funcionalidad perfecta se refleja en cada función de Organize Now. Ya sea que estés gestionando tus tareas diarias o creando una rutina personalizada, nuestra aplicación está diseñada para mejorar tu productividad."
+    ],
+    "vision": "Nuestra visión",
+    "visionDescription": [
+      "Nuestra visión es crear una solución digital que simplifique tus tareas diarias y mejore tu productividad. Creemos que la tecnología tiene el poder de transformar tu experiencia organizativa, y nuestra aplicación está diseñada para reflejar esta visión.",
+      "Desde la simplicidad de nuestra interfaz de usuario hasta la funcionalidad de nuestras características, cada aspecto de Organize Now está diseñado para que tengas la mejor experiencia en tu día a día."
+    ],
+    "end": "Gracias por elegir Organize Now. Estamos comprometidos a mejorar tu experiencia organizativa y ayudarte con tus tareas. Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto. Estamos aquí para ayudarte a aprovechar al máximo Organize Now."
   }
 }
