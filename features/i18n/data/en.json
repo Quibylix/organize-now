@@ -160,5 +160,28 @@
       "Dec"
     ],
     "weekdays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  },
+  "profile": {
+    "title": "Organize Now | Profile",
+    "description": "Your profile",
+    "heading": "Profile",
+    "profileImageAlt": "Profile image",
+    "tasksLeft": "Tasks left",
+    "tasksDone": "Tasks done",
+    "links": {
+      "settings": "Settings",
+      "appSettings": "App Settings",
+      "account": "Account",
+      "changeAccountName": "Change Account Name",
+      "changePassword": "Change Password",
+      "changeAccountImage": "Change Account Image",
+      "appName": "Organize Now",
+      "aboutUs": "About Us",
+      "faq": "FAQ",
+      "contactUs": "Contact Us",
+      "helpAndFeedback": "Help & Feedback",
+      "supportUs": "Support Us"
+    },
+    "logout": "Logout"
   }
 }

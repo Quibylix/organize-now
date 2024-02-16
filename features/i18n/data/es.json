@@ -160,5 +160,28 @@
       "Dic"
     ],
     "weekdays": ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+  },
+  "profile": {
+    "title": "Organize Now | Perfil",
+    "description": "Perfil de usuario",
+    "heading": "Perfil",
+    "profileImageAlt": "Imagen de perfil",
+    "tasksLeft": "Tareas restantes",
+    "tasksDone": "Tareas completadas",
+    "links": {
+      "settings": "Ajustes",
+      "appSettings": "Ajustes de la aplicación",
+      "account": "Cuenta",
+      "changeAccountName": "Cambiar nombre de la cuenta",
+      "changePassword": "Cambiar contraseña",
+      "changeAccountImage": "Cambiar imagen de la cuenta",
+      "appName": "Organize Now",
+      "aboutUs": "Sobre nosotros",
+      "faq": "Preguntas frecuentes",
+      "contactUs": "Contáctanos",
+      "helpAndFeedback": "Ayuda y comentarios",
+      "supportUs": "Apóyanos"
+    },
+    "logout": "Cerrar sesión"
   }
 }

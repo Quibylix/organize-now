@@ -1,0 +1,38 @@
+.header {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--silver);
+}
+
+.image {
+  width: 5rem;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.tasksInfo {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tasksInfo > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--dark-gray);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  border-radius: 0.3rem;
+}
