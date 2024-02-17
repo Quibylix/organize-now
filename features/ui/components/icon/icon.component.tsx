@@ -1,3 +1,4 @@
+import ArrowUpIcon from "./arrow-up.component";
 import BusinessIcon from "./business.component";
 import CalendarIcon from "./calendar.component";
 import ClockIcon from "./clock.component";
@@ -40,7 +41,8 @@ export type IconProps = {
     | "key"
     | "like"
     | "settings"
-    | "logout";
+    | "logout"
+    | "arrow-up";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -85,5 +87,7 @@ export default function Icon({ name, ...props }: IconProps) {
       return <SettingsIcon {...props} />;
     case "logout":
       return <LogoutIcon {...props} />;
+    case "arrow-up":
+      return <ArrowUpIcon {...props} />;
   }
 }
