@@ -206,5 +206,53 @@
       "Desde la simplicidad de nuestra interfaz de usuario hasta la funcionalidad de nuestras características, cada aspecto de Organize Now está diseñado para que tengas la mejor experiencia en tu día a día."
     ],
     "end": "Gracias por elegir Organize Now. Estamos comprometidos a mejorar tu experiencia organizativa y ayudarte con tus tareas. Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto. Estamos aquí para ayudarte a aprovechar al máximo Organize Now."
+  },
+  "faq": {
+    "title": "Organize Now | FAQ",
+    "description": "Preguntas frecuentes de Organize Now",
+    "heading": "Preguntas frecuentes",
+    "lead": "Aquí tienes algunas preguntas frecuentes sobre Organize Now. Si tienes una pregunta que no se responde aquí, no dudes en ponerte en contacto con nosotros.",
+    "questions": [
+      {
+        "question": "¿Qué es Organize Now?",
+        "answer": "Organize Now es una aplicación de gestión de tareas. Te ayuda a organizar tus tareas y a hacer las cosas."
+      },
+      {
+        "question": "¿Cómo uso Organize Now?",
+        "answer": "Puedes usar Organize Now registrándote para obtener una cuenta. Una vez que tengas una cuenta, puedes crear tareas y organizarlas en categorías."
+      },
+      {
+        "question": "¿Es Organize Now gratis?",
+        "answer": "Sí, Organize Now es gratis. Puedes registrarte para obtener una cuenta y empezar a usarla de inmediato."
+      },
+      {
+        "question": "¿Cuáles son los beneficios de usar Organize Now?",
+        "answer": "Organize Now te ayuda a mantenerte organizado y a hacer las cosas. Es una aplicación de gestión de tareas simple y fácil de usar."
+      },
+      {
+        "question": "¿Cómo puedo obtener ayuda con Organize Now?",
+        "answer": "Si necesitas ayuda con Organize Now, puedes ponerte en contacto con nuestro equipo de soporte. Estamos aquí para ayudarte con cualquier pregunta o problema que puedas tener."
+      },
+      {
+        "question": "Si tengo una solicitud de función, ¿cómo puedo enviarla?",
+        "answer": "Si tienes una solicitud de función, puedes enviarla a través de nuestro formulario de comentarios. Siempre estamos buscando formas de mejorar Organize Now, y agradecemos tus comentarios."
+      },
+      {
+        "question": "¿Cómo puedo informar de un error?",
+        "answer": "Si encuentras un error mientras usas Organize Now, puedes informarlo a través de nuestro formulario de comentarios. Investigaremos el problema y trabajaremos para solucionarlo lo antes posible."
+      },
+      {
+        "question": "¿Cómo puedo eliminar mi cuenta?",
+        "answer": "Si quieres eliminar tu cuenta de Organize Now, puedes hacerlo a través de la configuración de tu cuenta. Ten en cuenta que esta acción es irreversible y eliminará permanentemente todos tus datos."
+      },
+      {
+        "question": "¿Cómo protege Organize Now mis datos?",
+        "answer": "Organize Now se toma en serio la seguridad y privacidad de tus datos. Utilizamos medidas de seguridad estándar de la industria para proteger tus datos y mantenerlos seguros."
+      },
+      {
+        "question": "¿Cómo genera ingresos Organize Now?",
+        "answer": "En el momento de la redacción, Organize Now no genera ingresos. Es una aplicación gratuita. Es posible que introduzcamos funciones premium en el futuro."
+      }
+    ]
   }
 }

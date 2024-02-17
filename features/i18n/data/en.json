@@ -206,5 +206,53 @@
       "From the simplicity of our user interface to the functionality of our features, every aspect of Organize Now is designed to provide you with the best experience in your daily life."
     ],
     "end": "Thank you for choosing Organize Now. We are committed to improving your organizational experience and helping you with your tasks. If you have any questions or comments, please feel free to get in touch. We are here to help you make the most of Organize Now."
+  },
+  "faq": {
+    "title": "Organize Now | FAQ",
+    "description": "Organize Now frequently asked questions",
+    "heading": "Frequently asked questions",
+    "lead": "Here are some frequently asked questions about Organize Now. If you have a question that isn't answered here, please feel free to contact us.",
+    "questions": [
+      {
+        "question": "What is Organize Now?",
+        "answer": "Organize Now is a task management application. It helps you organize your tasks and get things done."
+      },
+      {
+        "question": "How do I use Organize Now?",
+        "answer": "You can use Organize Now by signing up for an account. Once you have an account, you can create tasks and organize them into categories."
+      },
+      {
+        "question": "Is Organize Now free?",
+        "answer": "Yes, Organize Now is free to use. You can sign up for an account and start using it right away."
+      },
+      {
+        "question": "What are the benefits of using Organize Now?",
+        "answer": "Organize Now helps you stay organized and get things done. It's a simple and easy-to-use task management application."
+      },
+      {
+        "question": "How do I get help with Organize Now?",
+        "answer": "If you need help with Organize Now, you can contact our support team. We're here to help you with any questions or issues you may have."
+      },
+      {
+        "question": "If I have a feature request, how can I submit it?",
+        "answer": "If you have a feature request, you can submit it through our feedback form. We're always looking for ways to improve Organize Now, and we appreciate your feedback."
+      },
+      {
+        "question": "How can I report a bug?",
+        "answer": "If you encounter a bug while using Organize Now, you can report it through our feedback form. We'll investigate the issue and work to fix it as soon as possible."
+      },
+      {
+        "question": "How can I delete my account?",
+        "answer": "If you want to delete your Organize Now account, you can do so through your account settings. Please note that this action is irreversible and will permanently delete all of your data."
+      },
+      {
+        "question": "How does Organize Now protect my data?",
+        "answer": "Organize Now takes the security and privacy of your data seriously. We use industry-standard security measures to protect your data and keep it safe."
+      },
+      {
+        "question": "How does Organize Now generate revenue?",
+        "answer": "By the time of writing, Organize Now does not generate revenue. It is a free-to-use application. We may introduce premium features in the future."
+      }
+    ]
   }
 }
