@@ -11,6 +11,7 @@ import HomeIcon from "./home.component";
 import ImageIcon from "./image.component";
 import InfoIcon from "./info.component";
 import KeyIcon from "./key.component";
+import LanguageIcon from "./language.component";
 import LikeIcon from "./like.component";
 import LogoutIcon from "./logout.component";
 import PlusIcon from "./plus.component";
@@ -42,7 +43,8 @@ export type IconProps = {
     | "like"
     | "settings"
     | "logout"
-    | "arrow-up";
+    | "arrow-up"
+    | "language";
 } & React.SVGProps<SVGSVGElement>;
 
 export default function Icon({ name, ...props }: IconProps) {
@@ -89,5 +91,7 @@ export default function Icon({ name, ...props }: IconProps) {
       return <LogoutIcon {...props} />;
     case "arrow-up":
       return <ArrowUpIcon {...props} />;
+    case "language":
+      return <LanguageIcon {...props} />;
   }
 }
