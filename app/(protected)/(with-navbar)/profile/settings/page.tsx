@@ -14,17 +14,19 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AppSettingsPage() {
+  const dictionary = await getTranslation();
+
   return (
     <div className={styles.wrapper}>
       <UserData />
       <SectionedLinkList
         sections={[
           {
-            title: "Settings",
+            title: dictionary.profile.links.settings,
             links: [
               {
                 href: "/profile/change-language",
-                title: "Change app language",
+                title: dictionary.profile.links.changeLanguage,
                 icon: "language",
               },
             ],

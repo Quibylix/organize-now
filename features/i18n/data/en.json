@@ -171,6 +171,7 @@
     "links": {
       "settings": "Settings",
       "appSettings": "App Settings",
+      "changeLanguage": "Change Language",
       "account": "Account",
       "changeAccountName": "Change Account Name",
       "changePassword": "Change Password",
@@ -254,5 +255,11 @@
         "answer": "By the time of writing, Organize Now does not generate revenue. It is a free-to-use application. We may introduce premium features in the future."
       }
     ]
+  },
+  "appSettings": {
+    "title": "Organize Now | App Settings",
+    "description": "Organize Now app settings",
+    "heading": "App Settings",
+    "links": {}
   }
 }

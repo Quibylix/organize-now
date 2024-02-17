@@ -171,6 +171,7 @@
     "links": {
       "settings": "Ajustes",
       "appSettings": "Ajustes de la aplicación",
+      "changeLanguage": "Cambiar idioma",
       "account": "Cuenta",
       "changeAccountName": "Cambiar nombre de la cuenta",
       "changePassword": "Cambiar contraseña",
