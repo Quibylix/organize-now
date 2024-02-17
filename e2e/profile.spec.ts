@@ -2,7 +2,7 @@ import en from "@/features/i18n/data/en.json" assert { type: "json" };
 import { MOCKED_TASKS } from "@/features/tasks/components/tasks/__mocks__/tasks.mock";
 import test, { expect } from "@playwright/test";
 
-test.describe.only("Profile", () => {
+test.describe("Profile", () => {
   test("should display the user account name, profile image, tasks left and tasks completed", async ({
     page,
   }) => {
