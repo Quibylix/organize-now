@@ -261,5 +261,8 @@
     "description": "Organize Now app settings",
     "heading": "App Settings",
     "links": {}
+  },
+  "changeLanguage": {
+    "selectLanguage": "Select your language"
   }
 }

@@ -255,5 +255,8 @@
         "answer": "En el momento de la redacción, Organize Now no genera ingresos. Es una aplicación gratuita. Es posible que introduzcamos funciones premium en el futuro."
       }
     ]
+  },
+  "changeLanguage": {
+    "selectLanguage": "Selecciona tu idioma"
   }
 }
