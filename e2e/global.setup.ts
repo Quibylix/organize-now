@@ -1,5 +1,5 @@
-import { prepareDatabaseForTest } from "@/scripts/prepareDatabaseForTest";
 import { chromium, expect } from "@playwright/test";
+import { prepareDatabaseForTest } from "scripts/prepareDatabaseForTest";
 
 export default async function globalSetup() {
   await prepareDatabaseForTest();

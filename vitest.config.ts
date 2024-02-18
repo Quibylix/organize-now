@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react";
+import path from "path";
 import { configDefaults, defineConfig } from "vitest/config";
 
 export default defineConfig({
@@ -10,7 +11,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": __dirname,
+      "@": path.join(__dirname, "src"),
     },
   },
 });
