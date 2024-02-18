@@ -91,6 +91,7 @@ export default function useRegisterForm() {
 
     if (!success) {
       setSubmitError(error ?? "Something went wrong");
+      return;
     }
 
     router.push("/onboarding/1");
