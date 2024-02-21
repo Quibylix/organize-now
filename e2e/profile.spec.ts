@@ -37,3 +37,69 @@ test.describe("Profile", () => {
     ).toBeVisible();
   });
 });
+
+test.describe("Change account name", () => {
+  test.use({ storageState: "e2e/.auth/user-to-edit-tasks.json" });
+
+  test("should display the current account name and a form to change it", async ({
+    page,
+  }) => {
+    await page.goto("/profile/change-account-name");
+
+    const inputField = page.getByLabel(en.changeAccountName.accountNameLabel, {
+      exact: true,
+    });
+
+    await expect(inputField).toBeVisible();
+    expect(await inputField.inputValue()).toBe("Account Name 4");
+  });
+
+  test("should display a button to submit the new account name", async ({
+    page,
+  }) => {
+    await page.goto("/profile/change-account-name");
+
+    await expect(
+      page.getByRole("button", { name: en.changeAccountName.submitButton }),
+    ).toBeVisible();
+  });
+
+  test("should display an error message if the account name is empty", async ({
+    page,
+  }) => {
+    await page.goto("/profile/change-account-name");
+
+    const inputField = page.getByLabel(en.changeAccountName.accountNameLabel, {
+      exact: true,
+    });
+
+    await inputField.fill("");
+    await inputField.blur();
+
+    await expect(
+      page.getByText("Account name must not be empty", { exact: true }),
+    ).toBeVisible();
+  });
+
+  test("should change the account name when the form is submitted", async ({
+    page,
+  }) => {
+    await page.goto("/profile/change-account-name");
+
+    const inputField = page.getByLabel(en.changeAccountName.accountNameLabel, {
+      exact: true,
+    });
+
+    await inputField.fill("New Account Name");
+
+    await page
+      .getByRole("button", { name: en.changeAccountName.submitButton })
+      .click();
+
+    await page.waitForURL("/profile");
+
+    await expect(
+      page.getByText("New Account Name", { exact: true }),
+    ).toBeVisible();
+  });
+});

@@ -264,5 +264,11 @@
   },
   "changeLanguage": {
     "selectLanguage": "Select your language"
+  },
+  "changeAccountName": {
+    "loading": "Loading...",
+    "submitButton": "Change",
+    "accountNameLabel": "Account name",
+    "accountNamePlaceholder": "Enter new account name"
   }
 }

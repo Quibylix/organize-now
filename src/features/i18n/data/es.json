@@ -258,5 +258,11 @@
   },
   "changeLanguage": {
     "selectLanguage": "Selecciona tu idioma"
+  },
+  "changeAccountName": {
+    "loading": "Cargando...",
+    "submitButton": "Guardar cambios",
+    "accountNameLabel": "Nombre de la cuenta",
+    "accountNamePlaceholder": "Introduce el nombre de la cuenta"
   }
 }
