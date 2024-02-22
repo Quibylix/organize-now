@@ -270,5 +270,13 @@
     "submitButton": "Change",
     "accountNameLabel": "Account name",
     "accountNamePlaceholder": "Enter new account name"
+  },
+  "changePassword": {
+    "submitButton": "Change",
+    "currentPasswordLabel": "Current Password",
+    "currentPasswordPlaceholder": "Enter your current password",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "Enter your new password",
+    "loading": "Loading..."
   }
 }

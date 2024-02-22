@@ -264,5 +264,13 @@
     "submitButton": "Guardar cambios",
     "accountNameLabel": "Nombre de la cuenta",
     "accountNamePlaceholder": "Introduce el nombre de la cuenta"
+  },
+  "changePassword": {
+    "submitButton": "Guardar cambios",
+    "currentPasswordLabel": "Contraseña actual",
+    "currentPasswordPlaceholder": "Introduce tu contraseña actual",
+    "newPasswordLabel": "Nueva contraseña",
+    "newPasswordPlaceholder": "Introduce tu nueva contraseña",
+    "loading": "Cargando..."
   }
 }
