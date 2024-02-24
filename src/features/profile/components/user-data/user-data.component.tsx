@@ -20,6 +20,7 @@ export default async function UserData() {
     <header className={styles.header}>
       <h1 className={styles.title}>{dictionary.profile.heading}</h1>
       <Image
+        key={profileImageUrl}
         className={styles.image}
         src={profileImageUrl ?? PROFILE_IMAGE_PLACEHOLDER}
         width={80}

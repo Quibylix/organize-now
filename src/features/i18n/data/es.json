@@ -272,5 +272,18 @@
     "newPasswordLabel": "Nueva contraseña",
     "newPasswordPlaceholder": "Introduce tu nueva contraseña",
     "loading": "Cargando..."
+  },
+  "changeProfileImage": {
+    "preview": {
+      "title": "Vista previa",
+      "imageAlt": "Vista previa del archivo seleccionado",
+      "changeImage": "Cambiar",
+      "saveImage": "Guardar",
+      "loading": "Cargando..."
+    },
+    "dropzone": {
+      "dragAndDrop": "Arrastra y suelta una imagen aquí",
+      "selectFile": "Selecciona una imagen"
+    }
   }
 }

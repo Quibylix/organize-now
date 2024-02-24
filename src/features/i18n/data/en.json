@@ -278,5 +278,18 @@
     "newPasswordLabel": "New Password",
     "newPasswordPlaceholder": "Enter your new password",
     "loading": "Loading..."
+  },
+  "changeProfileImage": {
+    "preview": {
+      "title": "Preview",
+      "imageAlt": "Preview of the selected file",
+      "changeImage": "Change",
+      "saveImage": "Save",
+      "loading": "Loading..."
+    },
+    "dropzone": {
+      "dragAndDrop": "Drag and drop an image here",
+      "selectFile": "Select an image"
+    }
   }
 }
