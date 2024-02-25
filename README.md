@@ -20,7 +20,8 @@ pnpm install
 
 ```sh
 'DATABASE_URL=postgres://<username>:<password>@localhost:5432/<database>
-JWT_SECRET=<secret>' > .env.local
+JWT_SECRET=<secret>
+IMAGEBB_API_KEY=<api_key>' > .env.local
 ```
 
 To configure the database, see [Database Setup](#database-setup).
