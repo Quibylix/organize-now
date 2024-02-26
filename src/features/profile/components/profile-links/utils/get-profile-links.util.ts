@@ -9,6 +9,8 @@ type ProfileDictionary = {
   aboutUs: string;
   faq: string;
   helpAndFeedback: string;
+  helpAndFeedbackSubject: string;
+  helpAndFeedbackBody: string;
   supportUs: string;
 };
 
@@ -66,8 +68,10 @@ export function getProfileLinks(dictionary: ProfileDictionary) {
         {
           title: dictionary.helpAndFeedback,
           icon: "feedback",
-          href: "/help",
-          blank: false,
+          href: `mailto:barraza.fredimanuel+organize-now@gmail.com?subject=${encodeURIComponent(
+            dictionary.helpAndFeedbackSubject,
+          )}&body=${encodeURIComponent(dictionary.helpAndFeedbackBody)}`,
+          blank: true,
         },
         {
           title: dictionary.supportUs,

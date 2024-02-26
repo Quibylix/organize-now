@@ -181,6 +181,8 @@
       "faq": "FAQ",
       "contactUs": "Contact Us",
       "helpAndFeedback": "Help & Feedback",
+      "helpAndFeedbackSubject": "Organize Now - Help & Feedback",
+      "helpAndFeedbackBody": "Hi, I'm using Organize Now and I need help with...",
       "supportUs": "Support Us"
     },
     "logout": "Logout"
